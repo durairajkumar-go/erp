@@ -6,7 +6,7 @@
         <div class="header-icon">
         </div>
         <div class="header-title">
-            <h1>Data Tables</h1>
+            <h1>&nbsp;</h1>
             <ol class="breadcrumb">
                 <li><a href="index.html"><i class="pe-7s-home"></i> Home</a></li>
                 <li><a href="#">Masters</a></li>
