@@ -18,14 +18,14 @@ class LocationController extends Controller
      */
     public function index()
     {
-echo     $data = Location::all();
+     $data = Location::all();
 
          return view('masters.location.index');
     }
 
     public function anyData()
     {
-echo     $data = Location::all();
+     $data = Location::all();
        return Datatables::of($data)
             ->addColumn('action', function ($data) {
                 return '<a href="location/'.$data->id.'/edit" class="btn btn-xs btn-primary" ><i class="glyphicon glyphicon-edit" ></i></a>';
