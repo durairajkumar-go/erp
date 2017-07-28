@@ -24,43 +24,56 @@
             @endif
 
 
-                    {!! Form::open(array('route' => ['location.update', $location->id] , 'method' => 'PUT')) !!}
+                    {!! Form::open(['class' => 'form'],array('route' => ['location.update', $location->id] , 'method' => 'PUT')) !!}
 
                         <div class="form-group">
+                           <div class="col-sm-6 col-md-3 col-lg-3">
                             {{ Form::label('location_name', 'Enter Location Name') }}
                             {{ Form::text('location_name', $location->location_name, ['class' => 'form-control']) }}
+                          </div>          
                         </div>
 
                         <div class="form-group">
+                           <div class="col-sm-6 col-md-3 col-lg-3">
                             {{ Form::label('address', 'Enter Address') }}
-                            {{ Form::textarea('address', $location->address, ['class' => 'form-control']) }}
+                            {{ Form::text('address', $location->address, ['class' => 'form-control']) }}
+                          </div>          
                         </div>
 
                         <div class="form-group">
+                           <div class="col-sm-6 col-md-3 col-lg-3">
                             {{ Form::label('email', 'Enter Email Address') }}
                             {{ Form::text('email', $location->email, ['class' => 'form-control']) }}
+                          </div>          
                         </div>
 
                         <div class="form-group">
+                           <div class="col-sm-6 col-md-3 col-lg-3">
                             {{ Form::label('phone', 'Enter Phone Number') }}
                             {{ Form::text('phone', $location->phone, ['class' => 'form-control']) }}
+                          </div>          
                         </div>
 
                         <div class="form-group">
+                           <div class="col-sm-6 col-md-3 col-lg-3">
                             {{ Form::label('prefix', 'Enter Prefix') }}
                             {{ Form::text('prefix', $location->prefix, ['class' => 'form-control']) }}
+                          </div>          
                         </div>
 
                         <div class="form-group">
+                           <div class="col-sm-6 col-md-3 col-lg-3">
                             {{ Form::label('suffix', 'Enter Suffix') }}
                             {{ Form::text('suffix', $location->suffix, ['class' => 'form-control']) }}
+                          </div>          
                         </div>
 
+</div>
+<div class="panel-footer">
                         <div class="form-group">
                             {{ Form::button('Close', ['type' => 'button', 'class' => 'btn btn-danger', 'data-dismiss' => 'modal'])}}
 
-                        <div class="pull-right">
-                            {{ Form::button('Create', ['type' => 'submit', 'class' => 'btn btn-success'])}}
+                            {{ Form::button('Create', ['type' => 'submit', 'class' => 'btn btn-success pull-right'])}}
                         </div>
                         </div>
                     {!! Form::close() !!}
