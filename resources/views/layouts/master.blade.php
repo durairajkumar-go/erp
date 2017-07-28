@@ -41,6 +41,7 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <style>
+        
         .preload * {
   -webkit-transition: none !important;
   -moz-transition: none !important;
@@ -112,6 +113,8 @@
 			.form-group {
 			    margin-bottom: 0px;
 			}
+
+
         </style>
     </head>
     <body>
@@ -818,6 +821,12 @@
 		$(window).load(function() {
 		  $("body").removeClass("preload");
 		});
+
+$(document).ready(function(){
+$('html, body').animate({
+        scrollTop: $(".navbar-default").offset().top
+    }, 2000);
+});
 
         </script>
 

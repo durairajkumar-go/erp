@@ -31,9 +31,8 @@
             </div>
         </div>
 
- {!! Form::open(array('route' => 'location.store')) !!}
 
-<div class="panel-body">
+    <div class="panel-body">
             
             @if($errors->has())          
                     @foreach($errors->all() as $error)
@@ -44,43 +43,48 @@
                         </script>
                     @endforeach
             @endif
+
+ {!! Form::open(array('route' => 'location.store')) !!}
+
                         <div class="form-group">
-                           <div class="col-sm-6 col-md-3 col-lg-3">
+                           <div class="col-sm-6 col-md-3 col-lg-3 {{ $errors->first('location_name', 'has-error') }}">
+                           
+                           
                             {{ Form::label('location_name', 'Enter Location Name') }}
                             {{ Form::text('location_name', null, ['class' => 'form-control','autofocus'=>'autofocus']) }}
                             </div>
                         </div>
 
                         <div class="form-group">
-                           <div class="col-sm-6 col-md-3 col-lg-3">
+                           <div class="col-sm-6 col-md-3 col-lg-3 {{ $errors->first('address', 'has-error') }}">
                             {{ Form::label('address', 'Enter Address') }}
                             {{ Form::text('address', null, ['class' => 'form-control']) }}
                             </div>
                         </div>
 
                         <div class="form-group">
-                           <div class="col-sm-6 col-md-3 col-lg-3">
+                           <div class="col-sm-6 col-md-3 col-lg-3 {{ $errors->first('email', 'has-error') }}">
                             {{ Form::label('email', 'Enter Email Address') }}
                             {{ Form::text('email', null, ['class' => 'form-control']) }}
                             </div>
                         </div>
 
                         <div class="form-group">
-                           <div class="col-sm-6 col-md-3 col-lg-3">
+                           <div class="col-sm-6 col-md-3 col-lg-3 {{ $errors->first('phone', 'has-error') }}">
                             {{ Form::label('phone', 'Enter Phone Number') }}
                             {{ Form::text('phone', null, ['class' => 'form-control']) }}
                             </div>
                         </div>
 
                         <div class="form-group">
-                           <div class="col-sm-6 col-md-3 col-lg-3">
+                           <div class="col-sm-6 col-md-3 col-lg-3 {{ $errors->first('prefix', 'has-error') }}">
                             {{ Form::label('prefix', 'Enter Prefix') }}
                             {{ Form::text('prefix', null, ['class' => 'form-control']) }}
                             </div>
                         </div>
 
                         <div class="form-group">
-                           <div class="col-sm-6 col-md-3 col-lg-3">
+                           <div class="col-sm-6 col-md-3 col-lg-3 {{ $errors->first('suffix', 'has-error') }}">
                             {{ Form::label('suffix', 'Enter Suffix') }}
                             {{ Form::text('suffix', null, ['class' => 'form-control']) }}
                             </div>
@@ -96,7 +100,6 @@
 </div>
 {!! Form::close() !!}
 
-</div>
 </div>
 </div>
 @endsection
