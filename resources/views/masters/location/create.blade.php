@@ -1,5 +1,22 @@
 @extends('layouts.master')
 
+@section('breadcrumb')
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="header-icon">
+        </div>
+        <div class="header-title">
+            <h1>&nbsp;</h1>
+            <ol class="breadcrumb">
+                <li><a href="index.html"><i class="pe-7s-home"></i> Home</a></li>
+                <li><a href="#">Masters</a></li>
+                <li><a href="{{ url()->previous() }}" onclick="clickAndDisable(this);">Location</a></li>
+                <li class="active">Create</li>
+            </ol>
+        </div>
+    </div> <!-- /. Content Header (Page header) -->
+@endsection
+
 @section('content')
 
 <div class="row">
@@ -9,10 +26,13 @@
             <div class="panel-title" >
                 <h4>{{ trans('messages.location') }} </h4>
     
-            <a href="location/create" class="btn btn-sm btn-primary pull-right" ><i class="glyphicon glyphicon-pencil"></i></a>
+                <a href="{{ url()->previous() }}" class="btn btn-warning btn-sm hvr-buzz-out fa fa-backward pull-right" style="color: #ffffff" onclick="clickAndDisable(this);"></a>
 
             </div>
         </div>
+
+ {!! Form::open(array('route' => 'location.store')) !!}
+
 <div class="panel-body">
             
             @if($errors->has())
@@ -22,49 +42,58 @@
                     @endforeach
                 </ul>
             @endif
-
-
-                    {!! Form::open(array('route' => 'location.store')) !!}
-
                         <div class="form-group">
+                           <div class="col-sm-6 col-md-3 col-lg-3">
                             {{ Form::label('location_name', 'Enter Location Name') }}
-                            {{ Form::text('location_name', null, ['class' => 'form-control']) }}
+                            {{ Form::text('location_name', null, ['class' => 'form-control','autofocus'=>'autofocus']) }}
+                            </div>
                         </div>
 
                         <div class="form-group">
+                           <div class="col-sm-6 col-md-3 col-lg-3">
                             {{ Form::label('address', 'Enter Address') }}
-                            {{ Form::textarea('address', null, ['class' => 'form-control']) }}
+                            {{ Form::text('address', null, ['class' => 'form-control']) }}
+                            </div>
                         </div>
 
                         <div class="form-group">
+                           <div class="col-sm-6 col-md-3 col-lg-3">
                             {{ Form::label('email', 'Enter Email Address') }}
                             {{ Form::text('email', null, ['class' => 'form-control']) }}
+                            </div>
                         </div>
 
                         <div class="form-group">
+                           <div class="col-sm-6 col-md-3 col-lg-3">
                             {{ Form::label('phone', 'Enter Phone Number') }}
                             {{ Form::text('phone', null, ['class' => 'form-control']) }}
+                            </div>
                         </div>
 
                         <div class="form-group">
+                           <div class="col-sm-6 col-md-3 col-lg-3">
                             {{ Form::label('prefix', 'Enter Prefix') }}
                             {{ Form::text('prefix', null, ['class' => 'form-control']) }}
+                            </div>
                         </div>
 
                         <div class="form-group">
+                           <div class="col-sm-6 col-md-3 col-lg-3">
                             {{ Form::label('suffix', 'Enter Suffix') }}
                             {{ Form::text('suffix', null, ['class' => 'form-control']) }}
+                            </div>
                         </div>
+</div>
+<div class="panel-footer">
 
                         <div class="form-group">
-                            {{ Form::button('Close', ['type' => 'button', 'class' => 'btn btn-danger', 'data-dismiss' => 'modal'])}}
+                            {{ Form::button('', ['type' => 'reset', 'class' => 'btn btn-danger hvr-buzz-out fa fa-refresh'])}}
 
-                        <div class="pull-right">
-                            {{ Form::button('Create', ['type' => 'submit', 'class' => 'btn btn-success'])}}
+                            {{ Form::button('', ['type' => 'submit', 'class' => 'btn btn-success hvr-buzz-out fa fa-save pull-right','onclick' => 'this.disabled=true;this.form.submit();'])}}
                         </div>
-                        </div>
-                    {!! Form::close() !!}
 </div>
+{!! Form::close() !!}
+
 </div>
 </div>
 </div>

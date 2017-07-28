@@ -25,6 +25,12 @@
         <!--<link href="{{ url('assets/dist/css/component_ui_rtl.css') }}" rel="stylesheet" type="text/css"/>-->
         <!-- Custom css -->
         <link href="{{ url('assets/dist/css/custom.css') }}" rel="stylesheet" type="text/css"/>
+
+        <link href="http://codeseven.github.io/toastr/build/toastr.min.css" rel="stylesheet" type="text/css"/>
+
+      <!-- jQuery -->
+        <script src="{{ url('assets/plugins/jQuery/jquery-1.12.4.min.js') }}" type="text/javascript"></script>
+
         <!-- End Theme Layout Style
         =====================================================================-->
 
@@ -35,6 +41,12 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <style>
+        .preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
             .dropdown-menu{
             	    z-index: 991031;
             }
@@ -97,6 +109,9 @@
 			.container{
 				width: 90%;
 			}
+			.form-group {
+			    margin-bottom: 0px;
+			}
         </style>
     </head>
     <body>
@@ -109,7 +124,7 @@
                 <nav class="navbar top-nav">
                     <div class="container">
                         <div class="navbar-header hidden-xs">
-                            <a class="navbar-brand" href="index.html"> <img src="assets/dist/img/logo.png" alt=""></a>
+                            <a class="navbar-brand" href="index.html"> <img src="{{ url('assets/dist/img/logo.png') }}" alt=""></a>
                         </div>
                         <!-- Start Atribute Navigation -->
                         <div class="attr-nav">
@@ -121,17 +136,17 @@
                                     </a>
                                     <ul class="dropdown-menu cart-list">
                                         <li>
-                                            <a href="#" class="photo"><img src="assets/dist/img/cart-1.jpg" class="cart-thumb" alt=""></a>
+                                            <a href="#" class="photo"><img src="{{ url('assets/dist/img/cart-1.jpg"') }} class="cart-thumb" alt=""></a>
                                             <h5><a href="#">Smartphone RAM 4 GB New</a></h5>
                                             <p>2x - <span class="price">$99.99</span></p>
                                         </li>
                                         <li>
-                                            <a href="#" class="photo"><img src="assets/dist/img/cart-2.jpg" class="cart-thumb" alt=""></a>
+                                            <a href="#" class="photo"><img src="{{ url('assets/dist/img/cart-2.jpg"') }} class="cart-thumb" alt=""></a>
                                             <h5><a href="#">Fujifilm INSTAX Mini 8</a></h5>
                                             <p>1x - <span class="price">$33.33</span></p>
                                         </li>
                                         <li>
-                                            <a href="#" class="photo"><img src="assets/dist/img/cart-3.jpg" class="cart-thumb" alt=""></a>
+                                            <a href="#" class="photo"><img src="{{ url('assets/dist/img/cart-3.jpg"') }} class="cart-thumb" alt=""></a>
                                             <h5><a href="#">Beats On-Ear Headphones</a></h5>
                                             <p>2x - <span class="price">$99.99</span></p>
                                         </li>
@@ -158,7 +173,7 @@
                                     <li>
                                         <a href="#" class="rad-content">
                                             <div class="inbox-item">
-                                                <div class="inbox-item-img"><img src="assets/dist/img/avatar.png" class="img-circle" alt=""></div>
+                                                <div class="inbox-item-img"><img src="{{ url('assets/dist/img/avatar.png"') }} class="img-circle" alt=""></div>
                                                 <strong class="inbox-item-author">Naeem Khan</strong>
                                                 <span class="inbox-item-date">-13:40 PM</span>
                                                 <p class="inbox-item-text">Hey! there I'm available...</p>
@@ -169,7 +184,7 @@
                                     <li>
                                         <a href="#" class="rad-content">
                                             <div class="inbox-item">
-                                                <div class="inbox-item-img"><img src="assets/dist/img/avatar2.png" class="img-circle" alt=""></div>
+                                                <div class="inbox-item-img"><img src="{{ url('assets/dist/img/avatar2.png"') }} class="img-circle" alt=""></div>
                                                 <strong class="inbox-item-author">Sala Uddin</strong>
                                                 <span class="inbox-item-date">-13:40 PM</span>
                                                 <p class="inbox-item-text">Hey! there I'm available...</p>
@@ -180,7 +195,7 @@
                                     <li>
                                         <a href="#" class="rad-content">
                                             <div class="inbox-item">
-                                                <div class="inbox-item-img"><img src="assets/dist/img/avatar3.png" class="img-circle" alt=""></div>
+                                                <div class="inbox-item-img"><img src="{{ url('assets/dist/img/avatar3.png"') }} class="img-circle" alt=""></div>
                                                 <strong class="inbox-item-author">Mozammel</strong>
                                                 <span class="inbox-item-date">-13:40 PM</span>
                                                 <p class="inbox-item-text">Hey! there I'm available...</p>
@@ -191,7 +206,7 @@
                                     <li>
                                         <a href="#" class="rad-content">
                                             <div class="inbox-item">
-                                                <div class="inbox-item-img"><img src="assets/dist/img/avatar4.png" class="img-circle" alt=""></div>
+                                                <div class="inbox-item-img"><img src="{{ url('assets/dist/img/avatar4.png"') }} class="img-circle" alt=""></div>
                                                 <strong class="inbox-item-author">Tanzil Ahmed</strong>
                                                 <span class="inbox-item-date">-13:40 PM</span>
                                                 <p class="inbox-item-text">Hey! there I'm available...</p>
@@ -362,7 +377,7 @@
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                                 <i class="fa fa-bars"></i>
                             </button>
-                            <a class="navbar-brand hidden-md hidden-lg" href="#brand"><img src="assets/dist/img/logo2.png" class="logo" alt=""></a>
+                            <a class="navbar-brand hidden-md hidden-lg" href="#brand"><img src="{{ url('assets/dist/img/logo2.png') }}" class="logo" alt=""></a>
                         </div>
                         <!-- End Header Navigation -->
                         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -730,19 +745,8 @@
                 <div class="container">
                     <!-- main content -->
                     <div class="content">
-                        <!-- Content Header (Page header) -->
-                        <div class="content-header">
-                            <div class="header-icon">
-                            </div>
-                            <div class="header-title">
-                                <h1>Data Tables</h1>
-                                <ol class="breadcrumb">
-                                    <li><a href="index.html"><i class="pe-7s-home"></i> Home</a></li>
-                                    <li><a href="#">UI Elements</a></li>
-                                    <li class="active">Data Tables</li>
-                                </ol>
-                            </div>
-                        </div> <!-- /. Content Header (Page header) -->
+
+            @yield('breadcrumb')       	
             @yield('content')
 
 </div>
@@ -751,8 +755,6 @@
 </div>
 </div>
 
-      <!-- jQuery -->
-        <script src="{{ url('assets/plugins/jQuery/jquery-1.12.4.min.js') }}" type="text/javascript"></script>
         <!-- jquery-ui -->
         <script src="{{ url('assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js') }}" type="text/javascript"></script>
         <!-- Bootstrap js -->
@@ -777,6 +779,8 @@
         =====================================================================-->
         <!-- Dashboard js -->
         <script src="{{ url('assets/dist/js/dashboard.js') }}" type="text/javascript"></script>
+        <!-- Toaster js -->
+        <script src="http://codeseven.github.io/toastr/build/toastr.min.js" type="text/javascript"></script>
         <!-- End Theme label Script
         =====================================================================-->
         <script>
@@ -803,6 +807,18 @@
                 });
 
             });
+
+		   function clickAndDisable(link) {
+		     // disable subsequent clicks
+		     link.onclick = function(event) {
+		        event.preventDefault();
+		     }
+		   } 
+			       
+		$(window).load(function() {
+		  $("body").removeClass("preload");
+		});
+
         </script>
 
         @stack('scripts')

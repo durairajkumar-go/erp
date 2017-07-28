@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Model\Masters\Location;
 use Yajra\Datatables\Datatables;
+use Validator;
 
 class LocationController extends Controller
 {
@@ -27,9 +28,19 @@ class LocationController extends Controller
      $data = Location::all();
        return Datatables::of($data)
             ->addColumn('action', function ($data) {
-                return '<a href="location/'.$data->id.'/edit" class="btn btn-xs btn-primary" ><i class="glyphicon glyphicon-edit" ></i></a>';
+                return '<a href="location/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>
+                    <a href="location/'.$data->id.'/change_status" class="btn btn-xs btn-danger" ><i class="fa hvr-buzz-out  fa-trash" onclick="clickAndDisable(this);"></i></a>';
             })
             ->make(true);
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'location_name' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|min:6'
+        ]);
     }
 
     /**
@@ -50,8 +61,14 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
+     if ($this->validator($request->all())->fails()) {
+        return redirect()->back()
+                        ->withErrors($this->validator($request->all()))
+                        ->withInput();
+     }else{
         Location::create($request->all());
         return redirect()->route('location.index')->with('message','Item has been added successfully');
+    }
     }
 
     /**
@@ -85,8 +102,14 @@ class LocationController extends Controller
      */
     public function update(Request $request, Location $location)
     {
-        $location->update($request->all());
-        return redirect()->route('location.index')->with('message','Item has been updated successfully');
+         if ($this->validator($request->all())->fails()) {
+            return redirect()->back()
+                            ->withErrors($this->validator($request->all()))
+                            ->withInput();
+         }else{
+            $location->update($request->all());
+            return redirect()->route('location.index')->with('message','Item has been updated successfully');
+        }
     }
 
     /**
