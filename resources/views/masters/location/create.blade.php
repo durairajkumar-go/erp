@@ -37,6 +37,26 @@
                         </div>
 
                         <div class="form-group">
+                            {{ Form::label('email', 'Enter Email Address') }}
+                            {{ Form::text('email', null, ['class' => 'form-control']) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ Form::label('phone', 'Enter Phone Number') }}
+                            {{ Form::text('phone', null, ['class' => 'form-control']) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ Form::label('prefix', 'Enter Prefix') }}
+                            {{ Form::text('prefix', null, ['class' => 'form-control']) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ Form::label('suffix', 'Enter Suffix') }}
+                            {{ Form::text('suffix', null, ['class' => 'form-control']) }}
+                        </div>
+
+                        <div class="form-group">
                             {{ Form::button('Close', ['type' => 'button', 'class' => 'btn btn-danger', 'data-dismiss' => 'modal'])}}
 
                         <div class="pull-right">

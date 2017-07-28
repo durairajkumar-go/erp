@@ -24,7 +24,9 @@ class Locale
         }else{
             $locale = Config::get('app.locale');
         }
-      
+    
+        $locale = "en";
+
         \App::setlocale($locale);
 
         return $next($request);
