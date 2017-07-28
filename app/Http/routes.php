@@ -41,4 +41,6 @@ Route::get('/locale', function () {
 
 });
 
+Route::resource('company', 'Masters\CompanyController');
+
 });
