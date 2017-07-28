@@ -71,9 +71,9 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Location $location)
     {
-        //
+         return view('masters.location.edit',compact('location'));
     }
 
     /**
@@ -83,9 +83,10 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Location $location)
     {
-        //
+        $location->update($request->all());
+        return redirect()->route('location.index')->with('message','Item has been updated successfully');
     }
 
     /**
