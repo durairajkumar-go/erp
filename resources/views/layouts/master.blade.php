@@ -8,23 +8,23 @@
 
         <!-- Start Global Mandatory Style
         =====================================================================-->
-        <link href="assets/dist/css/base.css" rel="stylesheet" type="text/css"/>
+        <link href="{{ url('assets/dist/css/base.css') }}" rel="stylesheet" type="text/css"/>
         <!-- End Global Mandatory Style
         =====================================================================-->
         <!-- Start page Label Plugins 
         =====================================================================-->
         <!-- dataTables css -->
-        <link href="assets/plugins/datatables/dataTables.min.css" rel="stylesheet" type="text/css"/>
+        <link href="{{ url('assets/plugins/datatables/dataTables.min.css') }}" rel="stylesheet" type="text/css"/>
         <!-- End page Label Plugins 
         =====================================================================-->
         <!-- Start Theme Layout Style
         =====================================================================-->
         <!-- Theme style -->
-        <link href="assets/dist/css/component_ui.min.css" rel="stylesheet" type="text/css"/>
+        <link href="{{ url('assets/dist/css/component_ui.min.css') }}" rel="stylesheet" type="text/css"/>
         <!-- Theme style rtl -->
-        <!--<link href="assets/dist/css/component_ui_rtl.css" rel="stylesheet" type="text/css"/>-->
+        <!--<link href="{{ url('assets/dist/css/component_ui_rtl.css') }}" rel="stylesheet" type="text/css"/>-->
         <!-- Custom css -->
-        <link href="assets/dist/css/custom.css" rel="stylesheet" type="text/css"/>
+        <link href="{{ url('assets/dist/css/custom.css') }}" rel="stylesheet" type="text/css"/>
         <!-- End Theme Layout Style
         =====================================================================-->
 
@@ -752,31 +752,31 @@
 </div>
 
       <!-- jQuery -->
-        <script src="assets/plugins/jQuery/jquery-1.12.4.min.js" type="text/javascript"></script>
+        <script src="{{ url('assets/plugins/jQuery/jquery-1.12.4.min.js') }}" type="text/javascript"></script>
         <!-- jquery-ui -->
-        <script src="assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="{{ url('assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js') }}" type="text/javascript"></script>
         <!-- Bootstrap js -->
-        <script src="assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="{{ url('assets/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
         <!-- lobipanel js -->
-        <script src="assets/plugins/lobipanel/lobipanel.min.js" type="text/javascript"></script>
+        <script src="{{ url('assets/plugins/lobipanel/lobipanel.min.js') }}" type="text/javascript"></script>
         <!-- animsition js -->
-        <script src="assets/plugins/animsition/js/animsition.min.js" type="text/javascript"></script>
+        <script src="{{ url('assets/plugins/animsition/js/animsition.min.js') }}" type="text/javascript"></script>
         <!-- bootsnav js -->
-        <script src="assets/plugins/bootsnav/js/bootsnav.js" type="text/javascript"></script>
+        <script src="{{ url('assets/plugins/bootsnav/js/bootsnav.js') }}" type="text/javascript"></script>
         <!-- SlimScroll js -->
-        <script src="assets/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="{{ url('assets/plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
         <!-- FastClick js-->
-        <script src="assets/plugins/fastclick/fastclick.min.js" type="text/javascript"></script>
+        <script src="{{ url('assets/plugins/fastclick/fastclick.min.js') }}" type="text/javascript"></script>
         <!-- End Core Plugins
         =====================================================================-->
         <!-- Start Page Lavel Plugins
         =====================================================================-->
         <!-- dataTables js -->
-        <script src="assets/plugins/datatables/dataTables.min.js" type="text/javascript"></script>
+        <script src="{{ url('assets/plugins/datatables/dataTables.min.js') }}" type="text/javascript"></script>
         <!-- Start Theme label Script
         =====================================================================-->
         <!-- Dashboard js -->
-        <script src="assets/dist/js/dashboard.js" type="text/javascript"></script>
+        <script src="{{ url('assets/dist/js/dashboard.js') }}" type="text/javascript"></script>
         <!-- End Theme label Script
         =====================================================================-->
         <script>

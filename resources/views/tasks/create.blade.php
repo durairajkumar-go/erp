@@ -1,9 +1,19 @@
-@extends('layouts.modal')
+@extends('layouts.master')
 
 @section('content')
- 
-                    Our Form
 
+<div class="row">
+<div class="col-sm-12" >
+    <div class="panel panel-bd" data-index="0">
+        <div class="panel-heading">
+            <div class="panel-title" >
+                <h4>{{ trans('messages.task list') }} </h4>
+    
+            <a href="task/create" class="btn btn-sm btn-primary pull-right" ><i class="glyphicon glyphicon-pencil"></i></a>
+
+            </div>
+        </div>
+<div class="panel-body">
             
             @if($errors->has())
                 <ul class="alert alert-danger ">                
@@ -42,4 +52,10 @@
                         </div>
 
                     {!! Form::close() !!}
+</div>
+</div>
+</div>
+</div>
+</div>
+
 @endsection

@@ -38,7 +38,7 @@ class TaskController extends Controller
                 return $tasks->user->name;
             })
             ->addColumn('action', function ($tasks) {
-                return '<a href="task/'.$tasks->id.'/edit" class="btn btn-xs btn-primary" data-toggle="modal"  data-target="#myModal"><i class="glyphicon glyphicon-edit" ></i></a>';
+                return '<a href="task/'.$tasks->id.'/edit" class="btn btn-xs btn-primary" ><i class="glyphicon glyphicon-edit" ></i></a>';
             })
             ->make(true);
     }
