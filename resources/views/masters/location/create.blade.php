@@ -10,7 +10,7 @@
             <ol class="breadcrumb">
                 <li><a href="index.html"><i class="pe-7s-home"></i> Home</a></li>
                 <li><a href="#">Masters</a></li>
-                <li><a href="{{ url()->previous() }}" onclick="clickAndDisable(this);">Location</a></li>
+                <li><a href="{{ url('location') }}" onclick="clickAndDisable(this);">Location</a></li>
                 <li class="active">Create</li>
             </ol>
         </div>

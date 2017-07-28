@@ -10,7 +10,7 @@
             <ol class="breadcrumb">
                 <li><a href="index.html"><i class="pe-7s-home"></i> Home</a></li>
                 <li><a href="#">Masters</a></li>
-                <li><a href="{{ url()->previous() }}" onclick="clickAndDisable(this);">Location</a></li>
+                <li><a href="{{ url('location') }}" onclick="clickAndDisable(this);">Location</a></li>
                 <li class="active">Edit</li>
             </ol>
         </div>
@@ -25,7 +25,11 @@
         <div class="panel-heading">
             <div class="panel-title" >
                 <h4>{{ trans('messages.location') }} </h4>
+              
                 <a href="{{ url()->previous() }}" class="btn btn-warning btn-sm hvr-buzz-out fa fa-backward pull-right" style="color: #ffffff" onclick="clickAndDisable(this);"></a>
+    
+            <a href="{{ url('location/create') }}" class="btn btn-sm btn-primary pull-right hvr-buzz-out fa fa-pencil" style="color: #fff"  onclick="clickAndDisable(this);"></a>
+
 
             </div>
         </div>

@@ -33,7 +33,7 @@
             <div class="panel-title" >
                 <h4>{{ trans('messages.location') }}  </h4>
     
-            <a href="location/create" class="btn btn-sm btn-primary pull-right hvr-buzz-out fa fa-pencil" style="color: #fff"  onclick="clickAndDisable(this);"></a>
+            <a href="{{ url('location/create') }}" class="btn btn-sm btn-primary pull-right hvr-buzz-out fa fa-pencil" style="color: #fff"  onclick="clickAndDisable(this);"></a>
 
             </div>
         </div>
