@@ -35,12 +35,14 @@
 
 <div class="panel-body">
             
-            @if($errors->has())
-                <ul class="alert alert-danger ">                
+            @if($errors->has())          
                     @foreach($errors->all() as $error)
-                        <li> {{ $error }} </li>
+                        <script type="text/javascript">            
+                            $(document).ready(function () {
+                                toastr.error( '{{ $error }}', 'Error'); 
+                            });
+                        </script>
                     @endforeach
-                </ul>
             @endif
                         <div class="form-group">
                            <div class="col-sm-6 col-md-3 col-lg-3">
