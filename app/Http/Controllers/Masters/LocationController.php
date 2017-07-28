@@ -1,18 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Masters;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
-use App\Http\Requests\TaskRequest;
-
+use App\Http\Controllers\Controller;
+use App\Model\Masters\Location;
 use Yajra\Datatables\Datatables;
 
-use App\Task;
-
-class TaskController extends Controller
+class LocationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,24 +18,17 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
-        return view('tasks.index', compact('tasks'));
-    }
+echo     $data = Location::all();
 
-    public function getIndex()
-    {
-        return view('tasks.index1');
+         return view('masters.location.index');
     }
 
     public function anyData()
     {
-     $tasks = Task::all();
-        return Datatables::of($tasks)
-            ->addColumn('user_name', function ($tasks) {
-                return $tasks->user->name;
-            })
-            ->addColumn('action', function ($tasks) {
-                return '<a href="task/'.$tasks->id.'/edit" class="btn btn-xs btn-primary" ><i class="glyphicon glyphicon-edit" ></i></a>';
+echo     $data = Location::all();
+       return Datatables::of($data)
+            ->addColumn('action', function ($data) {
+                return '<a href="location/'.$data->id.'/edit" class="btn btn-xs btn-primary" ><i class="glyphicon glyphicon-edit" ></i></a>';
             })
             ->make(true);
     }
@@ -50,7 +40,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return view('tasks.create');
+        return view('masters.location.create');
     }
 
     /**
@@ -59,10 +49,10 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TaskRequest $request)
+    public function store(Request $request)
     {
-        Task::create($request->all());
-        return redirect()->route('task')->with('message','Item has been added successfully');
+        Location::create($request->all());
+        return redirect()->route('location')->with('message','Item has been added successfully');
     }
 
     /**
@@ -82,9 +72,9 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Task $task)
+    public function edit($id)
     {
-        return view('tasks.edit',compact('task'));
+        //
     }
 
     /**
@@ -94,10 +84,9 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TaskRequest $request, Task $task)
+    public function update(Request $request, $id)
     {
-        $task->update($request->all());
-        return redirect()->route('tasks')->with('message','Item has been updated successfully');
+        //
     }
 
     /**

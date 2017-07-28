@@ -43,4 +43,11 @@ Route::get('/locale', function () {
 
 Route::resource('company', 'Masters\CompanyController');
 
+Route::resource('location', 'Masters\LocationController');
+
+Route::controller('location_data', 'Masters\LocationController', [
+    'anyData'  => 'location_data.data',
+]);
+
+
 });
