@@ -18,8 +18,7 @@ class LocationController extends Controller
      */
     public function index()
     {
-     $data = Location::all();
-
+         $data = Location::all();
          return view('masters.location.index');
     }
 
@@ -52,7 +51,7 @@ class LocationController extends Controller
     public function store(Request $request)
     {
         Location::create($request->all());
-        return redirect()->route('location')->with('message','Item has been added successfully');
+        return redirect()->route('location.index')->with('message','Item has been added successfully');
     }
 
     /**
