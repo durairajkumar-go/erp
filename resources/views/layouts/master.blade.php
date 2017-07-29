@@ -48,7 +48,19 @@ input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid
  top: -2.25rem;
  -webkit-transition: all 0.125s ease;
  transition: all 0.125s ease;
+ color: #000;
 }
+
+
+.fill-this::after { 
+	color: red !important;
+    content: " *";
+}
+
+.mandatory{
+	color: red;
+	font-size: 0.75em;
+} 
 
 .styled-input {
   margin: 2rem 0 1rem;

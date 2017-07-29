@@ -25,7 +25,9 @@
         <div class="panel-heading">
             <div class="panel-title" >
                 <h4>{{ trans('messages.location') }} </h4>
-              
+                  <span class="mandatory">
+                      &nbsp; * fields are mandatory 
+                  </span>                                        
                 <a href="{{ url()->previous() }}" class="btn btn-warning btn-sm hvr-buzz-out fa fa-backward pull-right" style="color: #ffffff" onclick="clickAndDisable(this);"></a>
     
             <a href="{{ url('location/create') }}" class="btn btn-sm btn-primary pull-right hvr-buzz-out fa fa-pencil" style="color: #fff"  onclick="clickAndDisable(this);"></a>
@@ -51,42 +53,42 @@
 
                         <div class="form-group">
                            <div class="styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('location_name', 'has-error') }}">
-                            {{ Form::text('location_name', $location->location_name, ['class' => 'form-control',(($errors->first('location_name'))?'autofocus':null)]) }}
-                            {{ Form::label('location_name', 'Enter Location Name') }}
+                            {{ Form::text('location_name', $location->location_name, ['class' => 'form-control',(($errors->first('location_name'))?'autofocus':null),'onfocus'=>'this.value = this.value']) }}
+                            {{ Form::label('location_name', 'Enter Location Name',['class' => 'fill-this']) }}
                           </div>          
                         </div>
 
                         <div class="form-group">
                            <div class="styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('address', 'has-error') }}">
-                            {{ Form::text('address', $location->address, ['class' => 'form-control',(($errors->first('address'))?'autofocus':null)]) }}
+                            {{ Form::text('address', $location->address, ['class' => 'form-control',(($errors->first('address'))?'autofocus':null),'onfocus'=>'this.value = this.value']) }}
                             {{ Form::label('address', 'Enter Address') }}
                           </div>          
                         </div>
 
                         <div class="form-group">
                            <div class="styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('email', 'has-error') }}">
-                            {{ Form::text('email', $location->email, ['class' => 'form-control',(($errors->first('email'))?'autofocus':null)]) }}
-                            {{ Form::label('email', 'Enter Email Address') }}
+                            {{ Form::text('email', $location->email, ['class' => 'form-control',(($errors->first('email'))?'autofocus':null),'onfocus'=>'this.value = this.value']) }}
+                            {{ Form::label('email', 'Enter Email Address',['class' => 'fill-this']) }}
                           </div>          
                         </div>
 
                         <div class="form-group">
                            <div class="styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('phone', 'has-error') }}">
-                            {{ Form::text('phone', $location->phone, ['class' => 'form-control',(($errors->first('phone'))?'autofocus':null)]) }}
-                            {{ Form::label('phone', 'Enter Phone Number') }}
+                            {{ Form::text('phone', $location->phone, ['class' => 'form-control',(($errors->first('phone'))?'autofocus':null),'onfocus'=>'this.value = this.value']) }}
+                            {{ Form::label('phone', 'Enter Phone Number',['class' => 'fill-this']) }}
                           </div>          
                         </div>
 
                         <div class="form-group">
                            <div class="styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('prefix', 'has-error') }}">
-                            {{ Form::text('prefix', $location->prefix, ['class' => 'form-control',(($errors->first('prefix'))?'autofocus':null)]) }}
+                            {{ Form::text('prefix', $location->prefix, ['class' => 'form-control',(($errors->first('prefix'))?'autofocus':null),'onfocus'=>'this.value = this.value']) }}
                             {{ Form::label('prefix', 'Enter Prefix') }}
                           </div>          
                         </div>
 
                         <div class="form-group">
                            <div class="styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('suffix', 'has-error') }}">
-                            {{ Form::text('suffix', $location->suffix, ['class' => 'form-control',(($errors->first('suffix'))?'autofocus':null)]) }}
+                            {{ Form::text('suffix', $location->suffix, ['class' => 'form-control',(($errors->first('suffix'))?'autofocus':null),'onfocus'=>'this.value = this.value']) }}
                             {{ Form::label('suffix', 'Enter Suffix') }}
                           </div>          
                         </div>
