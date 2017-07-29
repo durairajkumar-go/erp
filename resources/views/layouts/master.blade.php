@@ -28,6 +28,9 @@
 
         <link href="http://codeseven.github.io/toastr/build/toastr.min.css" rel="stylesheet" type="text/css"/>
 
+
+        <link href="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/flag-icon/css/flag-icon.min.css" rel="stylesheet" type="text/css"/>
+
       <!-- jQuery -->
         <script src="{{ url('assets/plugins/jQuery/jquery-1.12.4.min.js') }}" type="text/javascript"></script>
 
@@ -239,16 +242,16 @@ textarea {
                         <!-- /.navbar-header -->
                         <ul class="nav navbar-top-links navbar-right">
 
-                        <select id="dynamic_select" class="form-control" style="display: initial;width: 90px;">
-                          <option value="{{ url('locale/en') }}" @if(!empty(Session::get('locale')) && Session::get('locale')=="en") selected @endif  >English</option>
+                        <select id="dynamic_select" class="form-control" style="display: initial;width: 120px;" data-show-icon="true">
+                          <option value="{{ url('locale/en') }}" @if(!empty(Session::get('locale')) && Session::get('locale')=="en") selected @endif  > English </option>
                           <option value="{{ url('locale/sh') }}" @if(!empty(Session::get('locale')) && Session::get('locale')=="sh") selected @endif  >Swahili</option>
-                          <option value="{{ url('locale/hi') }}" @if(!empty(Session::get('locale')) && Session::get('locale')=="hi") selected @endif  >Hindi</option>
+                          <option value="{{ url('locale/hi') }}" @if(!empty(Session::get('locale')) && Session::get('locale')=="hi") selected @endif  >हिंदी</option>
                         </select>
 
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                     <i class="dropdowm-icon ti-email"></i>
-                                    <span class="label label-success">4</span>
+                                    <span class="label label-success">4 </span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-messages">
                                     <li class="rad-dropmenu-header"><a href="#">New Messages</a></li>
@@ -857,6 +860,9 @@ textarea {
         =====================================================================-->
         <!-- dataTables js -->
         <script src="{{ url('assets/plugins/datatables/dataTables.min.js') }}" type="text/javascript"></script>
+        <script src="//cdn.datatables.net/buttons/1.3.1/js/buttons.colVis.min.js" type="text/javascript"></script>
+
+
         <!-- Start Theme label Script
         =====================================================================-->
         <!-- Dashboard js -->

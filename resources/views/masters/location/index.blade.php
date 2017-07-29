@@ -68,13 +68,32 @@
 
 @endsection
 
+<?php
+
+    $current_language = url('assets/localization/'.Session::get('locale').'.json');
+
+    $buttons ="['pageLength'";
+    $buttons .=",{ extend: 'copy', title: '".trans('messages.location')."',exportOptions: { columns: ':visible' } }";
+    $buttons .=",{ extend: 'csv', title: '".trans('messages.location')."', exportOptions: { columns: ':visible' } }";
+    $buttons .=",{ extend: 'excel', title: '".trans('messages.location')."', exportOptions: { columns: ':visible' }}";
+    $buttons .=",{ extend: 'pdf', title: '".trans('messages.location')."' , exportOptions: { columns: ':visible'}}";
+    $buttons .=",{ extend: 'print', title: '".trans('messages.location')."', exportOptions: { columns: ':visible' }}";
+    $buttons .=",'colvis']";
+
+    /*    if(Session::get('locale')=="sh"){
+            $current_language='//cdn.datatables.net/plug-ins/1.10.15/i18n/Swahili.json';
+        }else if(Session::get('locale')=="hi"){
+            $current_language='//cdn.datatables.net/plug-ins/1.10.15/i18n/Hindi.json';    
+        }
+*/
+?>
+
 @push('scripts')
 <script>
-
-
 $(document).ready(function(){
 
 $(function() {
+
     $('#users-table').DataTable({
         processing: true,
         serverSide: true,
@@ -84,7 +103,10 @@ $(function() {
         lengthMenu: [
             [ 10, 25, 50, -1 ],
             [ '10 rows', '25 rows', '50 rows', 'Show all' ]],
-        buttons: ['pageLength','copy', 'csv', 'excel', 'pdf', 'print'],
+        buttons: [<?= $buttons ?>],
+        language: {
+                url: '{{ $current_language }}'
+            },
         ajax: '{!! route('location_data.data') !!}',
         columns: [
             { data: 'id', name: 'id' },
@@ -94,9 +116,11 @@ $(function() {
             { data: 'email', name: 'email' },
             { data: 'created_at', name: 'created_at' },
             { data: 'updated_at', name: 'updated_at' },
-            {data: 'action', name: 'action', orderable: false, searchable: false}
+             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
+
     });
+
 });
 
 });

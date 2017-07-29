@@ -35,11 +35,22 @@
     </head>
     <body>
 
+    <div class="pull-right" style="padding: 10px">
+        
+               <b>Choose Language</b>
+                        <select id="dynamic_select" class="form-control" style="display: initial;width: 120px;" data-show-icon="true">
+                          <option value="{{ url('locale/en') }}" @if(!empty(Session::get('locale')) && Session::get('locale')=="en") selected @endif  > English </option>
+                          <option value="{{ url('locale/sh') }}" @if(!empty(Session::get('locale')) && Session::get('locale')=="sh") selected @endif  >Swahili</option>
+                          <option value="{{ url('locale/hi') }}" @if(!empty(Session::get('locale')) && Session::get('locale')=="hi") selected @endif  >हिंदी</option>
+                        </select>
+    </div>
+
      <!-- Content Wrapper -->
         <div class="login-wrapper">
             <div class="container-center">
 
-            @yield('content')
+
+          @yield('content')
 
         </div>
         </div>
@@ -49,50 +60,19 @@
         <script src="{{ url('assets/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
         <!-- End Theme label Script
         =====================================================================-->
+
         <script>
-            $(document).ready(function () {
-
-                "use strict"; // Start of use strict
-
-                $('#dataTableExample1').DataTable({
-                    "dom": "<'row'<'col-sm-6'l><'col-sm-6'f>>t<'row'<'col-sm-6'i><'col-sm-6'p>>",
-                    "lengthMenu": [[6, 25, 50, -1], [6, 25, 50, "All"]],
-                    "iDisplayLength": 6
-                });
-
-                $("#dataTableExample2").DataTable({
-                    dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
-                    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-                    buttons: [
-                        {extend: 'copy', className: 'btn-sm'},
-                        {extend: 'csv', title: 'ExampleFile', className: 'btn-sm'},
-                        {extend: 'excel', title: 'ExampleFile', className: 'btn-sm'},
-                        {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'},
-                        {extend: 'print', className: 'btn-sm'}
-                    ]
-                });
-
+            $(function(){
+              // bind change event to select
+              $('#dynamic_select').on('change', function () {
+                  var url = $(this).val(); // get selected value
+                  if (url) { // require a URL
+                      window.location = url; // redirect
+                  }
+                  return false;
+              });
             });
-
-		   function clickAndDisable(link) {
-		     // disable subsequent clicks
-		     link.onclick = function(event) {
-		        event.preventDefault();
-		     }
-		   } 
-			       
-		$(window).load(function() {
-		  $("body").removeClass("preload");
-		});
-
-$(document).ready(function(){
-$('html, body').animate({
-        scrollTop: $(".navbar-default").offset().top
-    }, 2000);
-});
-
         </script>
-
         @stack('scripts')
     </body>
 </html>
