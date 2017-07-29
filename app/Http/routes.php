@@ -55,3 +55,5 @@ Route::get('location/change/{id}', 'Masters\LocationController@change');
 
 
 });
+
+Route::resource('admin/posts', 'Admin\PostsController');
