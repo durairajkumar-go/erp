@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel DataTables Tutorial</title>
+        <title>VYANA ERP</title>
 
         <!-- Start Global Mandatory Style
         =====================================================================-->
@@ -238,6 +238,13 @@ textarea {
                         <!-- End Atribute Navigation -->
                         <!-- /.navbar-header -->
                         <ul class="nav navbar-top-links navbar-right">
+
+                        <select id="dynamic_select" class="form-control" style="display: initial;width: 90px;">
+                          <option value="{{ url('locale/en') }}" @if(!empty(Session::get('locale')) && Session::get('locale')=="en") selected @endif  >English</option>
+                          <option value="{{ url('locale/sh') }}" @if(!empty(Session::get('locale')) && Session::get('locale')=="sh") selected @endif  >Swahili</option>
+                          <option value="{{ url('locale/hi') }}" @if(!empty(Session::get('locale')) && Session::get('locale')=="hi") selected @endif  >Hindi</option>
+                        </select>
+
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                     <i class="dropdowm-icon ti-email"></i>
@@ -422,11 +429,11 @@ textarea {
                                     <i class="dropdowm-icon ti-settings"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="profile.html"><i class="ti-user"></i>&nbsp; Profile</a></li>
+                                    <li><a href="profile.html"><i class="ti-user"></i>&nbsp;  {{ Auth::user()->name }} </a></li>
                                     <li><a href="mailbox.html"><i class="ti-email"></i>&nbsp; My Messages</a></li>
                                     <li><a href="lockscreen.html"><i class="ti-lock"></i>&nbsp; Lock Screen</a></li>
                                     <li><a href="#"><i class="ti-settings"></i>&nbsp; Settings</a></li>
-                                    <li><a href="login.html"><i class="ti-layout-sidebar-left"></i>&nbsp; Logout</a></li>
+                                    <li><a href="{{ url('/logout') }}"><i class="ti-layout-sidebar-left"></i>&nbsp; {{ trans('messages.success') }} </a></li>
                                 </ul>
                                 <!-- /.dropdown-user -->
                             </li> <!-- /.dropdown -->
@@ -901,6 +908,19 @@ $('html, body').animate({
 });
 
         </script>
+
+<script>
+    $(function(){
+      // bind change event to select
+      $('#dynamic_select').on('change', function () {
+          var url = $(this).val(); // get selected value
+          if (url) { // require a URL
+              window.location = url; // redirect
+          }
+          return false;
+      });
+    });
+</script>
 
         @stack('scripts')
     </body>

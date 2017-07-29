@@ -13,36 +13,23 @@
 
 Route::group(['middleware' => 'locale'], function(){
 
+
+Route::auth();
+
+Route::get('/locale/{id}', function ($id) {
+	Session::set('locale',$id);
+	return redirect()->back();
+});
+
+Route::group(['middleware' => ['auth']], function(){
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::auth();
-
 Route::get('/home', 'HomeController@index');
 
-Route::resource('task', 'TaskController');
-
-Route::resource('user', 'UserController');
-
-
-Route::controller('tasks', 'TaskController', [
-    'anyData'  => 'tasks.data',
-    'getIndex' => 'tasks',
-]);
-
-
-Route::controller('datatables', 'DatatablesController', [
-    'anyData'  => 'datatables.data',
-    'getIndex' => 'datatables',
-]);
-
-Route::get('/locale', function () {
-
-});
-
-Route::resource('company', 'Masters\CompanyController');
-
+// Location Master
 Route::resource('location', 'Masters\LocationController');
 
 Route::controller('location_data', 'Masters\LocationController', [
@@ -50,10 +37,7 @@ Route::controller('location_data', 'Masters\LocationController', [
 ]);
 
 Route::get('location/change/{id}', 'Masters\LocationController@change');
-
-
-
+//Location Master End
 
 });
-
-Route::resource('admin/posts', 'Admin\PostsController');
+});

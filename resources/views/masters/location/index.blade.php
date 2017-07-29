@@ -8,9 +8,9 @@
         <div class="header-title">
             <h1>&nbsp;</h1>
             <ol class="breadcrumb">
-                <li><a href="index.html"><i class="pe-7s-home"></i> Home</a></li>
-                <li><a href="#">Masters</a></li>
-                <li class="active">Location</li>
+                <li><a href="index.html"><i class="pe-7s-home"></i> {{ trans('messages.home') }} </a></li>
+                <li><a href="#">{{ trans('messages.masters') }} </a></li>
+                <li class="active">{{ trans('messages.location') }} </li>
             </ol>
         </div>
     </div> <!-- /. Content Header (Page header) -->
@@ -21,7 +21,7 @@
             @if(Session::has('message'))
             <script type="text/javascript">            
                 $(document).ready(function () {
-                    toastr.success( '{{ Session::get("message") }}', 'Success'); 
+                    toastr.success('<?= trans('messages.'.Session::get('message')) ?>', '{{ trans('messages.success') }}' ); 
                 });
              </script>
             @endif
@@ -44,14 +44,14 @@
 <table id="users-table" class="table table-bordered table-striped table-hover dataTable no-footer" role="grid" style="width: 100%">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Location Name</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Email</th>
+                <th>{{ trans('messages.id') }} </th>
+                <th>{{ trans('messages.location') }} </th>
+                <th>{{ trans('messages.address') }} </th>
+                <th>{{ trans('messages.phone') }} </th>
+                <th>{{ trans('messages.email') }} </th>
                 <th>{{ trans('messages.created at') }}</th>
                 <th>{{ trans('messages.updated at') }}</th>
-                <th>Action</th>
+                <th>{{ trans('messages.action') }} </th>
             </tr>
         </thead>
     </table>

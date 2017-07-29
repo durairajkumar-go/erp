@@ -23,9 +23,7 @@ class Locale
             $locale = Session::get('locale');
         }else{
             $locale = Config::get('app.locale');
-        }
-    
-        $locale = "en";
+        }    
 
         \App::setlocale($locale);
 

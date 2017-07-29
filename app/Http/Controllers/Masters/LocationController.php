@@ -43,11 +43,12 @@ class LocationController extends Controller
     }
 
     protected function validator(array $data)
-    {        
+    {      
+
         return Validator::make($data, [
             'location_name' => 'required|max:255',
             'email' => 'required|email|max:255',
-            'phone' => 'required|min:9'
+            'phone' => 'required|min:6',
         ]);
     }
 

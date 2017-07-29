@@ -1,66 +1,68 @@
-@extends('layouts.app')
+@extends('layouts.login')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                        {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
+<div class="panel panel-bd">
+                    <div class="panel-heading">
+                        <div class="view-header">
+                            <div class="header-icon">
+                                <i class="pe-7s-unlock"></i>
+                            </div>
+                            <div class="header-title">
+                                <h3>{{ trans('messages.login') }} </h3>
+                                <br>
+                                <small><strong>{{ trans('messages.please enter your credentials to login') }}.</strong></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form action="{{ url('/login') }}" id="loginForm" method="post" novalidate>
+                         {{ csrf_field() }}
+                            <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
+                                <label class="control-label">{{ trans('messages.email') }}</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input id="email" type="text" class="form-control" name="email" placeholder="{{ trans('messages.email') }}">
+                                </div>
+                                 @if ($errors->has('email'))
+                                    <span class="help-block small">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
+                                 @else   
+                                <span class="help-block small">{{ trans('messages.your unique username to app') }}</span>
                                 @endif
+
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label class="control-label">{{ trans('messages.password') }}</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                    <input id="pass" type="password" class="form-control" name="password" placeholder="******">
+                                </div>
+                                    @if ($errors->has('password'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @else    
+                                    <span class="help-block small">{{ trans('messages.your password to app') }}</span>
+                                    @endif
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Remember Me
-                                    </label>
+                            <div>
+                                <button class="btn btn-primary pull-right">{{ trans('messages.login') }}</button>
+                                <div class="checkbox checkbox-success">
+                                    <input id="checkbox3" type="checkbox">
+                                    <label for="checkbox3">{{ trans('messages.keep me signed in') }}</label>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-sign-in"></i> Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+                <div id="bottom_text">
+                    {{ trans('messages.dont have an account') }}? <a href="{{ url('/register') }}">{{ trans('messages.sign up') }}</a><br>
+                    {{ trans('messages.remind') }} <a href="{{ url('/password/reset') }}">{{ trans('messages.password') }}</a>
+                </div>
+
 @endsection
