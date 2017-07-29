@@ -23,6 +23,9 @@ class CreateLocationsTable extends Migration
             $table->string('lat');
             $table->string('lan');
             $table->timestamps();
+            $table->ipAddress('visitor');
+            $table->macAddress('device');
+            $table->enum('record_status', ['0', '1'])->default('1');
         });
     }
 

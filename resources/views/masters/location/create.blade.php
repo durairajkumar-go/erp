@@ -52,7 +52,7 @@
 
                         <div class="form-group">
                            <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('location_name', 'has-error') }}">
-                            {{ Form::text('location_name', null, ['class' => 'form-control',(($errors->first('location_name'))?'autofocus':null),'onfocus'=>'this.value = this.value']) }}
+                            {{ Form::text('location_name', null, ['class' => 'form-control',(($errors->first('location_name')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value']) }}
                             {{ Form::label('location_name', 'Enter Location Name',['class' => 'fill-this']) }}
                             </div>
                         </div>
