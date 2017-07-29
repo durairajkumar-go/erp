@@ -180,8 +180,7 @@ textarea {
     </head>
     <body>
 <div class="wrapper">
-        <div class="wrapper animsition" style="animation-duration: 1500ms; opacity: 1;">
-
+<div class="wrapper animsition" style="animation-duration: 1500ms; opacity: 1;">
 
 <header class="main-header">
                 <!-- top navigation -->
