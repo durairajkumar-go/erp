@@ -49,5 +49,9 @@ Route::controller('location_data', 'Masters\LocationController', [
     'anyData'  => 'location_data.data',
 ]);
 
+Route::get('location/change/{id}', 'Masters\LocationController@change');
+
+
+
 
 });

@@ -79,6 +79,7 @@ $(function() {
         processing: true,
         serverSide: true,
         responsive: true,
+        stateSave: true,
         dom: 'Bfrtip',
         lengthMenu: [
             [ 10, 25, 50, -1 ],

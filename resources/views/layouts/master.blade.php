@@ -211,17 +211,17 @@ textarea {
                                     </a>
                                     <ul class="dropdown-menu cart-list">
                                         <li>
-                                            <a href="#" class="photo"><img src="{{ url('assets/dist/img/cart-1.jpg"') }} class="cart-thumb" alt=""></a>
+                                            <a href="#" class="photo"><img src="{{ url('assets/dist/img/cart-1.jpg') }}" class="cart-thumb" alt=""></a>
                                             <h5><a href="#">Smartphone RAM 4 GB New</a></h5>
                                             <p>2x - <span class="price">$99.99</span></p>
                                         </li>
                                         <li>
-                                            <a href="#" class="photo"><img src="{{ url('assets/dist/img/cart-2.jpg"') }} class="cart-thumb" alt=""></a>
+                                            <a href="#" class="photo"><img src="{{ url('assets/dist/img/cart-2.jpg') }}" class="cart-thumb" alt=""></a>
                                             <h5><a href="#">Fujifilm INSTAX Mini 8</a></h5>
                                             <p>1x - <span class="price">$33.33</span></p>
                                         </li>
                                         <li>
-                                            <a href="#" class="photo"><img src="{{ url('assets/dist/img/cart-3.jpg"') }} class="cart-thumb" alt=""></a>
+                                            <a href="#" class="photo"><img src="{{ url('assets/dist/img/cart-3.jpg') }}" class="cart-thumb" alt=""></a>
                                             <h5><a href="#">Beats On-Ear Headphones</a></h5>
                                             <p>2x - <span class="price">$99.99</span></p>
                                         </li>
@@ -248,7 +248,7 @@ textarea {
                                     <li>
                                         <a href="#" class="rad-content">
                                             <div class="inbox-item">
-                                                <div class="inbox-item-img"><img src="{{ url('assets/dist/img/avatar.png"') }} class="img-circle" alt=""></div>
+                                                <div class="inbox-item-img"><img src="{{ url('assets/dist/img/avatar.png') }}" class="img-circle" alt=""></div>
                                                 <strong class="inbox-item-author">Naeem Khan</strong>
                                                 <span class="inbox-item-date">-13:40 PM</span>
                                                 <p class="inbox-item-text">Hey! there I'm available...</p>
@@ -259,7 +259,7 @@ textarea {
                                     <li>
                                         <a href="#" class="rad-content">
                                             <div class="inbox-item">
-                                                <div class="inbox-item-img"><img src="{{ url('assets/dist/img/avatar2.png"') }} class="img-circle" alt=""></div>
+                                                <div class="inbox-item-img"><img src="{{ url('assets/dist/img/avatar2.png') }}" class="img-circle" alt=""></div>
                                                 <strong class="inbox-item-author">Sala Uddin</strong>
                                                 <span class="inbox-item-date">-13:40 PM</span>
                                                 <p class="inbox-item-text">Hey! there I'm available...</p>
@@ -270,7 +270,7 @@ textarea {
                                     <li>
                                         <a href="#" class="rad-content">
                                             <div class="inbox-item">
-                                                <div class="inbox-item-img"><img src="{{ url('assets/dist/img/avatar3.png"') }} class="img-circle" alt=""></div>
+                                                <div class="inbox-item-img"><img src="{{ url('assets/dist/img/avatar3.png') }}" class="img-circle" alt=""></div>
                                                 <strong class="inbox-item-author">Mozammel</strong>
                                                 <span class="inbox-item-date">-13:40 PM</span>
                                                 <p class="inbox-item-text">Hey! there I'm available...</p>
@@ -281,7 +281,7 @@ textarea {
                                     <li>
                                         <a href="#" class="rad-content">
                                             <div class="inbox-item">
-                                                <div class="inbox-item-img"><img src="{{ url('assets/dist/img/avatar4.png"') }} class="img-circle" alt=""></div>
+                                                <div class="inbox-item-img"><img src="{{ url('assets/dist/img/avatar4.png') }}" class="img-circle" alt=""></div>
                                                 <strong class="inbox-item-author">Tanzil Ahmed</strong>
                                                 <span class="inbox-item-date">-13:40 PM</span>
                                                 <p class="inbox-item-text">Hey! there I'm available...</p>

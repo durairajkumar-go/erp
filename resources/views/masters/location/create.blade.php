@@ -52,42 +52,42 @@
 
                         <div class="form-group">
                            <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('location_name', 'has-error') }}">
-                            {{ Form::text('location_name', null, ['class' => 'form-control',(($errors->first('location_name')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value']) }}
+                            {{ Form::text('location_name', null, ['class' => 'form-control',(($errors->first('location_name')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
                             {{ Form::label('location_name', 'Enter Location Name',['class' => 'fill-this']) }}
                             </div>
                         </div>
 
                         <div class="form-group">
                            <div class="styled-input  col-sm-6 col-md-3 col-lg-3 {{ $errors->first('address', 'has-error') }}">
-                            {{ Form::text('address', null, ['class' => 'form-control',(($errors->first('address')) ? 'autofocus': null),'onfocus'=>'this.value = this.value']) }}
+                            {{ Form::text('address', null, ['class' => 'form-control',(($errors->first('address')) ? 'autofocus': null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
                             {{ Form::label('address', 'Enter Address') }}
                             </div>
                         </div>
 
                         <div class="form-group">
                            <div class="styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('email', 'has-error') }}">
-                            {{ Form::text('email', null, ['class' => 'form-control',(($errors->first('email')) ? 'autofocus': null),'onfocus'=>'this.value = this.value']) }}
+                            {{ Form::text('email', null, ['class' => 'form-control',(($errors->first('email')) ? 'autofocus': null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
                             {{ Form::label('email', 'Enter Email Address',['class' => 'fill-this']) }}
                             </div>
                         </div>
 
                         <div class="form-group">
                            <div class="styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('phone', 'has-error') }}">
-                            {{ Form::text('phone', null, ['class' => 'form-control',(($errors->first('phone')) ? 'autofocus': null),'onfocus'=>'this.value = this.value']) }}
+                            {{ Form::text('phone', null, ['class' => 'form-control',(($errors->first('phone')) ? 'autofocus': null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
                             {{ Form::label('phone', 'Enter Phone Number',['class' => 'fill-this']) }}
                             </div>
                         </div>
 
                         <div class="form-group">
                            <div class="styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('prefix', 'has-error') }}">
-                            {{ Form::text('prefix', null, ['class' => 'form-control',(($errors->first('prefix')) ? 'autofocus': null),'onfocus'=>'this.value = this.value']) }}
+                            {{ Form::text('prefix', null, ['class' => 'form-control',(($errors->first('prefix')) ? 'autofocus': null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
                             {{ Form::label('prefix', 'Enter Prefix') }}
                             </div>
                         </div>
 
                         <div class="form-group">
                            <div class="styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('suffix', 'has-error') }}">
-                            {{ Form::text('suffix', null, ['class' => 'form-control',(($errors->first('suffix')) ? 'autofocus': null),'onfocus'=>'this.value = this.value']) }}
+                            {{ Form::text('suffix', null, ['class' => 'form-control',(($errors->first('suffix')) ? 'autofocus': null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
                             {{ Form::label('suffix', 'Enter Suffix') }}
                             </div>
                         </div>

@@ -28,14 +28,22 @@ class LocationController extends Controller
      $data = Location::all();
        return Datatables::of($data)
             ->addColumn('action', function ($data) {
+                if($data->record_status==1){
                 return '<a href="location/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>
-                    <a href="location/'.$data->id.'/change_status" class="btn btn-xs btn-danger" ><i class="fa hvr-buzz-out  fa-trash" onclick="clickAndDisable(this);"></i></a>';
+                    <a href="location/change/'.$data->id.'" class="btn btn-xs btn-danger" ><i class="fa hvr-buzz-out  fa-trash" onclick="clickAndDisable(this);"></i></a>';
+
+                }else{
+
+                return '<a href="location/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>
+                    <a href="location/change/'.$data->id.'" class="btn btn-xs btn-success" ><i class="fa hvr-buzz-out  fa-check" onclick="clickAndDisable(this);"></i></a>';
+                }
+
             })
             ->make(true);
     }
 
     protected function validator(array $data)
-    {
+    {        
         return Validator::make($data, [
             'location_name' => 'required|max:255',
             'email' => 'required|email|max:255',
@@ -66,8 +74,15 @@ class LocationController extends Controller
                         ->withErrors($this->validator($request->all()))
                         ->withInput();
      }else{
+        try { 
         Location::create($request->all());
         return redirect()->route('location.index')->with('message','Item has been added successfully');
+        } 
+        catch(\Illuminate\Database\QueryException $ex){ 
+        return redirect()->back()
+                        ->withErrors("Duplicate Entry or Error in Query")
+                        ->withInput();             
+        }
     }
     }
 
@@ -80,6 +95,18 @@ class LocationController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function change($id){
+
+        if($data = Location::find($id)){
+            $record_status=1;
+            if($data->record_status==1){
+                $record_status=0;                
+            } 
+            Location::where('id', $id)->update(['record_status' => $record_status]);           
+            return redirect()->route('location.index')->with('message','Item has been updated successfully');
+        }   
     }
 
     /**
@@ -107,8 +134,17 @@ class LocationController extends Controller
                             ->withErrors($this->validator($request->all()))
                             ->withInput();
          }else{
-            $location->update($request->all());
-            return redirect()->route('location.index')->with('message','Item has been updated successfully');
+
+            try { 
+
+                $location->update($request->all());
+                return redirect()->route('location.index')->with('message','Item has been updated successfully');
+             }
+             catch(\Illuminate\Database\QueryException $ex){ 
+                        return redirect()->back()
+                            ->withErrors("Duplicate Entry or Error in Query")
+                            ->withInput();             
+            }
         }
     }
 
