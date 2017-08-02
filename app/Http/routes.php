@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['middleware' => 'locale'], function(){
+Route::group(['middleware' => ['locale']], function(){
 
 
 Route::auth();
@@ -21,7 +21,7 @@ Route::get('/locale/{id}', function ($id) {
 	return redirect()->back();
 });
 
-Route::group(['middleware' => ['auth']], function(){
+Route::group(['middleware' => ['auth','menu']], function(){
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,7 +37,23 @@ Route::controller('location_data', 'Masters\LocationController', [
 ]);
 
 Route::get('location/change/{id}', 'Masters\LocationController@change');
+
+Route::get('location_search', 'Masters\LocationController@search');
+
 //Location Master End
+
+
+
+// Store Master
+Route::resource('store', 'Masters\storeController');
+
+Route::controller('store_data', 'Masters\storeController', [
+    'anyData'  => 'store_data.data',
+]);
+
+Route::get('store/change/{id}', 'Masters\storeController@change');
+//Sore Master End
+
 
 });
 });

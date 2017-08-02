@@ -8,8 +8,8 @@
         <div class="header-title">
             <h1>&nbsp;</h1>
             <ol class="breadcrumb">
-                <li><a href="index.html"><i class="pe-7s-home"></i> {{ trans('messages.home') }} </a></li>
-                <li><a href="#">{{ trans('messages.masters') }} </a></li>
+                <li><a href="{{ url('/dashboard') }}"><i class="pe-7s-home"></i> {{ trans('messages.home') }} </a></li>
+                <li><a >{{ trans('messages.masters') }} </a></li>
                 <li class="active">{{ trans('messages.location') }} </li>
             </ol>
         </div>
@@ -17,6 +17,37 @@
 @endsection
 
 @section('content')
+
+<?php
+//Roles Section
+
+
+$array_uri = explode("/", Route::getFacadeRoot()->current()->uri(), 2);
+$main_uri = $array_uri[0];
+$main_uri_id = \App\Menu::select('id')->where('slug',$main_uri)->first();
+$roles = \App\Model\Masters\RoleMenuMapping::where('parent_id',Auth::user()->role_id)->where('menu_id',$main_uri_id->id)->first();
+
+if($roles==null){
+    header("location:".url('/logout'));
+    exit(); 
+}
+
+$add_role=$roles->add;
+$edit_role=$roles->edit;
+$delete_role=$roles->delete;
+$pdf_role=$roles->pdf;
+$csv_role=$roles->csv;
+$excel_role=$roles->excel;
+$copy_role=$roles->copy;
+$print_role=$roles->print;
+$view_role=$roles->view;
+$search_role=$roles->search;
+
+$role_action_column=7;
+$other_columns="0,1,2,3,4,5,6";
+// End of Roldes Section
+
+?>
 
             @if(Session::has('message'))
             <script type="text/javascript">            
@@ -32,9 +63,9 @@
         <div class="panel-heading">
             <div class="panel-title" >
                 <h4>{{ trans('messages.location') }}  </h4>
-    
+            @if($add_role=='1')    
             <a href="{{ url('location/create') }}" class="btn btn-sm btn-primary pull-right hvr-buzz-out fa fa-pencil" style="color: #fff"  onclick="clickAndDisable(this);"></a>
-
+            @endif
             </div>
         </div>
 <div class="panel-body">
@@ -62,31 +93,54 @@
 </div>
 </div>
 
+<?php
 
+//Language
+    $current_language = url('assets/localization/'.Session::get('locale').'.json');
 
+//Column filter visibility
+    $column_visiblity="";
+    $column_visiblity_reverse="";
+    if($view_role=='1'){
+       $column_visiblity .=$other_columns;
+        if($edit_role=='1' || $delete_role=='1'){
+            $column_visiblity .=",".$role_action_column;       
+        }else{
+           $column_visiblity_reverse.=",".$role_action_column;        
+        }
+    }else{
+      $column_visiblity_reverse.=$other_columns;       
+      $column_visiblity_reverse.=",".$role_action_column;        
+    }
+
+//buttons option
+    $buttons ="['pageLength'";
+    if($copy_role=='1')
+    $buttons .=",{ extend: 'copy', title: '".trans('messages.location')."',exportOptions: { columns: ':visible' } }";
+    if($csv_role=='1')
+    $buttons .=",{ extend: 'csv', title: '".trans('messages.location')."', exportOptions: { columns: ':visible' } }";
+    if($excel_role=='1')
+    $buttons .=",{ extend: 'excel', title: '".trans('messages.location')."', exportOptions: { columns: ':visible' }}";
+    if($pdf_role=='1')
+    $buttons .=",{ extend: 'pdf', title: '".trans('messages.location')."' , exportOptions: { columns: ':visible'}}";
+    if($print_role=='1')
+    $buttons .=",{ extend: 'print', title: '".trans('messages.location')."', exportOptions: { columns: ':visible'}}";
+    $buttons .=",{
+        extend: 'colvis',
+        columns: [".$column_visiblity."]
+        }]";        
+
+//search_option
+   if($search_role=='0'){
+        $searchable="'searching': false";
+    }else{
+        $searchable="'searching': true";        
+    }
+    
+?>
 
 
 @endsection
-
-<?php
-
-    $current_language = url('assets/localization/'.Session::get('locale').'.json');
-
-    $buttons ="['pageLength'";
-    $buttons .=",{ extend: 'copy', title: '".trans('messages.location')."',exportOptions: { columns: ':visible' } }";
-    $buttons .=",{ extend: 'csv', title: '".trans('messages.location')."', exportOptions: { columns: ':visible' } }";
-    $buttons .=",{ extend: 'excel', title: '".trans('messages.location')."', exportOptions: { columns: ':visible' }}";
-    $buttons .=",{ extend: 'pdf', title: '".trans('messages.location')."' , exportOptions: { columns: ':visible'}}";
-    $buttons .=",{ extend: 'print', title: '".trans('messages.location')."', exportOptions: { columns: ':visible' }}";
-    $buttons .=",'colvis']";
-
-    /*    if(Session::get('locale')=="sh"){
-            $current_language='//cdn.datatables.net/plug-ins/1.10.15/i18n/Swahili.json';
-        }else if(Session::get('locale')=="hi"){
-            $current_language='//cdn.datatables.net/plug-ins/1.10.15/i18n/Hindi.json';    
-        }
-*/
-?>
 
 @push('scripts')
 <script>
@@ -94,7 +148,7 @@ $(document).ready(function(){
 
 $(function() {
 
-    $('#users-table').DataTable({
+   var dt= $('#users-table').DataTable({
         processing: true,
         serverSide: true,
         responsive: true,
@@ -110,16 +164,20 @@ $(function() {
         ajax: '{!! route('location_data.data') !!}',
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'location_name', name: 'location_name' },
+            { data: 'name', name: 'name' },
             { data: 'address', name: 'address' },
             { data: 'phone', name: 'phone' },
             { data: 'email', name: 'email' },
             { data: 'created_at', name: 'created_at' },
             { data: 'updated_at', name: 'updated_at' },
-             {data: 'action', name: 'action', orderable: false, searchable: false}
-        ]
-
+            {data: 'action', name: 'action', orderable: false, searchable: false}
+            ]
+           <?= ",".$searchable ?> 
     });
+
+    <?php
+            echo "dt.columns([".$column_visiblity_reverse."]).visible(false)";
+    ?>
 
 });
 

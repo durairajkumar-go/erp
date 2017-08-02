@@ -110,7 +110,7 @@ $(function() {
         ajax: '{!! route('location_data.data') !!}',
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'location_name', name: 'location_name' },
+            { data: 'name', name: 'name' },
             { data: 'address', name: 'address' },
             { data: 'phone', name: 'phone' },
             { data: 'email', name: 'email' },

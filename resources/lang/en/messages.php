@@ -33,5 +33,14 @@ return [
     'Item has been updated successfully' => 'Item has been updated successfully',
     'Item has been added successfully' => 'Item has been added successfully',
 	'logout' => 'Logout',
+    'dashboard' => 'Dashboard',
+    'company' => 'Company',
+    'reports' => 'Reports',
+    'stores' => 'Stores',
+    'products' => 'Products',
+    'category' => 'Category',
+    'materials' => 'Materials',
+    'rate template' => 'Rate Template',
+    
 
 ];

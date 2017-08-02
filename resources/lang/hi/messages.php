@@ -33,4 +33,13 @@ return [
     'Item has been updated successfully' => 'आइटम को सफलतापूर्वक अपडेट किया गया है',
     'Item has been added successfully' => 'आइटम को सफलतापूर्वक जोड़ दिया गया है',
     'logout' => 'लोग आउट',
+    'dashboard' => 'डैशबोर्ड',
+    'company' => 'कंपनी',
+    'reports' => 'कंपनी',
+    'stores' => 'भंडार',
+    'products' => 'उत्पाद',
+    'category' => 'वर्ग',
+    'materials' => 'सामग्री',
+    'rate template' => 'दर टेम्पलेट दर',
+
 ];

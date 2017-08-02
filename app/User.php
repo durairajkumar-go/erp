@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use \App\Task;
+use \App\Model\Masters\Role;
 class User extends Authenticatable
 {
     /**
@@ -24,11 +24,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function tasks()
-    {
-        return $this->hasMany('\App\Task');
-    }
-
     public function setNameAttribute($value) {
         $this->attributes['name'] = ucfirst(strtolower($value));
     }
@@ -43,6 +38,11 @@ class User extends Authenticatable
 
     public function getEmailAttribute($value) {
         return strtolower($value);
+    }
+    
+    public function role()
+    {
+        return $this->belongsTo('\App\Model\Masters\Role', 'role_id');
     }
 
 }

@@ -1,6 +1,11 @@
 @extends('layouts.master')
 
 @section('breadcrumb')
+
+<?php
+  $back_url=url('location');
+?>
+
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="header-icon">
@@ -8,9 +13,9 @@
         <div class="header-title">
             <h1>&nbsp;</h1>
             <ol class="breadcrumb">
-                <li><a href="index.html"><i class="pe-7s-home"></i> {{ trans('messages.home') }} </a></li>
-                <li><a href="#">{{ trans('messages.masters') }} </a></li>
-                <li><a href="{{ url('location') }}" onclick="clickAndDisable(this);">{{ trans('messages.location') }} </a></li>
+                <li><a  href="{{ url('/dashboard') }}"><i class="pe-7s-home"></i> {{ trans('messages.home') }} </a></li>
+                <li><a >{{ trans('messages.masters') }} </a></li>
+                <li><a href="{{ $back_url }}" onclick="clickAndDisable(this);">{{ trans('messages.location') }} </a></li>
                 <li class="active">{{ trans('messages.create') }} </li>
             </ol>
         </div>
@@ -18,6 +23,28 @@
 @endsection
 
 @section('content')
+
+<?php
+//Roles Section
+$array_uri = explode("/", Route::getFacadeRoot()->current()->uri(), 2);
+$main_uri = $array_uri[0];
+$main_uri_id = \App\Menu::select('id')->where('slug',$main_uri)->first();
+$roles = \App\Model\Masters\RoleMenuMapping::where('parent_id',Auth::user()->role_id)->where('menu_id',$main_uri_id->id)->first();
+
+if($roles==null){
+    header("location:".url('/logout'));
+    exit(); 
+}
+
+$add_role=$roles->add;
+
+if($add_role=='0'){
+  header("location:".url('/logout'));
+  exit();
+}
+
+?>
+
 
 <div class="row">
 <div class="col-sm-12" >
@@ -29,7 +56,7 @@
                       &nbsp; * {{ trans('messages.mandatory') }} 
                   </span>                          
     
-                <a href="{{ url()->previous() }}" class="btn btn-warning btn-sm hvr-buzz-out fa fa-backward pull-right" style="color: #ffffff" onclick="clickAndDisable(this);"></a>
+                <a href="{{ $back_url }}" class="btn btn-warning btn-sm hvr-buzz-out fa fa-backward pull-right" style="color: #ffffff" onclick="clickAndDisable(this);"></a>
 
 
             </div>
@@ -51,9 +78,9 @@
  {!! Form::open(array('route' => 'location.store')) !!}
 
                         <div class="form-group">
-                           <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('location_name', 'has-error') }}">
-                            {{ Form::text('location_name', null, ['class' => 'form-control',(($errors->first('location_name')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
-                            {{ Form::label('location_name',trans('messages.location'),['class' => 'fill-this']) }}
+                           <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('name', 'has-error') }}">
+                            {{ Form::text('name', null, ['class' => 'form-control',(($errors->first('name')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
+                            {{ Form::label('name',trans('messages.location'),['class' => 'fill-this']) }}
                             </div>
                         </div>
 

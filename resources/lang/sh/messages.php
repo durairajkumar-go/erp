@@ -33,4 +33,13 @@ return [
     'Item has been updated successfully' => 'Kipengee kimesasishwa kwa mafanikio',
 	'Item has been added successfully' => 'Item imeongezwa kwa mafanikio',
 	'logout' => 'Kuingia',
+    'dashboard' => 'Dashibodi',
+    'company' => 'Kampuni',
+    'reports' => 'Ripoti',
+    'stores' => 'Maduka',
+    'products' => 'Bidhaa',
+    'category' => 'Jamii',
+    'materials' => 'Vifaa',
+    'rate template' => 'Kiwango cha Kigezo',
+
 ];
