@@ -452,7 +452,7 @@ textarea {
                                     <i class="dropdowm-icon ti-settings"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="profile.html"><i class="ti-user"></i>&nbsp;  {{ Auth::user()->name }} </a></li>
+                                    <li><a href="{{ url('/profile') }}"><i class="ti-user"></i>&nbsp;  {{ Auth::user()->name }} </a></li>
                                    <!-- <li><a href="mailbox.html"><i class="ti-email"></i>&nbsp; My Messages</a></li>
                                     <li><a href="lockscreen.html"><i class="ti-lock"></i>&nbsp; Lock Screen</a></li>
                                     <li><a href="#"><i class="ti-settings"></i>&nbsp; Settings</a></li> -->

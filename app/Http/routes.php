@@ -31,8 +31,9 @@ Route::get('/dashboard', function () {
     return view('welcome');
 });
 
-
-Route::get('/home', 'HomeController@index');
+Route::get('/profile', function () {
+    return view('masters.profile');
+});
 
 // Location Master
 Route::resource('location', 'Masters\LocationController');
