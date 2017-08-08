@@ -1,28 +1,18 @@
 @extends('layouts.master')
 
-@section('breadcrumb')
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="header-icon">
-        </div>
-        <div class="header-title">
-            <h1>&nbsp;</h1>
-            <ol class="breadcrumb">
-                <li><a  href="{{ url('/dashboard') }}"><i class="pe-7s-home"></i> {{ trans('messages.home') }} </a></li>
-                <li><a >{{ trans('messages.masters') }} </a></li>
-                <li class="active">{{ trans('messages.store') }} </li>
-            </ol>
-        </div>
-    </div> <!-- /. Content Header (Page header) -->
-@endsection
 
 @section('content')
 
 <?php
 //Roles Section
 
-$array_uri = explode("/", Route::getFacadeRoot()->current()->uri(), 2);
-$main_uri = $array_uri[0];
+$main_uri="";
+    $array_uri = explode("/", Route::getFacadeRoot()->current()->uri(), 2);
+    if(isset($array_uri[0])){
+         $main_uri = $array_uri[0];
+    }
+  $back_url=url($main_uri);
+
 $main_uri_id = \App\Menu::select('id')->where('slug',$main_uri)->first();
 $roles = \App\Model\Masters\RoleMenuMapping::where('parent_id',Auth::user()->role_id)->where('menu_id',$main_uri_id->id)->first();
 

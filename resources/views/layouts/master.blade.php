@@ -452,7 +452,7 @@ textarea {
                                     <i class="dropdowm-icon ti-settings"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="{{ url('/profile') }}"><i class="ti-user"></i>&nbsp;  {{ Auth::user()->name }} </a></li>
+                                    <li><a href="{{ url('/profile') }}"><i class="ti-user"></i>&nbsp; Hi,  {{ Auth::user()->name }} </a></li>
                                    <!-- <li><a href="mailbox.html"><i class="ti-email"></i>&nbsp; My Messages</a></li>
                                     <li><a href="lockscreen.html"><i class="ti-lock"></i>&nbsp; Lock Screen</a></li>
                                     <li><a href="#"><i class="ti-settings"></i>&nbsp; Settings</a></li> -->
@@ -582,6 +582,37 @@ textarea {
                 <div class="container">
                     <!-- main content -->
                     <div class="content">
+
+
+<?php
+
+$main_uri="";
+    
+    $array_uri = explode("/", Route::getFacadeRoot()->current()->uri(), 2);
+    if(isset($array_uri[0])){
+         $main_uri = $array_uri[0];
+    }
+
+$back_url=url($main_uri);
+
+?>
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="header-icon">
+        </div>
+        <div class="header-title">
+            <h1>&nbsp;</h1>
+            <ol class="breadcrumb">
+
+                <li><a  href="{{ url('/dashboard') }}"><i class="pe-7s-home"></i> {{ trans('messages.home') }} </a></li>
+
+            @foreach($array_uri as $uri)
+                <li><a  href="<?= url(''.preg_replace("/{(.*?)}\//", "", $uri).'') ?>""> <?= trans('messages.'.preg_replace("/{(.*?)}\//", "", $uri)); ?> </a></li>
+            @endforeach
+            </ol>
+        </div>
+    </div> <!-- /. Content Header (Page header) -->
+
 
             @yield('breadcrumb')       	
             @yield('content')
