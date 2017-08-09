@@ -41,6 +41,7 @@ return [
     'category' => 'Category',
     'materials' => 'Materials',
     'rate template' => 'Rate Template',
-    
+     'route' => 'Route',
+     'routes' => 'Routes',
 
 ];

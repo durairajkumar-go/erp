@@ -61,5 +61,14 @@ Route::get('store/change/{id}', 'Masters\storeController@change');
 //Sore Master End
 
 
+// Route Master
+Route::resource('route', 'Masters\RouteController');
+
+ Route::controller('route_data', 'Masters\RouteController', [
+    'anyData'  => 'route_data.data',
+]);
+
+Route::get('route/change/{id}', 'Masters\RouteController@change'); 
+//Route Master End
 });
 });
