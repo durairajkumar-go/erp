@@ -16,6 +16,8 @@ class CreateVehicleTable extends Migration
             $table->bigIncrements('id');
 			$table->integer('parent_id');
 			$table->string('registration_number');
+			$table->string('insurance');
+			$table->decimal('insurance');
             $table->timestamps();
             $table->ipAddress('visitor');
             $table->macAddress('device');
