@@ -46,6 +46,7 @@ return [
 	'vehicle' => 'Vehicle',
 	'registration_number' => 'Registration No.',
     'rate template' => 'Rate Template',
-    
+     'route' => 'Route',
+     'routes' => 'Routes',
 
 ];
