@@ -448,9 +448,7 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         'CreateRolesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_01_181422_create_roles_table.php',
         'CreateStoresTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_01_092332_create_stores_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
-<<<<<<< HEAD
         'CreateVehicleTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_08_100549_create_vehicle_table.php',
-=======
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',
@@ -461,7 +459,6 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         'Cron\\MinutesField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/MonthField.php',
         'Cron\\YearField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/YearField.php',
->>>>>>> 1feba4ba870c5e97e3f5e6fd7b2e1df69287143d
         'CrudGeneratorTest' => __DIR__ . '/..' . '/appzcoder/crud-generator/tests/CrudGeneratorTest.php',
         'DOMPDF' => __DIR__ . '/..' . '/dompdf/dompdf/include/dompdf.cls.php',
         'DOMPDF_Exception' => __DIR__ . '/..' . '/dompdf/dompdf/include/dompdf_exception.cls.php',
@@ -3475,9 +3472,7 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         'Tree\\Visitor\\Visitor' => __DIR__ . '/..' . '/nicmart/tree/src/Visitor/Visitor.php',
         'Tree\\Visitor\\YieldVisitor' => __DIR__ . '/..' . '/nicmart/tree/src/Visitor/YieldVisitor.php',
         'UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersTableSeeder.php',
-<<<<<<< HEAD
         'vehiclesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/vehiclesTableSeeder.php',
-=======
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Whoops\\Exception\\ErrorException' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
         'Whoops\\Exception\\Formatter' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/Formatter.php',
@@ -3583,7 +3578,6 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
->>>>>>> 1feba4ba870c5e97e3f5e6fd7b2e1df69287143d
     );
 
     public static function getInitializer(ClassLoader $loader)
