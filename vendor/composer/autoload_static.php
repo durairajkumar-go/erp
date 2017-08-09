@@ -351,11 +351,8 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         'CreateRouteTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_09_052812_create_route_table.php',
         'CreateStoresTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_01_092332_create_stores_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
-<<<<<<< HEAD
         'CreateVehiclesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_09_102612_create_vehicles_table.php',
-=======
         'CreateVehicleTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_08_100549_create_vehicle_table.php',
->>>>>>> ec242a441139f67a1f1c10acd97c955b30712526
         'CrudGeneratorTest' => __DIR__ . '/..' . '/appzcoder/crud-generator/tests/CrudGeneratorTest.php',
         'DOMPDF' => __DIR__ . '/..' . '/dompdf/dompdf/include/dompdf.cls.php',
         'DOMPDF_Exception' => __DIR__ . '/..' . '/dompdf/dompdf/include/dompdf_exception.cls.php',
