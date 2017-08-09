@@ -40,6 +40,21 @@ if(!function_exists('printMenu')){
 
 if(!function_exists('currency')){
 	function currency($value,$decimals,$symbol){
-		echo $symbol.' '.number_format($value,$decimals);
+		try{
+			echo $symbol.' '.number_format($value,$decimals);
+		}catch(Exception $e){
+			echo "&#9888;";
+		}
+	}
+}
+
+
+if(!function_exists('number')){
+	function number($value,$decimals){
+		try{
+			echo number_format($value,$decimals);
+		}catch(Exception $e){
+			echo "&#9888;";
+		}
 	}
 }

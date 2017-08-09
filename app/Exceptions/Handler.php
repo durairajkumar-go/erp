@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Http\Response;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -45,6 +46,21 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        return parent::render($request, $e);
+        if($this->isHttpException($e)){
+            return $this->renderHttpException($e);
+        } 
+        else{
+            return $this->renderWithWhoops($e);
+        }
+//        return parent::render($request, $e);
+    }
+
+
+    protected function renderWithWhoops(Exception $e){
+        $whoops = new \Whoops\Run;
+        $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+//        $whoops->register();
+
+        return new Response($whoops->handleException($e), $e->getStatusCode(), $e->getHeaders());
     }
 }
