@@ -11,7 +11,7 @@
 
                 <div class="panel-body">
                     {{ $task->body }}
-                </div>
+                </div> 
             </div>
            @endforeach   
         </div>
