@@ -47,3 +47,14 @@ if(!function_exists('currency')){
 		}
 	}
 }
+
+
+if(!function_exists('number')){
+	function number($value,$decimals){
+		try{
+			echo number_format($value,$decimals);
+		}catch(Exception $e){
+			echo "&#9888;";
+		}
+	}
+}
