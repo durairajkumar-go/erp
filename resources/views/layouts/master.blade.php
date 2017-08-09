@@ -29,13 +29,13 @@
         <link href="http://codeseven.github.io/toastr/build/toastr.min.css" rel="stylesheet" type="text/css"/>
 
 
-        <link href="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/flag-icon/css/flag-icon.min.css" rel="stylesheet" type="text/css"/>
+        <link href="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/flag-icon/css/flag-icon.min.css" rel="stylesheet" type="text/css"/>
 
 
-        <link href="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/plugins/monthly/monthly.min.css" rel="stylesheet" type="text/css"/>
+        <link href="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/monthly/monthly.min.css" rel="stylesheet" type="text/css"/>
 
 
-        <link href="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/plugins/amcharts/export.css" rel="stylesheet" type="text/css"/>
+        <link href="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/amcharts/export.css" rel="stylesheet" type="text/css"/>
 
       <!-- jQuery -->
         <script src="{{ url('assets/plugins/jQuery/jquery-1.12.4.min.js') }}" type="text/javascript"></script>
@@ -637,28 +637,28 @@ $back_url=url($main_uri);
         <script src="{{ url('assets/plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
         <!-- FastClick js-->
         <script src="{{ url('assets/plugins/fastclick/fastclick.min.js') }}" type="text/javascript"></script>
-       <script src="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/plugins/metisMenu/metisMenu.min.js" type="text/javascript"></script>
+       <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/metisMenu/metisMenu.min.js" type="text/javascript"></script>
         <!-- End Core Plugins
         =====================================================================-->
 
         <!-- STRAT PAGE LABEL PLUGINS -->
-        <script src="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/plugins/toastr/toastr.min.js" type="text/javascript"></script>
-        <script src="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/plugins/sparkline/sparkline.min.js" type="text/javascript"></script>
-        <script src="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
-        <script src="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/plugins/counterup/waypoints.js" type="text/javascript"></script>
-        <script src="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/plugins/emojionearea/emojionearea.min.js" type="text/javascript"></script>
-        <script src="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/plugins/monthly/monthly.min.js" type="text/javascript"></script>
-        <script src="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/plugins/amcharts/amcharts.js" type="text/javascript"></script>
-        <script src="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/plugins/amcharts/ammap.js" type="text/javascript"></script>
-        <script src="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/plugins/amcharts/worldLow.js" type="text/javascript"></script>
-        <script src="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/plugins/amcharts/serial.js" type="text/javascript"></script>
-        <script src="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/plugins/amcharts/export.min.js" type="text/javascript"></script>
-        <script src="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/plugins/amcharts/light.js" type="text/javascript"></script>
-        <script src="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/plugins/amcharts/pie.js" type="text/javascript"></script>
+        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/sparkline/sparkline.min.js" type="text/javascript"></script>
+        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
+        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/counterup/waypoints.js" type="text/javascript"></script>
+        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/emojionearea/emojionearea.min.js" type="text/javascript"></script>
+        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/monthly/monthly.min.js" type="text/javascript"></script>
+        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/amcharts/amcharts.js" type="text/javascript"></script>
+        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/amcharts/ammap.js" type="text/javascript"></script>
+        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/amcharts/worldLow.js" type="text/javascript"></script>
+        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/amcharts/serial.js" type="text/javascript"></script>
+        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/amcharts/export.min.js" type="text/javascript"></script>
+        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/amcharts/light.js" type="text/javascript"></script>
+        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/amcharts/pie.js" type="text/javascript"></script>
 
         <!-- START THEME LABEL SCRIPT -->   
         <script src="{{ url('assets/theme/js/dashboard.min.js') }}" type="text/javascript"></script>
-        <script src="http://adminpage.thememinister.com/preview_page/theme/AdminPage_v2.0/assets/dist/js/jQuery.style.switcher.min.js" type="text/javascript"></script>
+        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/dist/js/jQuery.style.switcher.min.js" type="text/javascript"></script>
 
         <!-- Start Page Lavel Plugins
         =====================================================================-->
