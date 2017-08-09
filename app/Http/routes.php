@@ -60,6 +60,15 @@ Route::controller('store_data', 'Masters\storeController', [
 Route::get('store/change/{id}', 'Masters\storeController@change');
 //Sore Master End
 
+// Route Master
+Route::resource('route', 'Masters\RouteController');
+
+ Route::controller('route_data', 'Masters\RouteController', [
+    'anyData'  => 'route_data.data',
+]);
+
+Route::get('route/change/{id}', 'Masters\RouteController@change'); 
+//Route Master End
 
 // Vehicle Master
 Route::resource('vehicle', 'Masters\VehicleController');

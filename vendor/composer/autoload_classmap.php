@@ -26,9 +26,14 @@ return array(
     'CreatePostsTable' => $baseDir . '/database/migrations/2017_08_01_053639_create_posts_table.php',
     'CreateRoleMenuMappingsTable' => $baseDir . '/database/migrations/2017_08_01_180749_create_role_menu_mappings_table.php',
     'CreateRolesTable' => $baseDir . '/database/migrations/2017_08_01_181422_create_roles_table.php',
+    'CreateRouteTable' => $baseDir . '/database/migrations/2017_08_09_052812_create_route_table.php',
     'CreateStoresTable' => $baseDir . '/database/migrations/2017_08_01_092332_create_stores_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
+<<<<<<< HEAD
     'CreateVehiclesTable' => $baseDir . '/database/migrations/2017_08_09_102612_create_vehicles_table.php',
+=======
+    'CreateVehicleTable' => $baseDir . '/database/migrations/2017_08_08_100549_create_vehicle_table.php',
+>>>>>>> ec242a441139f67a1f1c10acd97c955b30712526
     'CrudGeneratorTest' => $vendorDir . '/appzcoder/crud-generator/tests/CrudGeneratorTest.php',
     'DOMPDF' => $vendorDir . '/dompdf/dompdf/include/dompdf.cls.php',
     'DOMPDF_Exception' => $vendorDir . '/dompdf/dompdf/include/dompdf_exception.cls.php',
@@ -613,6 +618,7 @@ return array(
     'Positioner' => $vendorDir . '/dompdf/dompdf/include/positioner.cls.php',
     'Renderer' => $vendorDir . '/dompdf/dompdf/include/renderer.cls.php',
     'RolesTableSeeder' => $baseDir . '/database/seeds/RolesTableSeeder.php',
+    'RoutesTableSeeder' => $baseDir . '/database/seeds/RoutesTableSeeder.php',
     'SebastianBergmann\\Comparator\\ArrayComparator' => $vendorDir . '/sebastian/comparator/src/ArrayComparator.php',
     'SebastianBergmann\\Comparator\\Comparator' => $vendorDir . '/sebastian/comparator/src/Comparator.php',
     'SebastianBergmann\\Comparator\\ComparisonFailure' => $vendorDir . '/sebastian/comparator/src/ComparisonFailure.php',
