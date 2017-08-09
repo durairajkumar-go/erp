@@ -44,7 +44,7 @@ return [
 	'store' => 'Stores',
 	'short name' => 'Short Name',
 	'vehicle' => 'Vehicle',
-	'registration_number' => 'Reg No.',
+	'registration_number' => 'Registration No.',
     'rate template' => 'Rate Template',
     
 
