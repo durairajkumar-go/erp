@@ -5,6 +5,7 @@
 
 <?php
 //Roles Section
+
 $main_uri="";
     $array_uri = explode("/", Route::getFacadeRoot()->current()->uri(), 2);
     if(isset($array_uri[0])){
@@ -30,8 +31,8 @@ $print_role=$roles->print;
 $view_role=$roles->view;
 $search_role=$roles->search;
 
-$role_action_column=7;
-$other_columns="0,1,2,3,4,5,6";
+$role_action_column=5;
+$other_columns="0,1,2,3,4";
 // End of Roldes Section
 
 ?>
@@ -49,9 +50,9 @@ $other_columns="0,1,2,3,4,5,6";
     <div class="panel panel-bd" data-index="0">
         <div class="panel-heading">
             <div class="panel-title" >
-                <h4>{{ trans('messages.location') }}  </h4>
+                <h4>{{ trans('messages.vehicle') }}  </h4>
             @if($add_role=='1')    
-            <a href="{{ url('location/create') }}" class="btn btn-sm btn-primary pull-right hvr-buzz-out fa fa-pencil" style="color: #fff"  onclick="clickAndDisable(this);"></a>
+            <a href="{{ url('vehicle/create') }}" class="btn btn-sm btn-primary pull-right hvr-buzz-out fa fa-pencil" style="color: #fff"  onclick="clickAndDisable(this);"></a>
             @endif
             </div>
         </div>
@@ -63,10 +64,8 @@ $other_columns="0,1,2,3,4,5,6";
         <thead>
             <tr>
                 <th>{{ trans('messages.id') }} </th>
+                <th>{{ trans('messages.registration_number') }} </th>
                 <th>{{ trans('messages.location') }} </th>
-                <th>{{ trans('messages.address') }} </th>
-                <th>{{ trans('messages.phone') }} </th>
-                <th>{{ trans('messages.email') }} </th>
                 <th>{{ trans('messages.created at') }}</th>
                 <th>{{ trans('messages.updated at') }}</th>
                 <th>{{ trans('messages.action') }} </th>
@@ -103,15 +102,15 @@ $other_columns="0,1,2,3,4,5,6";
 //buttons option
     $buttons ="['pageLength'";
     if($copy_role=='1')
-    $buttons .=",{ extend: 'copy', title: '".trans('messages.location')."',exportOptions: { columns: ':visible' } }";
+    $buttons .=",{ extend: 'copy', title: '".trans('messages.vehicle')."',exportOptions: { columns: ':visible' } }";
     if($csv_role=='1')
-    $buttons .=",{ extend: 'csv', title: '".trans('messages.location')."', exportOptions: { columns: ':visible' } }";
+    $buttons .=",{ extend: 'csv', title: '".trans('messages.vehicle')."', exportOptions: { columns: ':visible' } }";
     if($excel_role=='1')
-    $buttons .=",{ extend: 'excel', title: '".trans('messages.location')."', exportOptions: { columns: ':visible' }}";
+    $buttons .=",{ extend: 'excel', title: '".trans('messages.vehicle')."', exportOptions: { columns: ':visible' }}";
     if($pdf_role=='1')
-    $buttons .=",{ extend: 'pdf', title: '".trans('messages.location')."' , exportOptions: { columns: ':visible'}}";
+    $buttons .=",{ extend: 'pdf', title: '".trans('messages.vehicle')."' , exportOptions: { columns: ':visible'}}";
     if($print_role=='1')
-    $buttons .=",{ extend: 'print', title: '".trans('messages.location')."', exportOptions: { columns: ':visible'}}";
+    $buttons .=",{ extend: 'print', title: '".trans('messages.vehicle')."', exportOptions: { columns: ':visible'}}";
     $buttons .=",{
         extend: 'colvis',
         columns: [".$column_visiblity."]
@@ -148,13 +147,11 @@ $(function() {
         language: {
                 url: '{{ $current_language }}'
             },
-        ajax: '{!! route('location_data.data') !!}',
+        ajax: '{!! route('vehicle_data.data') !!}',
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'name', name: 'name' },
-            { data: 'address', name: 'address' },
-            { data: 'phone', name: 'phone' },
-            { data: 'email', name: 'email' },
+            { data: 'registration_number', name: 'registration_number' },
+            { data: 'parent_id', name: 'parent_id' },
             { data: 'created_at', name: 'created_at' },
             { data: 'updated_at', name: 'updated_at' },
             {data: 'action', name: 'action', orderable: false, searchable: false}

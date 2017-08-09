@@ -4,6 +4,7 @@
 
 <?php
 //Roles Section
+
 $main_uri="";
     $array_uri = explode("/", Route::getFacadeRoot()->current()->uri(), 2);
     if(isset($array_uri[0])){
@@ -23,25 +24,24 @@ $add_role=$roles->add;
 $edit_role=$roles->edit;
 
 if($edit_role=='0'){
-  header("store:".url('/logout'));
+  header("vehicle:".url('/logout'));
   exit();
 }
 
 ?>
-
 
 <div class="row">
 <div class="col-sm-12" >
     <div class="panel panel-bd" data-index="0">
         <div class="panel-heading">
             <div class="panel-title" >
-                <h4>{{ trans('messages.store') }} </h4>
+                <h4>{{ trans('messages.vehicle') }} </h4>
                   <span class="mandatory">
                       &nbsp; * {{ trans('messages.mandatory') }} 
                   </span>                                        
             <a href="{{ $back_url }}" class="btn btn-warning btn-sm hvr-buzz-out fa fa-backward pull-right" style="color: #ffffff" onclick="clickAndDisable(this);"></a>
             @if($add_role=='1')    
-              <a href="{{ url('store/create') }}" class="btn btn-sm btn-primary pull-right hvr-buzz-out fa fa-pencil" style="color: #fff"  onclick="clickAndDisable(this);"></a>
+              <a href="{{ url('vehicle/create') }}" class="btn btn-sm btn-primary pull-right hvr-buzz-out fa fa-pencil" style="color: #fff"  onclick="clickAndDisable(this);"></a>
              @endif 
 
             </div>
@@ -60,7 +60,7 @@ if($edit_role=='0'){
                     @endforeach
             @endif
 
-{!! Form::open(array('route' => ['store.update', $data->id] , 'method' => 'PUT'),['class' => 'form']) !!}
+{!! Form::open(array('route' => ['vehicle.update', $data->id] , 'method' => 'PUT'),['class' => 'form']) !!}
 
  <?php
     $items = App\Model\Masters\Location::where('record_status','1')->orderBy('name')->pluck('name', 'id');
@@ -76,19 +76,13 @@ if($edit_role=='0'){
                         </div>
 
                         <div class="form-group">
-                           <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('name', 'has-error') }}">
-                            {{ Form::text('name', $data->name, ['class' => 'form-control',(($errors->first('name')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
+                           <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('registration_number', 'has-error') }}">
+                            {{ Form::text('registration_number', $data->registration_number, ['class' => 'form-control',(($errors->first('registration_number')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
                             {{ Form::label('name',trans('messages.store'),['class' => 'fill-this']) }}
                             </div>
                         </div>
 
-                        <div class="form-group">
-                           <div class="styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('short_name', 'has-error') }}">
-                            {{ Form::text('short_name', $data->short_name, ['class' => 'form-control',(($errors->first('short_name')) ? 'autofocus': null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
-                            {{ Form::label('short_name', trans('messages.short name'),['class' => 'fill-this']) }}
-                            </div>
-                        </div>
-
+                 
 
 </div>
 <div class="panel-footer">
