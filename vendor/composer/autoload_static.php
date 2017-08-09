@@ -345,6 +345,7 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         'CreateRolesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_01_181422_create_roles_table.php',
         'CreateStoresTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_01_092332_create_stores_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
+        'CreateVehicleTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_08_100549_create_vehicle_table.php',
         'CrudGeneratorTest' => __DIR__ . '/..' . '/appzcoder/crud-generator/tests/CrudGeneratorTest.php',
         'DOMPDF' => __DIR__ . '/..' . '/dompdf/dompdf/include/dompdf.cls.php',
         'DOMPDF_Exception' => __DIR__ . '/..' . '/dompdf/dompdf/include/dompdf_exception.cls.php',
@@ -987,6 +988,7 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         'Text_Renderer' => __DIR__ . '/..' . '/dompdf/dompdf/include/text_renderer.cls.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersTableSeeder.php',
+        'vehiclesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/vehiclesTableSeeder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

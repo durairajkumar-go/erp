@@ -6,15 +6,14 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Model\Masters\Store;
+use App\Model\Masters\Vehicle;
 use Yajra\Datatables\Datatables;
 use Validator;
 use Auth;
 use App\Model\Masters\RoleMenuMapping;
 use Illuminate\Support\Facades\Route;
 
-
-class StoreController extends Controller
+class VehicleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,16 +22,20 @@ class StoreController extends Controller
      */
     public function index()
     {
-         $data = Store::all();
+        //
+	
+		$data = Vehicle::all();
 		
-         return view('masters.store.index',compact('data'));
+		 return view('masters.vehicle.index',compact('data'));
     }
 
-    public function anyData()
+
+	  public function anyData()
     {
-     $data = Store::all();
-	 
-     $edit_role='0';
+	
+     $data = Vehicle::all();
+	// echo $data;exit;
+	 $edit_role='0';
      $delete_role='0';
      $actions='';
 
@@ -50,14 +53,14 @@ class StoreController extends Controller
             ->addColumn('action', function ($data) use($edit_role,$delete_role,$actions) {
                 if($data->record_status==1){
                     if($edit_role=='1')
-                        $actions.='<a href="store/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>';
+                        $actions.='<a href="vehicle/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>';
                     if($delete_role=='1')
-                        $actions.=' <a href="store/change/'.$data->id.'" class="btn btn-xs btn-danger" ><i class="fa hvr-buzz-out  fa-trash" onclick="clickAndDisable(this);"></i></a>';                     
+                        $actions.=' <a href="vehicle/change/'.$data->id.'" class="btn btn-xs btn-danger" ><i class="fa hvr-buzz-out  fa-trash" onclick="clickAndDisable(this);"></i></a>';                     
                 }else{
                     if($edit_role=='1')
-                        $actions.='<a href="store/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>';
+                        $actions.='<a href="vehicle/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>';
                     if($delete_role=='1')
-                        $actions.=' <a href="store/change/'.$data->id.'" class="btn btn-xs btn-success" ><i class="fa hvr-buzz-out  fa-check" onclick="clickAndDisable(this);"></i></a>';
+                        $actions.=' <a href="vehicle/change/'.$data->id.'" class="btn btn-xs btn-success" ><i class="fa hvr-buzz-out  fa-check" onclick="clickAndDisable(this);"></i></a>';
                 }
 
                  return $actions;   
@@ -67,14 +70,14 @@ class StoreController extends Controller
             })
             ->make(true);
     }
-
-    protected function validator(array $data)
+	
+	 protected function validator(array $data)
     {      
 
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'short_name' => 'required|max:255',
-            'parent_id' => 'required|max:255',
+            'registration_number' => 'required|max:255',
+			'parent_id' => 'required|max:255',
+            
         ]);
     }
 
@@ -85,7 +88,8 @@ class StoreController extends Controller
      */
     public function create()
     {
-        return view('masters.store.create');
+        //
+		return view('masters.vehicle.create');
     }
 
     /**
@@ -96,14 +100,16 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
+        //
+		
      if ($this->validator($request->all())->fails()) {
         return redirect()->back()
                         ->withErrors($this->validator($request->all()))
                         ->withInput();
      }else{
         try { 
-        Store::create($request->all());
-        return redirect()->route('store.index')->with('message','Item has been added successfully');
+        Vehicle::create($request->all());
+        return redirect()->route('vehicle.index')->with('message','Item has been added successfully');
         } 
         catch(\Illuminate\Database\QueryException $ex){ 
         return redirect()->back()
@@ -111,6 +117,19 @@ class StoreController extends Controller
                         ->withInput();             
         }
     }
+    
+    }
+	
+	 public function change($id){
+
+        if($data = Vehicle::find($id)){
+            $record_status=1;
+            if($data->record_status==1){
+                $record_status=0;                
+            } 
+            Vehicle::where('id', $id)->update(['record_status' => $record_status]);           
+            return redirect()->route('vehicle.index')->with('message','Item has been updated successfully');
+        }   
     }
 
     /**
@@ -124,28 +143,16 @@ class StoreController extends Controller
         //
     }
 
-    public function change($id){
-
-        if($data = Store::find($id)){
-            $record_status=1;
-            if($data->record_status==1){
-                $record_status=0;                
-            } 
-            Store::where('id', $id)->update(['record_status' => $record_status]);           
-            return redirect()->route('store.index')->with('message','Item has been updated successfully');
-        }   
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Store $store)
+    public function edit(Vehicle $vehicle)
     {
-         $data = $store;
-         return view('masters.store.edit',compact('data'));
+        $data = $vehicle; 
+        return view('masters.vehicle.edit',compact('data'));
     }
 
     /**
@@ -155,9 +162,10 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Store $store)
+    public function update(Request $request, Vehicle $vehicle)
     {
-         $data = $store;
+        //
+		  $data = $vehicle;
          if ($this->validator($request->all())->fails()) {
             return redirect()->back()
                             ->withErrors($this->validator($request->all()))
@@ -167,7 +175,7 @@ class StoreController extends Controller
             try { 
 
                 $data->update($request->all());
-                return redirect()->route('store.index')->with('message','Item has been updated successfully');
+                return redirect()->route('vehicle.index')->with('message','Item has been updated successfully');
              }
              catch(\Illuminate\Database\QueryException $ex){ 
                         return redirect()->back()

@@ -35,11 +35,16 @@ return [
 	'logout' => 'Logout',
     'dashboard' => 'Dashboard',
     'company' => 'Company',
+	'Routes' => 'Routes',
     'reports' => 'Reports',
     'stores' => 'Stores',
     'products' => 'Products',
     'category' => 'Category',
     'materials' => 'Materials',
+	'store' => 'Stores',
+	'short name' => 'Short Name',
+	'vehicle' => 'Vehicle',
+	'registration_number' => 'Reg No.',
     'rate template' => 'Rate Template',
     
 

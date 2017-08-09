@@ -61,5 +61,15 @@ Route::get('store/change/{id}', 'Masters\storeController@change');
 //Sore Master End
 
 
+// Vehicle Master
+Route::resource('vehicle', 'Masters\VehicleController');
+
+Route::controller('vehicle_data', 'Masters\VehicleController', [
+    'anyData'  => 'vehicle_data.data',
+]);
+
+Route::get('vehicle/change/{id}', 'Masters\VehicleController@change');
+//Vehicle Master End
+
 });
 });

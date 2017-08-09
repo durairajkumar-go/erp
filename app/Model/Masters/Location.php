@@ -4,6 +4,7 @@ namespace App\Model\Masters;
 
 use Illuminate\Database\Eloquent\Model;
 use \App\Model\Masters\Stores;
+//use \App\Model\Masters\Vehicle;
 
 class Location extends Model
 {
@@ -21,4 +22,9 @@ class Location extends Model
     {
         return $this->hasMany('\App\Model\Masters\Stores');
     }
+	
+	/* public function vehicle()
+    {
+        return $this->hasMany('\App\Model\Masters\Vehicle');
+    }*/
 }
