@@ -4,10 +4,13 @@ namespace App\Model\Masters;
 
 use Illuminate\Database\Eloquent\Model;
 use \App\Model\Masters\Location;
+use Spatie\Activitylog\LogsActivityInterface;
+use Spatie\Activitylog\LogsActivity;
 
-class Vehicle extends Model
+class Vehicle extends Model implements LogsActivityInterface
 {
-     protected $fillable = ['parent_id','registration_number','chassis_number','insurance','policy_amt','policy_expiry','route_id','service_date','inspection_date','capacity'];
+	use LogsActivity;
+    protected $fillable = ['parent_id','registration_number','chassis_number','insurance','policy_amt','policy_expiry','route_id','service_date','inspection_date','capacity'];
 
     public function location()
     {
@@ -43,4 +46,25 @@ class Vehicle extends Model
 	{
 		$this->attributes['registration_number'] = strtoupper($value);
 	}
+
+    public function getActivityDescriptionForEvent($eventName)
+    {
+        if ($eventName == 'created')
+        {
+            return 'Vehicle "' . $this . '" was created';
+        }
+
+        if ($eventName == 'updated')
+        {
+            return 'Vehicle "' . $this . '" was updated';
+        }
+
+        if ($eventName == 'deleted')
+        {
+            return 'Vehicle "' . $this . '" was deleted';
+        }
+
+        return '';
+    }
+
 }

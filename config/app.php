@@ -159,6 +159,7 @@ return [
         Yajra\Datatables\DatatablesServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
+        Spatie\Activitylog\ActivitylogServiceProvider::class,
 
     ],
 
@@ -209,6 +210,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Activity' => Spatie\Activitylog\ActivitylogFacade::class,
     ],
 
 ];
