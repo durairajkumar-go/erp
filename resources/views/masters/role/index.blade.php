@@ -64,7 +64,7 @@ $other_columns="0,1,2,3,4";
         <thead>
             <tr>
                 <th>{{ trans('messages.id') }} </th>
-                <th>{{ trans('messages.name') }} </th>
+                <th>{{ trans('messages.role name') }} </th>
                 <th>{{ trans('messages.short name') }} </th>
                 <th>{{ trans('messages.created at') }}</th>
                 <th>{{ trans('messages.updated at') }}</th>
