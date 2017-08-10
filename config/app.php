@@ -158,6 +158,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
 
     ],
 
