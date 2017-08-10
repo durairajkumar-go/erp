@@ -5,6 +5,7 @@ namespace App\Model\Masters;
 use Illuminate\Database\Eloquent\Model;
 use \App\Model\Masters\Stores;
 use \App\Model\Masters\Routes;
+use \App\Model\Masters\Vehicle;
 
 class Location extends Model
 {
@@ -25,6 +26,10 @@ class Location extends Model
 	public function Routes()
     {
         return $this->hasMany('\App\Model\Masters\Routes');
+    }
+	public function Vehicle()
+    {
+        return $this->hasMany('\App\Model\Masters\Vehicle');
     }
 	
 }

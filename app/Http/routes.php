@@ -80,5 +80,15 @@ Route::controller('vehicle_data', 'Masters\VehicleController', [
 Route::get('vehicle/change/{id}', 'Masters\VehicleController@change');
 //Vehicle Master End
 
+// Roles Master
+Route::resource('role', 'Masters\RoleController');
+
+Route::controller('role_data', 'Masters\RoleController', [
+    'anyData'  => 'role_data.data',
+]);
+
+Route::get('role/change/{id}', 'Masters\RoleController@change');
+//Roles Master End
+
 });
 });

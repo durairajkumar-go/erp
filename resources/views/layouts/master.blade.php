@@ -26,24 +26,29 @@
         <!-- Custom css -->
         <link href="{{ url('assets/dist/css/custom.css') }}" rel="stylesheet" type="text/css"/>
 
-        <link href="http://codeseven.github.io/toastr/build/toastr.min.css" rel="stylesheet" type="text/css"/>
+        <link href="{{ url('assets/github/css/toastr.min.css') }}" rel="stylesheet" type="text/css"/>
 
 
-        <link href="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/flag-icon/css/flag-icon.min.css" rel="stylesheet" type="text/css"/>
+        <link href="{{ url('assets/bootstrap/css/flag-icon.min.css') }}" rel="stylesheet" type="text/css"/>
 
 
-        <link href="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/monthly/monthly.min.css" rel="stylesheet" type="text/css"/>
+        <link href="{{ url('assets/bootstrap/css/monthly.min.css') }}" rel="stylesheet" type="text/css"/>
 
 
-        <link href="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/amcharts/export.css" rel="stylesheet" type="text/css"/>
+        <link href="{{ url('assets/bootstrap/css/export.css') }}" rel="stylesheet" type="text/css"/>
+        
+        <!-- Date Picker -->
+ 		<link rel="stylesheet" href="{{ URL::to('assets/plugins/datepicker/datepicker3.css') }}">
+  		<!-- Daterange picker -->
+  		<link rel="stylesheet" href="{{ URL::to('assets/plugins/daterangepicker/daterangepicker-bs3.css') }}">
 
       <!-- jQuery -->
         <script src="{{ url('assets/plugins/jQuery/jquery-1.12.4.min.js') }}" type="text/javascript"></script>
         <!-- End Theme Layout Style
         =====================================================================-->
 
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+        <link href="{{ url('assets/plugins/jQuery/css/select2.min.css') }}" rel="stylesheet" />
+        <script src="{{ url('assets/plugins/jQuery/js/select2.min.js') }}"></script>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -211,6 +216,10 @@ textarea {
                 border: 1px solid rgba(170, 170, 170, 0.31);
                  border-radius: 0px; 
             }
+			
+			.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover{
+ 			 opacity: 0.5;
+ 			}   
         </style>
     </head>
     <body>
@@ -637,34 +646,36 @@ $back_url=url($main_uri);
         <script src="{{ url('assets/plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
         <!-- FastClick js-->
         <script src="{{ url('assets/plugins/fastclick/fastclick.min.js') }}" type="text/javascript"></script>
-       <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/metisMenu/metisMenu.min.js" type="text/javascript"></script>
+      <?php /*?> <script src="{{ url('assets/plugins/fastclick/metisMenu.min.js') }}" type="text/javascript"></script><?php */?>
         <!-- End Core Plugins
         =====================================================================-->
 
         <!-- STRAT PAGE LABEL PLUGINS -->
-        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/toastr/toastr.min.js" type="text/javascript"></script>
-        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/sparkline/sparkline.min.js" type="text/javascript"></script>
-        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
-        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/counterup/waypoints.js" type="text/javascript"></script>
-        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/emojionearea/emojionearea.min.js" type="text/javascript"></script>
-        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/monthly/monthly.min.js" type="text/javascript"></script>
-        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/amcharts/amcharts.js" type="text/javascript"></script>
-        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/amcharts/ammap.js" type="text/javascript"></script>
-        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/amcharts/worldLow.js" type="text/javascript"></script>
-        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/amcharts/serial.js" type="text/javascript"></script>
-        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/amcharts/export.min.js" type="text/javascript"></script>
-        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/amcharts/light.js" type="text/javascript"></script>
-        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/plugins/amcharts/pie.js" type="text/javascript"></script>
+        <script src="{{ url('assets/bootstrap/js/toastr.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('assets/bootstrap/js/sparkline.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('assets/bootstrap/js/jquery.counterup.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('assets/bootstrap/js/waypoints.js') }}" type="text/javascript"></script>
+        <script src="{{ url('assets/bootstrap/js/emojionearea.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('assets/bootstrap/js/monthly.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('assets/bootstrap/js/amcharts.js') }}" type="text/javascript"></script>
+        <script src="{{ url('assets/bootstrap/js/ammap.js') }}" type="text/javascript"></script>
+        <script src="{{ url('assets/bootstrap/js/worldLow.js') }}" type="text/javascript"></script>
+        <script src="{{ url('assets/bootstrap/js/serial.js') }}" type="text/javascript"></script>
+        <script src="{{ url('assets/bootstrap/js/export.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('assets/bootstrap/js/light.js') }}" type="text/javascript"></script>
+        <script src="{{ url('assets/bootstrap/js/pie.js') }}" type="text/javascript"></script>
 
         <!-- START THEME LABEL SCRIPT -->   
         <script src="{{ url('assets/theme/js/dashboard.min.js') }}" type="text/javascript"></script>
-        <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/dist/js/jQuery.style.switcher.min.js" type="text/javascript"></script>
+       <?php /*?> <script src="http://thememinister.com/bootstrap-admin-template/theme/adminpage_v1.0/assets/dist/js/jQuery.style.switcher.min.js" type="text/javascript"></script><?php not found in online*/?>
+       
+       <script src="{{ url('assets/bootstrap/js/jQuery.style.switcher.min.js') }}" type="text/javascript"></script>
 
         <!-- Start Page Lavel Plugins
         =====================================================================-->
         <!-- dataTables js -->
         <script src="{{ url('assets/plugins/datatables/dataTables.min.js') }}" type="text/javascript"></script>
-        <script src="//cdn.datatables.net/buttons/1.3.1/js/buttons.colVis.min.js" type="text/javascript"></script>
+        <script src="{{ url('assets/plugins/datatables/buttons.colVis.min.js') }}" type="text/javascript"></script>
 
 
         <!-- Start Theme label Script
@@ -672,9 +683,20 @@ $back_url=url($main_uri);
         <!-- Dashboard js -->
         <script src="{{ url('assets/dist/js/dashboard.js') }}" type="text/javascript"></script>
         <!-- Toaster js -->
-        <script src="http://codeseven.github.io/toastr/build/toastr.min.js" type="text/javascript"></script>
+        <script src="{{ url('assets/github/js/toastr.min.js') }}" type="text/javascript"></script>
         <!-- End Theme label Script
         =====================================================================-->
+        
+        <!-- Start Date Picker Script
+        =====================================================================-->
+        <!-- Date Ratnge Picker js -->
+        <script src="{{ URL::to('assets/plugins/moment/min/moment.min.js') }}"></script>
+		<script src="{{ URL::to('assets/plugins/daterangepicker/daterangepicker.js') }}"></script>
+		<!-- Date Picker -->
+		<script src="{{ URL::to('assets/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
+        <!-- End Date Picker Script
+        =====================================================================-->
+        
         <script>
             $(document).ready(function () {
 
@@ -730,6 +752,22 @@ $(document).ready(function () {
     });
 
 });
+
+ $('.get_date').datepicker({
+      autoclose: true,
+      format: "dd-mm-yyyy",
+      defaultDate: ''
+    });
+    
+ function isNumber(evt,element) {
+ 	var charCode = (evt.which) ? evt.which : event.keyCode;
+     if (
+            //(charCode != 45 || $(element).val().indexOf('-') != -1) &&      // "-" CHECK MINUS, AND ONLY ONE.
+            (charCode != 46 || $(element).val().indexOf('.') != -1) &&      // "." CHECK DOT, AND ONLY ONE.
+            (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+	}
         </script>
 
 <script>

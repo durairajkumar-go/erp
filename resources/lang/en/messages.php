@@ -45,8 +45,19 @@ return [
 	'short name' => 'Short Name',
 	'vehicle' => 'Vehicle',
 	'registration_number' => 'Registration No.',
+	'chassis_number' => 'Chassis No.',
     'rate template' => 'Rate Template',
      'route' => 'Route',
-     'routes' => 'Routes',
+     'insurance_company' => 'Insured By',
+	 'policy_amt' => 'Policy Amount',
+	 'policy_expiry' => 'Policy Expiry',
+	 'maintenance_date' => 'Maintenance Date',
+	 'inspection_date' => 'Inspection Date',
+	 'capacity' => 'Capicity',
+	 'role' => 'Role',
+	 'menu mapping' => 'Menu Mapping',
+	 'role name' => 'Role Name',
+	 
+	 
 
 ];

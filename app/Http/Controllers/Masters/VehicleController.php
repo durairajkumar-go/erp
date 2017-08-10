@@ -34,7 +34,6 @@ class VehicleController extends Controller
     {
 	
      $data = Vehicle::all();
-	// echo $data;exit;
 	 $edit_role='0';
      $delete_role='0';
      $actions='';
@@ -57,8 +56,8 @@ class VehicleController extends Controller
                     if($delete_role=='1')
                         $actions.=' <a href="vehicle/change/'.$data->id.'" class="btn btn-xs btn-danger" ><i class="fa hvr-buzz-out  fa-trash" onclick="clickAndDisable(this);"></i></a>';                     
                 }else{
-                    if($edit_role=='1')
-                        $actions.='<a href="vehicle/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>';
+                   /* if($edit_role=='1')
+                        $actions.='<a href="vehicle/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>';*/
                     if($delete_role=='1')
                         $actions.=' <a href="vehicle/change/'.$data->id.'" class="btn btn-xs btn-success" ><i class="fa hvr-buzz-out  fa-check" onclick="clickAndDisable(this);"></i></a>';
                 }
@@ -77,7 +76,9 @@ class VehicleController extends Controller
         return Validator::make($data, [
             'registration_number' => 'required|max:255',
 			'parent_id' => 'required|max:255',
-            
+            'route_id' => 'required|max:255',
+			'inspection_date' => 'required|max:255',
+			'capacity' => 'required|max:255',
         ]);
     }
 

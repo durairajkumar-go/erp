@@ -5,6 +5,7 @@
 
 <?php
 //Roles Section
+
 $main_uri="";
     $array_uri = explode("/", Route::getFacadeRoot()->current()->uri(), 2);
     if(isset($array_uri[0])){

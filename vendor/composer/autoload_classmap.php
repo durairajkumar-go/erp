@@ -29,11 +29,7 @@ return array(
     'CreateRouteTable' => $baseDir . '/database/migrations/2017_08_09_052812_create_route_table.php',
     'CreateStoresTable' => $baseDir . '/database/migrations/2017_08_01_092332_create_stores_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
-<<<<<<< HEAD
     'CreateVehiclesTable' => $baseDir . '/database/migrations/2017_08_09_102612_create_vehicles_table.php',
-=======
-    'CreateVehicleTable' => $baseDir . '/database/migrations/2017_08_08_100549_create_vehicle_table.php',
->>>>>>> ec242a441139f67a1f1c10acd97c955b30712526
     'CrudGeneratorTest' => $vendorDir . '/appzcoder/crud-generator/tests/CrudGeneratorTest.php',
     'DOMPDF' => $vendorDir . '/dompdf/dompdf/include/dompdf.cls.php',
     'DOMPDF_Exception' => $vendorDir . '/dompdf/dompdf/include/dompdf_exception.cls.php',
@@ -677,5 +673,5 @@ return array(
     'Text_Renderer' => $vendorDir . '/dompdf/dompdf/include/text_renderer.cls.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'UsersTableSeeder' => $baseDir . '/database/seeds/UsersTableSeeder.php',
-    'VehiclesTableSeeder' => $baseDir . '/database/seeds/VehiclesTableSeeder.php',
+    'VehiclesTableSeeder' => $baseDir . '/database/seeds/vehiclesTableSeeder.php',
 );
