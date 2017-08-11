@@ -3689,9 +3689,7 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
-=======
         'VehiclesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/vehiclesTableSeeder.php',
->>>>>>> 754d52cbebe80ecaa0c4ce39d3d5ad54879a9d25
     );
 
     public static function getInitializer(ClassLoader $loader)
