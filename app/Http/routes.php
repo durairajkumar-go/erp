@@ -48,16 +48,14 @@ Route::get('location_search', 'Masters\LocationController@search');
 
 //Location Master End
 
-
-
 // Store Master
-Route::resource('store', 'Masters\storeController');
+Route::resource('store', 'Masters\StoreController');
 
-Route::controller('store_data', 'Masters\storeController', [
+Route::controller('store_data', 'Masters\StoreController', [
     'anyData'  => 'store_data.data',
 ]);
 
-Route::get('store/change/{id}', 'Masters\storeController@change');
+Route::get('store/change/{id}', 'Masters\StoreController@change');
 //Sore Master End
 
 // Route Master
@@ -91,6 +89,7 @@ Route::get('role/change/{id}', 'Masters\RoleController@change');
 Route::get('role/menu_mapping/{id}', 'Masters\RoleController@menuMapping');
 //Roles Master End
 
+<<<<<<< HEAD
 // Menu Master
 Route::resource('menu', 'Masters\MenuController');
 
@@ -100,6 +99,17 @@ Route::controller('menu_data', 'Masters\MenuController', [
 
 Route::get('menu/change/{id}', 'Masters\MenuController@change');
 //Menu Master End
+=======
+// Grade Master
+Route::resource('grade', 'Production\GradeController');
+
+Route::controller('grade_data', 'Production\GradeController', [
+    'anyData'  => 'grade_data.data',
+]);
+
+Route::get('grade/change/{id}', 'Production\GradeController@change');
+//Grade Master End
+>>>>>>> 988e46bf1eccd0634088c7a790a638f42550acfc
 
 });
 });
