@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Model\Masters\Role;
 use App\Model\Masters\Menu;
 use Yajra\Datatables\Datatables;
 use Validator;
 use Auth;
+use App\Model\Masters\RoleMenuMapping;
 use Illuminate\Support\Facades\Route;
 
-class RoleController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,17 +22,16 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
-		$data = Role::all();
-		
-		 return view('masters.role.index',compact('data'));
+        $data = Menu::all();
+		//print_r($data);exit;
+         return view('masters.menu.index',compact('data'));
     }
 	
 	public function anyData()
     {
-	
-     $data = Role::all();
-	 $edit_role='0';
+     $data = Menu::all();
+	//print_r($data);exit;
+     $edit_role='0';
      $delete_role='0';
      $actions='';
 
@@ -50,32 +49,22 @@ class RoleController extends Controller
             ->addColumn('action', function ($data) use($edit_role,$delete_role,$actions) {
                 if($data->record_status==1){
                     if($edit_role=='1')
-                        $actions.='<a href="role/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>';
+                        $actions.='<a href="menu/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>';
                     if($delete_role=='1')
-                        $actions.=' <a href="role/change/'.$data->id.'" class="btn btn-xs btn-danger" ><i class="fa hvr-buzz-out  fa-trash" onclick="clickAndDisable(this);"></i></a>'; 
-						
-						$actions.=' <a href="role/menu_mapping/'.$data->id.'" class="btn btn-xs btn-success" ><i class="fa hvr-buzz-out  fa-map-signs" onclick="clickAndDisable(this);"></i></a>';                     
+                        $actions.=' <a href="menu/change/'.$data->id.'" class="btn btn-xs btn-danger" ><i class="fa hvr-buzz-out  fa-trash" onclick="clickAndDisable(this);"></i></a>';                     
                 }else{
-                    /*if($edit_role=='1')
-                        $actions.='<a href="role/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>';*/
+                    if($edit_role=='1')
+                        $actions.='<a href="menu/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>';
                     if($delete_role=='1')
-                        $actions.=' <a href="role/change/'.$data->id.'" class="btn btn-xs btn-success" ><i class="fa hvr-buzz-out  fa-check" onclick="clickAndDisable(this);"></i></a>';
-						
+                        $actions.=' <a href="menu/change/'.$data->id.'" class="btn btn-xs btn-success" ><i class="fa hvr-buzz-out  fa-check" onclick="clickAndDisable(this);"></i></a>';
                 }
 
                  return $actions;   
-            })->addColumn('menuMapping', function ($data) {
-                	return '<button id="menuMapping-'.$data->id.'"   onclick="menuMapping('.$data->id.')" class="btn btn-xs btn-primary"> Menu Mapping </button>';
-			})
+            })
+            /* ->editColumn('parent_id', function ($data) {
+                return $data->location->name;
+            }) */
             ->make(true);
-    }
-	
-	 protected function validator(array $data)
-    {      
-
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-        ]);
     }
 
     /**
@@ -85,8 +74,18 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
-		return view('masters.role.create');
+       return view('masters.menu.create');
+    }
+	
+	protected function validator(array $data)
+    {      
+
+        return Validator::make($data, [
+            'title' => 'required|max:255',
+            'parent_id' => 'required|max:255',
+			'slug' => 'required|max:255',
+			'link' => 'required|max:255',
+        ]);
     }
 
     /**
@@ -97,16 +96,15 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
-	
-     if ($this->validator($request->all())->fails()) {
+        
+         if ($this->validator($request->all())->fails()) {
         return redirect()->back()
                         ->withErrors($this->validator($request->all()))
                         ->withInput();
      }else{
         try { 
-        Role::create($request->all());
-        return redirect()->route('role.index')->with('message','Item has been added successfully');
+        Menu::create($request->all());
+        return redirect()->route('menu.index')->with('message','Item has been added successfully');
         } 
         catch(\Illuminate\Database\QueryException $ex){ 
         return redirect()->back()
@@ -115,19 +113,6 @@ class RoleController extends Controller
         }
     }
     
-    
-    }
-	
-	public function change($id){
-
-        if($data = Role::find($id)){
-            $record_status=1;
-            if($data->record_status==1){
-                $record_status=0;                
-            } 
-            Role::where('id', $id)->update(['record_status' => $record_status]);           
-            return redirect()->route('role.index')->with('message','Item has been updated successfully');
-        }   
     }
 
     /**
@@ -147,28 +132,11 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit(Menu $menu)
     {
-        //
-		$data = $role; 
-        return view('masters.role.edit',compact('data'));
+         $data = $menu;
+         return view('masters.menu.edit',compact('data'));
     }
-	
-	//For Menu Mapping
-	 public function menuMapping($id)
-    {
-        //
-		$data = Role::find($id);
-		
-		//Create Tree view for Menus & Sub Menus
-		
-        return view('masters.role.menu_mapping',compact('data'));
-    }
-	
-	//To Save Role Menu Mappings
-	public function addMenuMappings(Request $request, Role $role)
-	{
-	}
 
     /**
      * Update the specified resource in storage.
@@ -177,12 +145,10 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, $id)
     {
-        //
-		
-        //
-		  $data = $role;
+        
+         $data = $menu;
          if ($this->validator($request->all())->fails()) {
             return redirect()->back()
                             ->withErrors($this->validator($request->all()))
@@ -192,7 +158,7 @@ class RoleController extends Controller
             try { 
 
                 $data->update($request->all());
-                return redirect()->route('role.index')->with('message','Item has been updated successfully');
+                return redirect()->route('menu.index')->with('message','Item has been updated successfully');
              }
              catch(\Illuminate\Database\QueryException $ex){ 
                         return redirect()->back()

@@ -36,7 +36,7 @@ if($add_role=='0'){
     <div class="panel panel-bd" data-index="0">
         <div class="panel-heading">
             <div class="panel-title" >
-                <h4>{{ trans('messages.route') }} </h4>
+                <h4>{{ trans('messages.menu') }} </h4>
                   <span class="mandatory">
                       &nbsp; * {{ trans('messages.mandatory') }} 
                   </span>                          
@@ -60,27 +60,52 @@ if($add_role=='0'){
                     @endforeach
             @endif
 
- {!! Form::open(array('route' => 'route.store')) !!}
+ {!! Form::open(array('route' => 'menu.store')) !!}
 
  <?php
-    $items = App\Model\Masters\Location::where('record_status','1')->orderBy('name')->pluck('name', 'id');
+    $items = App\Model\Masters\Menu::where('record_status','1')->orderBy('title')->pluck('title', 'id');
     $items->prepend('Select', '');
 
  ?>
                         <div class="form-group">
                            <div class="styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('parent_id', 'has-error') }}">
                             {!! Form::select('parent_id', $items , null, ['class' => 'form-control drop-select',(($errors->first('parent_id')) ? 'autofocus': null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) !!}
-                            {{ Form::label('parent_id', trans('messages.location'),['class' => 'fill-this']) }}
+                            {{ Form::label('parent_id', trans('messages.menu'),['class' => 'fill-this']) }}
                             </div>
                         </div>
 
                         <div class="form-group">
                            <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('name', 'has-error') }}">
-                            {{ Form::text('name', null, ['class' => 'form-control',(($errors->first('name')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
-                            {{ Form::label('name',trans('messages.route'),['class' => 'fill-this']) }}
+                            {{ Form::text('title', null, ['class' => 'form-control',(($errors->first('name')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
+                            {{ Form::label('title',trans('messages.title'),['class' => 'fill-this']) }}
                             </div>
                         </div>
-
+						
+                        <div class="form-group">
+                           <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('name', 'has-error') }}">
+                            {{ Form::text('slug', null, ['class' => 'form-control',(($errors->first('name')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
+                            {{ Form::label('slug',trans('messages.slug'),['class' => 'fill-this']) }}
+                            </div>
+                        </div>
+						
+                        <div class="form-group">
+                           <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('name', 'has-error') }}">
+                            {{ Form::text('link', null, ['class' => 'form-control',(($errors->first('name')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
+                            {{ Form::label('link',trans('messages.link'),['class' => 'fill-this']) }}
+                            </div>
+                        </div>
+						 <div class="form-group">
+                           <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('name', 'has-error') }}">
+                            {{ Form::text('icon', null, ['class' => 'form-control',(($errors->first('name')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
+                            {{ Form::label('icon',trans('messages.icon')) }}
+                            </div>
+                            </div>
+							<div class="form-group">
+                           <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('name', 'has-error') }}">
+                            {{ Form::text('ordering', null, ['class' => 'form-control',(($errors->first('name')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off','onkeypress'=>'return isNumber(event,this)']) }}
+                            {{ Form::label('ordering',trans('messages.ordering')) }}
+                            </div>
+                        </div>
                        
                     </div>
 <div class="panel-footer">

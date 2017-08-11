@@ -72,24 +72,7 @@ if($edit_role=='0'){
     $routes_date->prepend('Select', '');
 	
 	
-	if($data->service_date == '0000-00-00')
-	{
-		$maintenance_date = '';
-	}
-	else
-	{
-		$maintenance_date = date('d-m-Y',strtotime($data->service_date));
-	}
 	
-	
-	if($data->inspection_date == '0000-00-00')
-	{
-		$inspection_date = '';
-	}
-	else
-	{
-		$inspection_date = date('d-m-Y',strtotime($data->inspection_date));
-	}
  ?>
 
                         <div class="form-group">
@@ -144,14 +127,14 @@ if($edit_role=='0'){
                         
                         <div class="form-group">
                            <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('service_date', 'has-error') }}">
-                            {{ Form::text('service_date', $maintenance_date, ['class' => 'form-control get_date',(($errors->first('service_date')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off','readonly']) }}
+                            {{ Form::text('service_date', $data->service_date, ['class' => 'form-control get_date',(($errors->first('service_date')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off','readonly']) }}
                             {{ Form::label('name',trans('messages.maintenance_date')) }}
                             </div>
                         </div>
                         
                         <div class="form-group">
                            <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('inspection_date', 'has-error') }}">
-                            {{ Form::text('inspection_date', $inspection_date, ['class' => 'form-control get_date',(($errors->first('inspection_date')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off','readonly']) }}
+                            {{ Form::text('inspection_date', $data->inspection_date, ['class' => 'form-control get_date',(($errors->first('inspection_date')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off','readonly']) }}
                             {{ Form::label('name',trans('messages.inspection_date'),['class' => 'fill-this']) }}
                             </div>
                         </div>

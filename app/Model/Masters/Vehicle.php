@@ -29,10 +29,33 @@ class Vehicle extends Model implements LogsActivityInterface
 		return date('d-m-Y',strtotime($value));
 	}
 	
+	//for Formatted Service Date Output
+	public function getServiceDateAttribute($value)
+	{
+		
+		if($value!='0000-00-00')
+		{
+			return date('d-m-Y',strtotime($value));
+		}
+		else
+		{
+			return '';
+		}
+	}
+	
+	//for Formatted Service Date Output
+	public function getInspectionDateAttribute($value)
+	{
+		return date('d-m-Y',strtotime($value));
+	}
+	
 	//for Formatted Service Date Input
 	public function setServiceDateAttribute($value)
 	{
-		$this->attributes['service_date'] = date('Y-m-d',strtotime($value));
+		if($value!='')
+		{
+			$this->attributes['service_date'] = date('Y-m-d',strtotime($value));
+		}
 	}
 	
 	//for Formatted Inspection date Input

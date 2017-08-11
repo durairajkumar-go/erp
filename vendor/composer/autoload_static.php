@@ -111,7 +111,6 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         array (
             'Appzcoder\\CrudGenerator\\' => 24,
             'App\\' => 4,
-            'Acme\\controllers\\' => 17,
         ),
     );
 
@@ -294,10 +293,6 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
-        'Acme\\controllers\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/controllers',
-        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -365,16 +360,17 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         'Canvas' => __DIR__ . '/..' . '/dompdf/dompdf/include/canvas.cls.php',
         'Canvas_Factory' => __DIR__ . '/..' . '/dompdf/dompdf/include/canvas_factory.cls.php',
         'Cellmap' => __DIR__ . '/..' . '/dompdf/dompdf/include/cellmap.cls.php',
-        'CreateLocationsTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_28_165726_create_locations_table.php',
-        'CreateMenusTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_01_165726_create_menus_table.php',
-        'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
-        'CreatePostsTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_01_053639_create_posts_table.php',
-        'CreateRoleMenuMappingsTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_01_180749_create_role_menu_mappings_table.php',
-        'CreateRolesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_01_181422_create_roles_table.php',
-        'CreateRouteTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_09_052812_create_route_table.php',
-        'CreateStoresTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_01_092332_create_stores_table.php',
-        'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
-        'CreateVehiclesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_09_102612_create_vehicles_table.php',
+        'CreateActivityLogsTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_11_131048_create_activity_logs_table.php',
+        'CreateLocationsTable' => __DIR__ . '/../..' . '/database/New folder/2017_07_28_165726_create_locations_table.php',
+        'CreateMenuTable' => __DIR__ . '/../..' . '/database/New folder/2017_08_11_100538_create_menu_table.php',
+        'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/New folder/2014_10_12_100000_create_password_resets_table.php',
+        'CreatePostsTable' => __DIR__ . '/../..' . '/database/New folder/2017_08_01_053639_create_posts_table.php',
+        'CreateRoleMenuMappingsTable' => __DIR__ . '/../..' . '/database/New folder/2017_08_01_180749_create_role_menu_mappings_table.php',
+        'CreateRolesTable' => __DIR__ . '/../..' . '/database/New folder/2017_08_01_181422_create_roles_table.php',
+        'CreateRouteTable' => __DIR__ . '/../..' . '/database/New folder/2017_08_09_052812_create_route_table.php',
+        'CreateStoresTable' => __DIR__ . '/../..' . '/database/New folder/2017_08_01_092332_create_stores_table.php',
+        'CreateUsersTable' => __DIR__ . '/../..' . '/database/New folder/2014_10_12_000000_create_users_table.php',
+        'CreateVehiclesTable' => __DIR__ . '/../..' . '/database/New folder/2017_08_09_102612_create_vehicles_table.php',
         'CrudGeneratorTest' => __DIR__ . '/..' . '/appzcoder/crud-generator/tests/CrudGeneratorTest.php',
         'DOMPDF' => __DIR__ . '/..' . '/dompdf/dompdf/include/dompdf.cls.php',
         'DOMPDF_Exception' => __DIR__ . '/..' . '/dompdf/dompdf/include/dompdf_exception.cls.php',
@@ -1018,7 +1014,7 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         'Text_Renderer' => __DIR__ . '/..' . '/dompdf/dompdf/include/text_renderer.cls.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersTableSeeder.php',
-        'VehiclesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/VehiclesTableSeeder.php',
+        'VehiclesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/vehiclesTableSeeder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -35,7 +35,7 @@ if($edit_role=='0'){
     <div class="panel panel-bd" data-index="0">
         <div class="panel-heading">
             <div class="panel-title" >
-                <h4>{{ trans('messages.vehicle') }} </h4>
+                <h4>{{ trans('messages.role') }} </h4>
                   <span class="mandatory">
                       &nbsp; * {{ trans('messages.mandatory') }} 
                   </span>                                        

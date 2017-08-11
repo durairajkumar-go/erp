@@ -25,12 +25,15 @@ class MenusTableSeeder extends Seeder
 		  array('parent_id' => '7','ordering' => '2','title' => 'Rate Template','slug' => 'as','link' => '#','record_status' => '1'),
 		  array('parent_id' => '0','ordering' => '4','title' => 'Accounts','slug' => 'as','link' => '#','record_status' => '1'),
 		  array('parent_id' => '2','ordering' => '2','title' => 'Routes','slug' => 'route','link' => 'route','record_status' => '1'),
-		  array('parent_id' => '2','ordering' => '2','title' => 'Vehicle','slug' => 'vehicle','link' => 'vehicle','record_status' => '1')
+		  array('parent_id' => '2','ordering' => '2','title' => 'Vehicle','slug' => 'vehicle','link' => 'vehicle','record_status' => '1'),
+		  array('parent_id' => '2','ordering' => '2','title' => 'Menu','slug' => 'menu','link' => 'menu','record_status' => '1'),
+		  array('parent_id' => '2','ordering' => '2','title' => 'Role','slug' => 'role','link' => 'role','record_status' => '1')
 		);
 
 		foreach ($items as $item) {
 	        DB::table($table)->insert($item);
 		}
+
 
 
     }
