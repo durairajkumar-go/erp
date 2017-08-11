@@ -111,7 +111,6 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         array (
             'Appzcoder\\CrudGenerator\\' => 24,
             'App\\' => 4,
-            'Acme\\controllers\\' => 17,
         ),
     );
 
@@ -294,10 +293,6 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
-        'Acme\\controllers\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/controllers',
-        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -365,6 +360,8 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         'Canvas' => __DIR__ . '/..' . '/dompdf/dompdf/include/canvas.cls.php',
         'Canvas_Factory' => __DIR__ . '/..' . '/dompdf/dompdf/include/canvas_factory.cls.php',
         'Cellmap' => __DIR__ . '/..' . '/dompdf/dompdf/include/cellmap.cls.php',
+        'CreateActivityLogTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_10_151820_create_activity_log_table.php',
+        'CreateGradesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_11_074245_create_grades_table.php',
         'CreateLocationsTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_28_165726_create_locations_table.php',
         'CreateMenusTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_01_165726_create_menus_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
@@ -428,6 +425,7 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         'Frame_Reflower' => __DIR__ . '/..' . '/dompdf/dompdf/include/frame_reflower.cls.php',
         'Frame_Tree' => __DIR__ . '/..' . '/dompdf/dompdf/include/frame_tree.cls.php',
         'GD_Adapter' => __DIR__ . '/..' . '/dompdf/dompdf/include/gd_adapter.cls.php',
+        'GradesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/GradesTableSeeder.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
