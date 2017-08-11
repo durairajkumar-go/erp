@@ -10,25 +10,25 @@ use Yajra\Datatables\Datatables;
 use Validator;
 use Auth;
 use Illuminate\Support\Facades\Route;
-use App\Model\Production\Grade;
+use App\Model\Production\Process;
 
-class GradeController extends Controller
+class ProcessController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-         $data = Grade::all();
+         $data = Process::all();
         
-         return view('production.grade.index',compact('data'));
+         return view('production.process.index',compact('data'));
     }
 
     public function anyData()
     {
-     $data = Grade::all();
+     $data = Process::all();
      
      $edit_role='0';
      $delete_role='0';
@@ -48,12 +48,12 @@ class GradeController extends Controller
             ->addColumn('action', function ($data) use($edit_role,$delete_role,$actions) {
                 if($data->record_status==1){
                     if($edit_role=='1')
-                        $actions.='<a href="grade/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>';
+                        $actions.='<a href="process/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>';
                     if($delete_role=='1')
-                        $actions.=' <a href="grade/change/'.$data->id.'" class="btn btn-xs btn-danger" ><i class="fa hvr-buzz-out  fa-trash" onclick="clickAndDisable(this);"></i></a>';                     
+                        $actions.=' <a href="process/change/'.$data->id.'" class="btn btn-xs btn-danger" ><i class="fa hvr-buzz-out  fa-trash" onclick="clickAndDisable(this);"></i></a>';                     
                 }else{
                     if($delete_role=='1')
-                        $actions.=' <a href="grade/change/'.$data->id.'" class="btn btn-xs btn-success" ><i class="fa hvr-buzz-out  fa-check" onclick="clickAndDisable(this);"></i></a>';
+                        $actions.=' <a href="process/change/'.$data->id.'" class="btn btn-xs btn-success" ><i class="fa hvr-buzz-out  fa-check" onclick="clickAndDisable(this);"></i></a>';
                 }
 
                  return $actions;   
@@ -77,7 +77,7 @@ class GradeController extends Controller
      */
     public function create()
     {
-        return view('production.grade.create');
+        return view('production.process.create');
     }
 
     /**
@@ -94,8 +94,8 @@ class GradeController extends Controller
                         ->withInput();
      }else{
         try { 
-        Grade::create($request->all());
-        return redirect()->route('grade.index')->with('message','Item has been added successfully');
+        Process::create($request->all());
+        return redirect()->route('process.index')->with('message','Item has been added successfully');
         } 
         catch(\Illuminate\Database\QueryException $ex){ 
         return redirect()->back()
@@ -118,13 +118,13 @@ class GradeController extends Controller
 
     public function change($id){
 
-        if($data = Grade::find($id)){
+        if($data = Process::find($id)){
             $record_status=1;
             if($data->record_status==1){
                 $record_status=0;                
             } 
-            Grade::where('id', $id)->update(['record_status' => $record_status]);           
-            return redirect()->route('grade.index')->with('message','Item has been updated successfully');
+            Process::where('id', $id)->update(['record_status' => $record_status]);           
+            return redirect()->route('process.index')->with('message','Item has been updated successfully');
         }   
     }
 
@@ -134,10 +134,10 @@ class GradeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Grade $grade)
+    public function edit(Process $process)
     {
-         $data = $grade;
-         return view('production.grade.edit',compact('data'));
+         $data = $process;
+         return view('production.process.edit',compact('data'));
     }
 
     /**
@@ -147,9 +147,9 @@ class GradeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Grade $grade)
+    public function update(Request $request,Process $process)
     {
-         $data = $grade;
+         $data = $process;
          if ($this->validator($request->all())->fails()) {
             return redirect()->back()
                             ->withErrors($this->validator($request->all()))
@@ -159,7 +159,7 @@ class GradeController extends Controller
             try { 
 
                 $data->update($request->all());
-                return redirect()->route('grade.index')->with('message','Item has been updated successfully');
+                return redirect()->route('process.index')->with('message','Item has been updated successfully');
              }
              catch(\Illuminate\Database\QueryException $ex){ 
                         return redirect()->back()
@@ -178,5 +178,5 @@ class GradeController extends Controller
     public function destroy($id)
     {
         //
-    }
+    } 
 }

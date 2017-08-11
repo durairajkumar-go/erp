@@ -220,6 +220,11 @@ textarea {
 			.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover{
  			 opacity: 0.5;
  			}   
+
+            .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+            padding: 5px !important;
+            }
+
         </style>
     </head>
     <body>
@@ -698,29 +703,6 @@ $back_url=url($main_uri);
         =====================================================================-->
         
         <script>
-            $(document).ready(function () {
-
-                "use strict"; // Start of use strict
-
-                $('#dataTableExample1').DataTable({
-                    "dom": "<'row'<'col-sm-6'l><'col-sm-6'f>>t<'row'<'col-sm-6'i><'col-sm-6'p>>",
-                    "lengthMenu": [[6, 25, 50, -1], [6, 25, 50, "All"]],
-                    "iDisplayLength": 6
-                });
-
-                $("#dataTableExample2").DataTable({
-                    dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
-                    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-                    buttons: [
-                        {extend: 'copy', className: 'btn-sm'},
-                        {extend: 'csv', title: 'ExampleFile', className: 'btn-sm'},
-                        {extend: 'excel', title: 'ExampleFile', className: 'btn-sm'},
-                        {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'},
-                        {extend: 'print', className: 'btn-sm'}
-                    ]
-                });
-
-            });
 
 		   function clickAndDisable(link) {
 		     // disable subsequent clicks
@@ -733,13 +715,13 @@ $back_url=url($main_uri);
 		  $("body").removeClass("preload");
 		});
 
-$(document).ready(function(){
-$('html, body').animate({
-        scrollTop: $(".navbar-default").offset().top
-    }, 2000);
+/*    $(document).ready(function(){
+    $('html, body').animate({
+            scrollTop: $(".navbar-default").offset().top
+        }, 1000);
 
-});
-
+    });
+*/
 
 $(document).ready(function () {
    $('.drop-select').select2({

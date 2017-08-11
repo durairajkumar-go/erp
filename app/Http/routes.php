@@ -98,5 +98,15 @@ Route::controller('grade_data', 'Production\GradeController', [
 Route::get('grade/change/{id}', 'Production\GradeController@change');
 //Grade Master End
 
+// Process Master
+Route::resource('process', 'Production\ProcessController');
+
+Route::controller('process_data', 'Production\ProcessController', [
+    'anyData'  => 'process_data.data',
+]);
+
+Route::get('process/change/{id}', 'Production\ProcessController@change');
+//Process Master End
+
 });
 });
