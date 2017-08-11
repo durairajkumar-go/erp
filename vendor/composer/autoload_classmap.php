@@ -127,6 +127,17 @@ return array(
     'Collective\\Html\\HtmlBuilder' => $vendorDir . '/laravelcollective/html/src/HtmlBuilder.php',
     'Collective\\Html\\HtmlFacade' => $vendorDir . '/laravelcollective/html/src/HtmlFacade.php',
     'Collective\\Html\\HtmlServiceProvider' => $vendorDir . '/laravelcollective/html/src/HtmlServiceProvider.php',
+    'CreateActivityLogsTable' => $baseDir . '/database/migrations/2017_08_11_131048_create_activity_logs_table.php',
+    'CreateLocationsTable' => $baseDir . '/database/New folder/2017_07_28_165726_create_locations_table.php',
+    'CreateMenuTable' => $baseDir . '/database/New folder/2017_08_11_100538_create_menu_table.php',
+    'CreatePasswordResetsTable' => $baseDir . '/database/New folder/2014_10_12_100000_create_password_resets_table.php',
+    'CreatePostsTable' => $baseDir . '/database/New folder/2017_08_01_053639_create_posts_table.php',
+    'CreateRoleMenuMappingsTable' => $baseDir . '/database/New folder/2017_08_01_180749_create_role_menu_mappings_table.php',
+    'CreateRolesTable' => $baseDir . '/database/New folder/2017_08_01_181422_create_roles_table.php',
+    'CreateRouteTable' => $baseDir . '/database/New folder/2017_08_09_052812_create_route_table.php',
+    'CreateStoresTable' => $baseDir . '/database/New folder/2017_08_01_092332_create_stores_table.php',
+    'CreateUsersTable' => $baseDir . '/database/New folder/2014_10_12_000000_create_users_table.php',
+    'CreateVehiclesTable' => $baseDir . '/database/New folder/2017_08_09_102612_create_vehicles_table.php',
     'CreateActivityLogTable' => $baseDir . '/database/migrations/2017_08_10_151820_create_activity_log_table.php',
     'CreateGradesTable' => $baseDir . '/database/migrations/2017_08_11_074245_create_grades_table.php',
     'CreateLocationsTable' => $baseDir . '/database/migrations/2017_07_28_165726_create_locations_table.php',
@@ -3333,4 +3344,7 @@ return array(
     'phpDocumentor\\Reflection\\Types\\String_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/String_.php',
     'phpDocumentor\\Reflection\\Types\\This' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/This.php',
     'phpDocumentor\\Reflection\\Types\\Void_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+=======
+    'VehiclesTableSeeder' => $baseDir . '/database/seeds/vehiclesTableSeeder.php',
+>>>>>>> 754d52cbebe80ecaa0c4ce39d3d5ad54879a9d25
 );

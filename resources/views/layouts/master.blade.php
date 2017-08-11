@@ -56,6 +56,8 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        
+        
         <style>
 
 
@@ -702,6 +704,16 @@ $back_url=url($main_uri);
         <!-- End Date Picker Script
         =====================================================================-->
         
+         <!-- Start Check Box Tree View Script
+        =====================================================================-->
+       
+      	<script src="{{ URL::to('assets/tree-view/logger.js') }}"></script>
+        <script src="{{ URL::to('assets/tree-view/treeview.js') }}"></script>
+        <script src="{{ URL::to('assets/tree-view/bootstrap.min') }}"></script>
+	
+        <!-- End Date Picker Script
+        =====================================================================-->
+        
         <script>
 
 		   function clickAndDisable(link) {
@@ -743,6 +755,15 @@ $(document).ready(function () {
     
  function isNumber(evt,element) {
  	var charCode = (evt.which) ? evt.which : event.keyCode;
+    
+     var len = $(element).val().split(".")[1].length;
+
+
+    if(parseInt(len)>1)
+    {
+        return false;
+    }
+    
      if (
             //(charCode != 45 || $(element).val().indexOf('-') != -1) &&      // "-" CHECK MINUS, AND ONLY ONE.
             (charCode != 46 || $(element).val().indexOf('.') != -1) &&      // "." CHECK DOT, AND ONLY ONE.

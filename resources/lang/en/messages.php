@@ -57,6 +57,8 @@ return [
 	 'role' => 'Role',
 	 'menu mapping' => 'Menu Mapping',
 	 'role name' => 'Role Name',
+	 'role menu mapping' => 'Role Menu Mapping',
+	 
 	 
 	 
 

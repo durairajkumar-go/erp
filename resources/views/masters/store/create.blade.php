@@ -24,7 +24,7 @@ if($roles==null){
 $add_role=$roles->add;
 
 if($add_role=='0'){
-  header("store:".url('/logout'));
+  header("location:".url('/logout'));
   exit();
 }
 

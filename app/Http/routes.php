@@ -86,7 +86,18 @@ Route::controller('role_data', 'Masters\RoleController', [
 ]);
 
 Route::get('role/change/{id}', 'Masters\RoleController@change');
+Route::get('role/menu_mapping/{id}', 'Masters\RoleController@menuMapping');
 //Roles Master End
+
+// Menu Master
+Route::resource('menu', 'Masters\MenuController');
+
+Route::controller('menu_data', 'Masters\MenuController', [
+    'anyData'  => 'menu_data.data',
+]);
+
+Route::get('menu/change/{id}', 'Masters\MenuController@change');
+//Menu Master End
 
 // Grade Master
 Route::resource('grade', 'Production\GradeController');
