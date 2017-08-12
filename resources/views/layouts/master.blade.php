@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
+<html lang="en"><head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,6 +45,14 @@
         <script src="{{ url('assets/plugins/jQuery/jquery-1.12.4.min.js') }}" type="text/javascript"></script>
         <!-- End Theme Layout Style
         =====================================================================-->
+        
+         <!-- =====================================================================-->
+        <!-- iCheck -->
+        <link href="{{ url('assets/plugins/icheck/skins/all.css') }}" rel="stylesheet" type="text/css"/>
+        <!-- Bootstrap toggle css -->
+        <link href="{{ url('assets/plugins/bootstrap-toggle/bootstrap-toggle.min.css') }}" rel="stylesheet" type="text/css"/>
+        <!-- End iCheck
+        =====================================================================-->
 
         <link href="{{ url('assets/plugins/jQuery/css/select2.min.css') }}" rel="stylesheet" />
         <script src="{{ url('assets/plugins/jQuery/js/select2.min.js') }}"></script>
@@ -57,6 +64,15 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         
+             <!--testing-->
+            <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.js"></script>-->
+  <!--  <script type="text/javascript" src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/tree-view/new/src/css/jquery-ui.css') }}"/>
+    
+     
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/tree-view/new/src/css/jquery.tree.css') }}"/>
+             <!--end testing-->
+ 
         
         <style>
 
@@ -714,21 +730,15 @@ $back_url=url($main_uri);
         =====================================================================-->
 
         <!-- iCheck js -->
-        <script src="assets/plugins/icheck/icheck.min.js" type="text/javascript"></script>
+        <script src="{{ URL::to('assets/plugins/icheck/icheck.min.js') }}" type="text/javascript"></script>
         <!-- Bootstrap toggle -->
-        <script src="assets/plugins/bootstrap-toggle/bootstrap-toggle.min.js" type="text/javascript"></script>
+        <script src="{{ URL::to('assets/plugins/bootstrap-toggle/bootstrap-toggle.min.js') }}" type="text/javascript"></script>
         <!-- Start Theme label Script
         <!-- End Core Plugins
         =====================================================================-->
-
-         <!-- =====================================================================-->
-        <!-- iCheck -->
-        <link href="{{ url('assets/plugins/icheck/skins/all.css') }}" rel="stylesheet" type="text/css"/>
-        <!-- Bootstrap toggle css -->
-        <link href="{{ url('assets/plugins/bootstrap-toggle/bootstrap-toggle.min.css') }}" rel="stylesheet" type="text/css"/>
-        <!-- End iCheck
-        =====================================================================-->
+ <script type="text/javascript" src="{{ url('assets/tree-view/new/src/js/jquery.tree.js') }} "></script>
         
+       
         <script>
 
            $(document).ready(function () {
