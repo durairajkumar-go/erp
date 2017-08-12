@@ -62,128 +62,23 @@ if($edit_role=='0'){
 
  
 
-                         <div class="form-group">
+                        <!--  <div class="form-group">
                            <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('name', 'has-error') }}">
                            <div><h4><strong>{{ trans('messages.role name') }} : </strong></h4><h4>{{ $data->name }}  </h4></div>
                           
-                            <!--{{ Form::text('name', $data->name, ['class' => 'form-control',(($errors->first('name')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
-                            {{ Form::label('name',trans('messages.role name')) }}-->
+                            {{ Form::text('name', $data->name, ['class' => 'form-control',(($errors->first('name')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
+                            {{ Form::label('name',trans('messages.role name')) }}
                             </div>
-                        </div>
+                        </div> -->
+                <div class="form-group row">   
+                <label>Check</label>      
+                  <input type="checkbox">
+                 </div>
                         
-                 
-                        
-                        <!--testing-->
-                        <!--<div class="row">
-                            <div class="col-sm-12 col-md-6">
-                                <div class="panel panel-bd lobidisable">
-                                    <div class="panel-heading">
-                                        <div class="panel-title">
-                                            <h4>Minimal skin</h4>
-                                        </div>
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="skin-minimal">
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="i-check">
-                                                        <input tabindex="5" type="checkbox" id="minimal-checkbox-1">
-                                                        <label for="minimal-checkbox-1">Checkbox 1</label>
-                                                    </div>
-                                                    <div class="i-check">
-                                                        <input tabindex="6" type="checkbox" id="minimal-checkbox-2" checked>
-                                                        <label for="minimal-checkbox-2">Checkbox 2</label>
-                                                    </div>
-                                                    <div class="i-check">
-                                                        <input type="checkbox" id="minimal-checkbox-disabled" disabled>
-                                                        <label for="minimal-checkbox-disabled">Disabled</label>
-                                                    </div>
-                                                    <div class="i-check">
-                                                        <input type="checkbox" id="minimal-checkbox-disabled-checked" checked disabled>
-                                                        <label for="minimal-checkbox-disabled-checked">Disabled &amp; checked</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="i-check">
-                                                        <input tabindex="7" type="radio" id="minimal-radio-1" name="minimal-radio">
-                                                        <label for="minimal-radio-1">Radio button 1</label>
-                                                    </div>
-                                                    <div class="i-check">
-                                                        <input tabindex="8" type="radio" id="minimal-radio-2" name="minimal-radio" checked>
-                                                        <label for="minimal-radio-2">Radio button 2</label>
-                                                    </div>
-                                                    <div class="i-check">
-                                                        <input type="radio" id="minimal-radio-disabled" disabled>
-                                                        <label for="minimal-radio-disabled">Disabled</label>
-                                                    </div>
-                                                    <div class="i-check">
-                                                        <input type="radio" id="minimal-radio-disabled-checked" checked disabled>
-                                                        <label for="minimal-radio-disabled-checked">Disabled &amp; checked</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm-12 col-md-6">
-                                <div class="panel panel-bd lobidisable">
-                                    <div class="panel-heading">
-                                        <div class="panel-title">
-                                            <h4>Square skin</h4>
-                                        </div>
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="skin-square">
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="i-check">
-                                                        <input tabindex="9" type="checkbox" id="square-checkbox-1">
-                                                        <label for="square-checkbox-1">Checkbox 1</label>
-                                                    </div>
-                                                    <div class="i-check">
-                                                        <input tabindex="10" type="checkbox" id="square-checkbox-2" checked>
-                                                        <label for="square-checkbox-2">Checkbox 2</label>
-                                                    </div>
-                                                    <div class="i-check">
-                                                        <input type="checkbox" id="square-checkbox-disabled" disabled>
-                                                        <label for="square-checkbox-disabled">Disabled</label>
-                                                    </div>
-                                                    <div class="i-check">
-                                                        <input type="checkbox" id="square-checkbox-disabled-checked" checked disabled>
-                                                        <label for="square-checkbox-disabled-checked">Disabled &amp; checked</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="i-check">
-                                                        <input tabindex="11" type="radio" id="square-radio-1" name="square-radio">
-                                                        <label for="square-radio-1">Radio button 1</label>
-                                                    </div>
-                                                    <div class="i-check">
-                                                        <input tabindex="12" type="radio" id="square-radio-2" name="square-radio" checked>
-                                                        <label for="square-radio-2">Radio button 2</label>
-                                                    </div>
-                                                    <div class="i-check">
-                                                        <input type="radio" id="square-radio-disabled" disabled>
-                                                        <label for="square-radio-disabled">Disabled</label>
-                                                    </div>
-                                                    <div class="i-check">
-                                                        <input type="radio" id="square-radio-disabled-checked" checked disabled>
-                                                        <label for="square-radio-disabled-checked">Disabled &amp; checked</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>-->
-                        <!--ends-->
+                       
                         
                         
-                 <!--       <div id="treeview-container">
+                        <div id="treeview-container">
             <ul>
                 <li>Item 1</li>
                 <li>Item 2
@@ -208,7 +103,7 @@ if($edit_role=='0'){
             </ul>
         </div>
          <button type="button" id="show-values">Get Values</button>
-        <pre id="values"></pre>-->
+        <pre id="values"></pre>
                         
                        
                        
