@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Session;
 class Process extends Model implements LogsActivityInterface
 {
     use LogsActivity;
-    protected $fillable = ['parent_id','name','short_name'];
+    protected $fillable = ['parent_id','name','short_name','visitor'];
 
 	//for Formatted Create Date Output
 	public function getCreatedAtAttribute($value)

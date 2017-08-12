@@ -88,6 +88,9 @@ class GradeController extends Controller
      */
     public function store(Request $request)
     {
+
+    $request['visitor'] = $request->ip();
+
      if ($this->validator($request->all())->fails()) {
         return redirect()->back()
                         ->withErrors($this->validator($request->all()))
@@ -149,7 +152,8 @@ class GradeController extends Controller
      */
     public function update(Request $request,Grade $grade)
     {
-         $data = $grade;
+        $data = $grade;
+        $request['visitor'] = $request->ip();
          if ($this->validator($request->all())->fails()) {
             return redirect()->back()
                             ->withErrors($this->validator($request->all()))

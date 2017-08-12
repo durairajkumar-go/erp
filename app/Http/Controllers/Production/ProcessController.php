@@ -88,6 +88,9 @@ class ProcessController extends Controller
      */
     public function store(Request $request)
     {
+
+     $request['visitor'] = $request->ip();
+     
      if ($this->validator($request->all())->fails()) {
         return redirect()->back()
                         ->withErrors($this->validator($request->all()))
@@ -149,7 +152,8 @@ class ProcessController extends Controller
      */
     public function update(Request $request,Process $process)
     {
-         $data = $process;
+        $data = $process;
+        $request['visitor'] = $request->ip();
          if ($this->validator($request->all())->fails()) {
             return redirect()->back()
                             ->withErrors($this->validator($request->all()))
