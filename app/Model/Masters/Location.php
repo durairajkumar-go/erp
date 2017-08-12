@@ -16,18 +16,15 @@ class Location extends Model implements LogsActivityInterface
    
    protected $fillable = ['name','address','phone','email','prefix','suffix','lat','lan'];
 
-    //for Formatted Create Date Output
-    public function getCreatedAtAttribute($value)
-    {
+
+    public function getCreatedAtAttribute($value) {
         return date(Session::get('default_date_format'),strtotime($value));
     }
-    
-    //for Formatted Updated Date Output
-    public function getUpdatedAtAttribute($value)
-    {
+
+    public function getUpdatedAtAttribute($value) {
         return date(Session::get('default_date_format'),strtotime($value));
-    }
-    
+	}
+   
     //for Formatted Name Input
     public function setNameAttribute($value)
     {

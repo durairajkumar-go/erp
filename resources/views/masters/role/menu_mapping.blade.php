@@ -70,15 +70,17 @@ if($edit_role=='0'){
                             {{ Form::label('name',trans('messages.role name')) }}
                             </div>
                         </div> -->
-                <div class="form-group row">   
-                <label>Check</label>      
-                  <input type="checkbox">
-                 </div>
+
+              <!--  <div class="checkbox">   
+                <input type="checkbox" id="select_checkbox"><label for="select_checkbox">  Check</label>      
+                 
+                 </div>-->
                         
-                       
+                  
+  
                         
                         
-                        <div id="treeview-container">
+                        <!--<div id="treeview-container">
             <ul>
                 <li>Item 1</li>
                 <li>Item 2
@@ -103,7 +105,66 @@ if($edit_role=='0'){
             </ul>
         </div>
          <button type="button" id="show-values">Get Values</button>
-        <pre id="values"></pre>
+        <pre id="values"></pre>-->
+               
+   <div id="accordion">
+
+    <h3><a href="#">All components in default behaviour</a></h3>
+    <div id="example-0">
+       
+            
+            
+     <div class="i-check">
+            <ul>
+                <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 1</label>
+                    <ul>
+                        <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 1.1</label>
+                            <ul>
+                                <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 1.1.1</label>
+                            </ul>
+                    </ul>
+                    <ul>
+                        <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 1.2</label>
+                            <ul>
+                                <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 1.2.1</label>
+                                <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 1.2.2</label>
+                                <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 1.2.3</label>
+                                    <ul>
+                                        <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 1.2.3.1</label>
+                                        <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 1.2.3.2</label>
+                                    </ul>
+                                <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 1.2.4</label>
+                                <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 1.2.5</label>
+                                <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 1.2.6</label>
+                            </ul>
+                    </ul>
+                <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 2</label>
+                    <ul>
+                        <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 2.1</label>
+                            <ul>
+                                <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 2.1.1</label>
+                            </ul>
+                        <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 2.2</label>
+                            <ul>
+                                <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 2.2.1</label>
+                                <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 2.2.2</label>
+                                <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 2.2.3</label>
+                                    <ul>
+                                        <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 2.2.3.1</label>
+                                        <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 2.2.3.2</label>
+                                    </ul>
+                                <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 2.2.4</label>
+                                <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 2.2.5</label>
+                                <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 2.2.6</label>
+                            </ul>
+                    </ul>
+            </ul>
+        </div> 
+        
+        
+   </div>
+  </div>
+          
                         
                        
                        
@@ -127,10 +188,10 @@ if($edit_role=='0'){
 @push('scripts')
 <script>
 
-            $('#treeview-container').treeview({
+            /*$('#treeview-container').treeview({
                 debug : true,
                 data : ['3.2', '2.2.3']
-            });
+            });*/
            /* $('#show-values').on('click', function(){ 
                 $('#values').text(
                     $('#treeview-container').treeview('selectedValues')
@@ -139,6 +200,21 @@ if($edit_role=='0'){
         
 
 
+ $(document).ready(function () {
+            $("#accordion").accordion({
+                'collapsible': true,
+                'active': null,
+                'heightStyle': 'content'
+            });
+            $('.jquery').each(function () {
+                eval($(this).html());
+            });
+			
+			$('#example-0 div').tree({
+            });
+			
+            $('.button').button();
+        });
 
 </script>
 @endpush

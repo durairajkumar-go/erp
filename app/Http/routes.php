@@ -122,5 +122,28 @@ Route::get('process/change/{id}', 'Production\ProcessController@change');
 //Process Master End
 
 
+// Dashboard Master
+Route::resource('dashboard', 'Masters\DashboardController');
+
+Route::controller('dashboard_data', 'Masters\DashboardController', [
+    'anyData'  => 'dashboard_data.data',
+]);
+
+Route::get('dashboard/change/{id}', 'Masters\DashboardController@change');
+//Dashboard Master End
+
+//Currency Master
+
+Route::resource('currency', 'Masters\CurrencyController');
+
+
+Route::controller('currency_data', 'Masters\CurrencyController', [
+    'anyData'  => 'currency_data.data',
+]);
+Route::get('currency/change/{id}', 'Masters\CurrencyController@change');
+
+
+//Currency Master End
+
 });
 });

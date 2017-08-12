@@ -19,17 +19,19 @@ class Role extends Model implements LogsActivityInterface
         return $this->hasMany('\App\User');
     }
 
-	//for Formatted Create Date Output
-	public function getCreatedAtAttribute($value)
-	{
-		return date(Session::get('default_date_format'),strtotime($value));
-	}
-	
-	//for Formatted Updated Date Output
-	public function getUpdatedAtAttribute($value)
-	{
-		return date(Session::get('default_date_format'),strtotime($value));
-	}
+
+    //for Formatted Create Date Output
+    public function getCreatedAtAttribute($value)
+    {
+        return date(Session::get('default_date_format'),strtotime($value));
+    }
+    
+    //for Formatted Updated Date Output
+    public function getUpdatedAtAttribute($value)
+    {
+        return date(Session::get('default_date_format'),strtotime($value));
+    }
+
 	
 	//for Formatted Name Input
 	public function setNameAttribute($value)
