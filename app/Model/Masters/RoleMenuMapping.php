@@ -15,17 +15,17 @@ class RoleMenuMapping extends Model implements LogsActivityInterface
     {
         if ($eventName == 'created')
         {
-            return 'Role Mapping "' . $this . '" was created';
+            return 'RoleMenuMapping"' . $this . '" was created';
         }
 
         if ($eventName == 'updated')
         {
-            return 'Role Mapping "' . $this . '" was updated';
+            return 'RoleMenuMapping"' . $this . '" was updated';
         }
 
         if ($eventName == 'deleted')
         {
-            return 'Role Mapping "' . $this . '" was deleted';
+            return 'RoleMenuMapping"' . $this . '" was deleted';
         }
 
         return '';

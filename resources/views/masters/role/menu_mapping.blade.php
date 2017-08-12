@@ -70,12 +70,14 @@ if($edit_role=='0'){
                             {{ Form::label('name',trans('messages.role name')) }}
                             </div>
                         </div> -->
-                <div class="form-group row">   
-                <label>Check</label>      
-                  <input type="checkbox">
-                 </div>
+
+               <!-- <div class="checkbox">   
+                <input type="checkbox" id="select_checkbox"><label for="select_checkbox">  Check</label>      
+                 
+                 </div>-->
                         
-                       
+                  
+  
                         
                         
                         <div id="treeview-container">

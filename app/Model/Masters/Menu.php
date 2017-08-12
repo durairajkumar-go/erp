@@ -5,11 +5,25 @@ namespace App\Model\Masters;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\LogsActivityInterface;
 use Spatie\Activitylog\LogsActivity;
+use Illuminate\Support\Facades\Session;
+
 
 class Menu extends Model implements LogsActivityInterface
 {
     use LogsActivity;
      protected $fillable = ['parent_id','title','slug','link','icon','ordering'];
+
+     //for Formatted Create Date Output
+    public function getCreatedAtAttribute($value)
+    {
+        return date(Session::get('default_date_format'),strtotime($value));
+    }
+    
+    //for Formatted Updated Date Output
+    public function getUpdatedAtAttribute($value)
+    {
+        return date(Session::get('default_date_format'),strtotime($value));
+    }
 	 
 	  public function getActivityDescriptionForEvent($eventName)
     {

@@ -8,6 +8,7 @@ use \App\Model\Masters\Routes;
 use \App\Model\Masters\Vehicle;
 use Spatie\Activitylog\LogsActivityInterface;
 use Spatie\Activitylog\LogsActivity;
+use Illuminate\Support\Facades\Session;
 
 class Location extends Model implements LogsActivityInterface
 {
@@ -16,11 +17,11 @@ class Location extends Model implements LogsActivityInterface
    protected $fillable = ['name','address','phone','email','prefix','suffix','lat','lan'];
 
     public function getCreatedAtAttribute($value) {
-        return date('d/m/Y',strtotime($value));
+        return date(Session::get('default_date_format'),strtotime($value));
     }
-
+Session::get('default_date_format')
     public function getUpdatedAtAttribute($value) {
-        return date('d/m/Y',strtotime($value));
+        return date(Session::get('default_date_format'),strtotime($value));
     }
 
     public function stores()

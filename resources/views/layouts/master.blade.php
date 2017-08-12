@@ -712,8 +712,36 @@ $back_url=url($main_uri);
 	
         <!-- End Date Picker Script
         =====================================================================-->
+
+        <!-- iCheck js -->
+        <script src="assets/plugins/icheck/icheck.min.js" type="text/javascript"></script>
+        <!-- Bootstrap toggle -->
+        <script src="assets/plugins/bootstrap-toggle/bootstrap-toggle.min.js" type="text/javascript"></script>
+        <!-- Start Theme label Script
+        <!-- End Core Plugins
+        =====================================================================-->
+
+         <!-- =====================================================================-->
+        <!-- iCheck -->
+        <link href="{{ url('assets/plugins/icheck/skins/all.css') }}" rel="stylesheet" type="text/css"/>
+        <!-- Bootstrap toggle css -->
+        <link href="{{ url('assets/plugins/bootstrap-toggle/bootstrap-toggle.min.css') }}" rel="stylesheet" type="text/css"/>
+        <!-- End iCheck
+        =====================================================================-->
         
         <script>
+
+           $(document).ready(function () {
+
+                "use strict"; // Start of use strict
+
+                 $('.skin-minimal .i-check input').iCheck({
+                    checkboxClass: 'icheckbox_minimal',
+                    radioClass: 'iradio_minimal',
+                    increaseArea: '20%'
+                });
+
+            });
 
 		   function clickAndDisable(link) {
 		     // disable subsequent clicks
