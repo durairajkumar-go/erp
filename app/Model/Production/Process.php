@@ -24,7 +24,7 @@ class Process extends Model implements LogsActivityInterface
 		return date(Session::get('default_date_format'),strtotime($value));
 	}
 	
-	//for Formatted Service Date Input
+	//for Formatted Name Input
 	public function setNameAttribute($value)
 	{
 		$this->attributes['name'] = ucwords(strtolower($value));

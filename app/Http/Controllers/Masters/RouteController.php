@@ -26,7 +26,8 @@ class RouteController extends Controller
 		// print_r($data);exit;
          return view('masters.route.index',compact('data'));
     }
-public function anyData()
+    
+    public function anyData()
     {
      $data = Routes::all();
 	
@@ -52,8 +53,6 @@ public function anyData()
                     if($delete_role=='1')
                         $actions.=' <a href="route/change/'.$data->id.'" class="btn btn-xs btn-danger" ><i class="fa hvr-buzz-out  fa-trash" onclick="clickAndDisable(this);"></i></a>';                     
                 }else{
-                    if($edit_role=='1')
-                        $actions.='<a href="route/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>';
                     if($delete_role=='1')
                         $actions.=' <a href="route/change/'.$data->id.'" class="btn btn-xs btn-success" ><i class="fa hvr-buzz-out  fa-check" onclick="clickAndDisable(this);"></i></a>';
                 }
@@ -84,7 +83,19 @@ public function anyData()
         ]);
     }
 
-	
+
+    public function change($id){
+
+        if($data = Routes::find($id)){
+            $record_status=1;
+            if($data->record_status==1){
+                $record_status=0;                
+            } 
+            Routes::where('id', $id)->update(['record_status' => $record_status]);           
+            return redirect()->route('route.index')->with('message','Item has been updated successfully');
+        }   
+    }
+
     /**
      * Store a newly created resource in storage.
      *

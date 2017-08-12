@@ -18,7 +18,7 @@ class Locale
     public function handle($request, Closure $next)
     {
         $locale = "en";
-        $default_date_format = "d/m/y";
+        $default_date_format = "d/m/Y";
         Session::put('default_date_format',$default_date_format);
         
         $default_currency = "$";

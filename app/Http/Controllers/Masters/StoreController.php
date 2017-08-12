@@ -54,8 +54,6 @@ class StoreController extends Controller
                     if($delete_role=='1')
                         $actions.=' <a href="store/change/'.$data->id.'" class="btn btn-xs btn-danger" ><i class="fa hvr-buzz-out  fa-trash" onclick="clickAndDisable(this);"></i></a>';                     
                 }else{
-                    if($edit_role=='1')
-                        $actions.='<a href="store/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>';
                     if($delete_role=='1')
                         $actions.=' <a href="store/change/'.$data->id.'" class="btn btn-xs btn-success" ><i class="fa hvr-buzz-out  fa-check" onclick="clickAndDisable(this);"></i></a>';
                 }

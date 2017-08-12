@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use \App\Model\Masters\Location;
 use Spatie\Activitylog\LogsActivityInterface;
 use Spatie\Activitylog\LogsActivity;
+use Illuminate\Support\Facades\Session;
 
 class Vehicle extends Model implements LogsActivityInterface
 {
@@ -20,22 +21,22 @@ class Vehicle extends Model implements LogsActivityInterface
 	//for Formatted Create Date Output
 	public function getCreatedAtAttribute($value)
 	{
-		return date('d-m-Y',strtotime($value));
+		return date(Session::get('default_date_format'),strtotime($value));
 	}
 	
 	//for Formatted Updated Date Output
 	public function getUpdatedAtAttribute($value)
 	{
-		return date('d-m-Y',strtotime($value));
+		return date(Session::get('default_date_format'),strtotime($value));
 	}
-	
+		
 	//for Formatted Service Date Output
 	public function getServiceDateAttribute($value)
 	{
 		
 		if($value!='0000-00-00')
 		{
-			return date('d-m-Y',strtotime($value));
+			return date(Session::get('default_date_format'),strtotime($value));
 		}
 		else
 		{
@@ -46,7 +47,7 @@ class Vehicle extends Model implements LogsActivityInterface
 	//for Formatted Service Date Output
 	public function getInspectionDateAttribute($value)
 	{
-		return date('d-m-Y',strtotime($value));
+		return date(Session::get('default_date_format'),strtotime($value));
 	}
 	
 	//for Formatted Service Date Input
