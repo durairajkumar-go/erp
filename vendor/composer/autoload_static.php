@@ -360,7 +360,7 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         'Canvas' => __DIR__ . '/..' . '/dompdf/dompdf/include/canvas.cls.php',
         'Canvas_Factory' => __DIR__ . '/..' . '/dompdf/dompdf/include/canvas_factory.cls.php',
         'Cellmap' => __DIR__ . '/..' . '/dompdf/dompdf/include/cellmap.cls.php',
-<<<<<<< HEAD
+
         'CreateActivityLogsTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_11_131048_create_activity_logs_table.php',
         'CreateLocationsTable' => __DIR__ . '/../..' . '/database/New folder/2017_07_28_165726_create_locations_table.php',
         'CreateMenuTable' => __DIR__ . '/../..' . '/database/New folder/2017_08_11_100538_create_menu_table.php',
@@ -372,7 +372,7 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         'CreateStoresTable' => __DIR__ . '/../..' . '/database/New folder/2017_08_01_092332_create_stores_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/New folder/2014_10_12_000000_create_users_table.php',
         'CreateVehiclesTable' => __DIR__ . '/../..' . '/database/New folder/2017_08_09_102612_create_vehicles_table.php',
-=======
+
         'CreateActivityLogTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_10_151820_create_activity_log_table.php',
         'CreateGradesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_11_074245_create_grades_table.php',
         'CreateLocationsTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_28_165726_create_locations_table.php',
@@ -385,7 +385,7 @@ class ComposerStaticInitaa078781bfa41815a9f72b7a7f198a2d
         'CreateStoresTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_01_092332_create_stores_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'CreateVehiclesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_09_102612_create_vehicles_table.php',
->>>>>>> 988e46bf1eccd0634088c7a790a638f42550acfc
+
         'CrudGeneratorTest' => __DIR__ . '/..' . '/appzcoder/crud-generator/tests/CrudGeneratorTest.php',
         'DOMPDF' => __DIR__ . '/..' . '/dompdf/dompdf/include/dompdf.cls.php',
         'DOMPDF_Exception' => __DIR__ . '/..' . '/dompdf/dompdf/include/dompdf_exception.cls.php',

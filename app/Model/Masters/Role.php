@@ -18,6 +18,18 @@ class Role extends Model implements LogsActivityInterface
         return $this->hasMany('\App\User');
     }
 
+    //for Formatted Create Date Output
+    public function getCreatedAtAttribute($value)
+    {
+        return date('d-m-Y',strtotime($value));
+    }
+    
+    //for Formatted Updated Date Output
+    public function getUpdatedAtAttribute($value)
+    {
+        return date('d-m-Y',strtotime($value));
+    }
+
     public function getActivityDescriptionForEvent($eventName)
     {
         if ($eventName == 'created')

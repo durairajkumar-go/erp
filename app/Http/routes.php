@@ -89,7 +89,7 @@ Route::get('role/change/{id}', 'Masters\RoleController@change');
 Route::get('role/menu_mapping/{id}', 'Masters\RoleController@menuMapping');
 //Roles Master End
 
-<<<<<<< HEAD
+
 // Menu Master
 Route::resource('menu', 'Masters\MenuController');
 
@@ -99,7 +99,7 @@ Route::controller('menu_data', 'Masters\MenuController', [
 
 Route::get('menu/change/{id}', 'Masters\MenuController@change');
 //Menu Master End
-=======
+
 // Grade Master
 Route::resource('grade', 'Production\GradeController');
 
@@ -109,7 +109,7 @@ Route::controller('grade_data', 'Production\GradeController', [
 
 Route::get('grade/change/{id}', 'Production\GradeController@change');
 //Grade Master End
->>>>>>> 988e46bf1eccd0634088c7a790a638f42550acfc
+
 
 });
 });
