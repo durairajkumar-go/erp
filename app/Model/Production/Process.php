@@ -5,6 +5,7 @@ namespace App\Model\Production;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\LogsActivityInterface;
 use Spatie\Activitylog\LogsActivity;
+use Illuminate\Support\Facades\Session;
 
 class Process extends Model implements LogsActivityInterface
 {
@@ -14,13 +15,13 @@ class Process extends Model implements LogsActivityInterface
 	//for Formatted Create Date Output
 	public function getCreatedAtAttribute($value)
 	{
-		return date('d-m-Y',strtotime($value));
+		return date(Session::get('default_date_format'),strtotime($value));
 	}
 	
 	//for Formatted Updated Date Output
 	public function getUpdatedAtAttribute($value)
 	{
-		return date('d-m-Y',strtotime($value));
+		return date(Session::get('default_date_format'),strtotime($value));
 	}
 	
 	//for Formatted Service Date Input

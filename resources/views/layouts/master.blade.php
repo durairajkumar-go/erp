@@ -709,7 +709,6 @@ $back_url=url($main_uri);
        
       	<script src="{{ URL::to('assets/tree-view/logger.js') }}"></script>
         <script src="{{ URL::to('assets/tree-view/treeview.js') }}"></script>
-        <script src="{{ URL::to('assets/tree-view/bootstrap.min') }}"></script>
 	
         <!-- End Date Picker Script
         =====================================================================-->
