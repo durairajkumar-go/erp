@@ -24,7 +24,7 @@ $add_role=$roles->add;
 $edit_role=$roles->edit;
 
 if($edit_role=='0'){
-  header("vehicle:".url('/logout'));
+  header("location:".url('/logout'));
   exit();
 }
 

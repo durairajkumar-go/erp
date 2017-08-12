@@ -23,7 +23,7 @@ $add_role=$roles->add;
 $edit_role=$roles->edit;
 
 if($edit_role=='0'){
-  header("store:".url('/logout'));
+  header("location:".url('/logout'));
   exit();
 }
 

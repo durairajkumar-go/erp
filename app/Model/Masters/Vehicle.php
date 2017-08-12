@@ -29,7 +29,7 @@ class Vehicle extends Model implements LogsActivityInterface
 	{
 		return date(Session::get('default_date_format'),strtotime($value));
 	}
-	
+		
 	//for Formatted Service Date Output
 	public function getServiceDateAttribute($value)
 	{
