@@ -13,19 +13,20 @@ class MenusTableSeeder extends Seeder
     {
     	$table="menus";
 		$items = array(
-		  array('parent_id' => '0','ordering' => '1','title' => 'Dashboard','slug' => 'as','link' => '#','record_status' => '1'),
-		  array('parent_id' => '0','ordering' => '2','title' => 'Masters','slug' => 'as','link' => '#','record_status' => '1'),
-		  array('parent_id' => '2','ordering' => '2','title' => 'Company','slug' => 'as','link' => '#','record_status' => '1'),
+		  array('parent_id' => '0','ordering' => '1','title' => 'Dashboard','slug' => 'dashboard','link' => '#','record_status' => '1'),
+		  array('parent_id' => '0','ordering' => '2','title' => 'Masters','slug' => '#','link' => '#','record_status' => '1'),
+		  array('parent_id' => '2','ordering' => '2','title' => 'Company','slug' => '#','link' => '#','record_status' => '1'),
 		  array('parent_id' => '3','ordering' => '1','title' => 'Location','slug' => 'location','link' => 'location','record_status' => '1'),
-		  array('parent_id' => '0','ordering' => '4','title' => 'Reports','slug' => 'as','link' => '#','record_status' => '1'),
+		  array('parent_id' => '0','ordering' => '4','title' => 'Production','slug' => '#','link' => '#','record_status' => '1'),
 		  array('parent_id' => '3','ordering' => '1','title' => 'Stores','slug' => 'store','link' => 'store','record_status' => '1'),
-		  array('parent_id' => '2','ordering' => '2','title' => 'Products','slug' => 'as','link' => '#','record_status' => '1'),
-		  array('parent_id' => '7','ordering' => '1','title' => 'Category','slug' => 'as','link' => '#','record_status' => '1'),
-		  array('parent_id' => '7','ordering' => '2','title' => 'Materials','slug' => 'as','link' => '#','record_status' => '1'),
-		  array('parent_id' => '7','ordering' => '2','title' => 'Rate Template','slug' => 'as','link' => '#','record_status' => '1'),
-		  array('parent_id' => '0','ordering' => '4','title' => 'Accounts','slug' => 'as','link' => '#','record_status' => '1'),
+		  array('parent_id' => '2','ordering' => '2','title' => 'Products','slug' => '#','link' => '#','record_status' => '1'),
+		  array('parent_id' => '7','ordering' => '1','title' => 'Category','slug' => '#','link' => '#','record_status' => '1'),
+		  array('parent_id' => '7','ordering' => '2','title' => 'Materials','slug' => '#','link' => '#','record_status' => '1'),
+		  array('parent_id' => '7','ordering' => '2','title' => 'Rate Template','slug' => '#','link' => '#','record_status' => '1'),
+		  array('parent_id' => '0','ordering' => '4','title' => 'Accounts','slug' => '#','link' => '#','record_status' => '1'),
 		  array('parent_id' => '2','ordering' => '2','title' => 'Routes','slug' => 'route','link' => 'route','record_status' => '1'),
 		  array('parent_id' => '2','ordering' => '2','title' => 'Vehicle','slug' => 'vehicle','link' => 'vehicle','record_status' => '1'),
+		  array('parent_id' => '5','ordering' => '1','title' => 'Grades','slug' => 'grade','link' => 'grade','record_status' => '1'),
 		  array('parent_id' => '2','ordering' => '2','title' => 'Menu','slug' => 'menu','link' => 'menu','record_status' => '1'),
 		  array('parent_id' => '2','ordering' => '2','title' => 'Role','slug' => 'role','link' => 'role','record_status' => '1')
 		);

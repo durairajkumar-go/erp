@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActivityLogsTable extends Migration
+class CreateProcessesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,14 @@ class CreateActivityLogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('activity_log', function (Blueprint $table) {
+        Schema::create('processes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->nullable();
-            $table->text('text');
-            $table->string('ip_address', 64);
+            $table->string('name');
+            $table->text('short_name');
             $table->timestamps();
+            $table->ipAddress('visitor');
+            $table->macAddress('device');
+            $table->enum('record_status', ['0', '1'])->default('1');
         });
     }
 
@@ -28,6 +30,6 @@ class CreateActivityLogsTable extends Migration
      */
     public function down()
     {
-       Schema::drop('activity_log');
+        Schema::drop('processes');
     }
 }
