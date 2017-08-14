@@ -88,7 +88,7 @@ if($edit_role=='0'){
                         </div>
                         <div class="form-group">
                            <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('ordering', 'has-error') }}">
-                            {{ Form::text('ordering', $data->ordering, ['class' => 'form-control',(($errors->first('ordering')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
+                            {{ Form::text('ordering', $data->ordering, ['class' => 'form-control',(($errors->first('ordering')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off','onkeypress'=>'return isNumber(event,this)']) }}
                             {{ Form::label('ordering',trans('messages.menu order')) }}
                             </div>
                         </div>
@@ -149,6 +149,31 @@ var a;
     }
 
   }
+  
+  function isNumber(evt,element) {
+ 
+ var charCode = (evt.which) ? evt.which : event.keyCode;
+ 
+ /*var len = $(element).val().split(".")[1].length;
+
+if(parseInt(len)>1)
+{
+	return false;
+}*/
+  
+  
+        if (
+            //(charCode != 45 || $(element).val().indexOf('-') != -1) &&      // "-" CHECK MINUS, AND ONLY ONE.
+            (charCode != 46 || $(element).val().indexOf('.') != -1) &&      // "." CHECK DOT, AND ONLY ONE.
+            (charCode < 48 || charCode > 57))
+            return false;
+			
+			
+
+        return true;
+
+ 
+}
   
     // });
  

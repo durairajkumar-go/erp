@@ -17,10 +17,7 @@ class Menu extends Model implements LogsActivityInterface
 
      protected $fillable = ['parent_id','title','slug','link','icon','ordering'];
 
-     //for Formatted Create Date Output
-
-    protected $fillable = ['parent_id','title','slug','link','icon','ordering'];
-
+  
     //for Formatted Create Date Output
 
     public function getCreatedAtAttribute($value)

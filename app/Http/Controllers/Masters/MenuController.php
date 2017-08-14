@@ -12,7 +12,6 @@ use Validator;
 use Auth;
 use App\Model\Masters\RoleMenuMapping;
 use Illuminate\Support\Facades\Route;
-
 class MenuController extends Controller
 {
     /**
@@ -22,11 +21,11 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $data = Menu::all();
+       $data = Menu::all();
 		//print_r($data);exit;
          return view('masters.menu.index',compact('data'));
     }
-	
+
 	public function anyData()
     {
      $data = Menu::all();
@@ -53,8 +52,6 @@ class MenuController extends Controller
                     if($delete_role=='1')
                         $actions.=' <a href="menu/change/'.$data->id.'" class="btn btn-xs btn-danger" ><i class="fa hvr-buzz-out  fa-trash" onclick="clickAndDisable(this);"></i></a>';                     
                 }else{
-                    if($edit_role=='1')
-                        $actions.='<a href="menu/'.$data->id.'/edit" class="btn btn-xs btn-warning" ><i class="fa hvr-buzz-out  fa-edit" onclick="clickAndDisable(this);"></i></a>';
                     if($delete_role=='1')
                         $actions.=' <a href="menu/change/'.$data->id.'" class="btn btn-xs btn-success" ><i class="fa hvr-buzz-out  fa-check" onclick="clickAndDisable(this);"></i></a>';
                 }
@@ -66,7 +63,6 @@ class MenuController extends Controller
             }) */
             ->make(true);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -74,9 +70,9 @@ class MenuController extends Controller
      */
     public function create()
     {
-       return view('masters.menu.create');
+        return view('masters.menu.create');
     }
-	
+
 	protected function validator(array $data)
     {      
 
@@ -87,7 +83,6 @@ class MenuController extends Controller
 			'link' => 'required|max:255',
         ]);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -96,7 +91,6 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        
          if ($this->validator($request->all())->fails()) {
         return redirect()->back()
                         ->withErrors($this->validator($request->all()))
@@ -112,7 +106,6 @@ class MenuController extends Controller
                         ->withInput();             
         }
     }
-    
     }
 
     /**
@@ -145,9 +138,8 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Menu $menu)
     {
-        
          $data = $menu;
          if ($this->validator($request->all())->fails()) {
             return redirect()->back()
@@ -166,9 +158,19 @@ class MenuController extends Controller
                             ->withInput();             
             }
         }
-    
     }
 
+	public function change($id){
+
+        if($data = Menu::find($id)){
+            $record_status=1;
+            if($data->record_status==1){
+                $record_status=0;                
+            } 
+            Menu::where('id', $id)->update(['record_status' => $record_status]);           
+            return redirect()->route('menu.index')->with('message','Item has been updated successfully');
+        }   
+    }
     /**
      * Remove the specified resource from storage.
      *

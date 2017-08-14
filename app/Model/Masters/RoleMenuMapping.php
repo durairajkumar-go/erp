@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Session;
 class RoleMenuMapping extends Model implements LogsActivityInterface
 {
     use LogsActivity;
-    protected $fillable = ['parent_id','menu_id','add','edit','delete','search','copy','csv','excel','pdf','print'];
+   // protected $fillable = ['parent_id','menu_id','add','edit','delete','search','copy','csv','excel','pdf','print'];
 
 	
-	//for Formatted Create Date Output
+/*	//for Formatted Create Date Output
 	public function getCreatedAtAttribute($value)
 	{
 		return date(Session::get('default_date_format'),strtotime($value));
@@ -24,7 +24,7 @@ class RoleMenuMapping extends Model implements LogsActivityInterface
 	{
 		return date(Session::get('default_date_format'),strtotime($value));
 	}
-	
+	*/
     public function getActivityDescriptionForEvent($eventName)
     {
         if ($eventName == 'created')

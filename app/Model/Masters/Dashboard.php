@@ -7,7 +7,6 @@ use \App\Model\Masters\Location;
 use Spatie\Activitylog\LogsActivityInterface;
 use Spatie\Activitylog\LogsActivity;
 use Illuminate\Support\Facades\Session;
-
 class Dashboard extends Model implements LogsActivityInterface
 {
     //
@@ -30,7 +29,7 @@ class Dashboard extends Model implements LogsActivityInterface
 	}
 	public function setNameAttribute($value)
 	{
-		$this->attributes['name'] = strtoupper($value);
+		$this->attributes['name'] = ucwords($value);
 	}
 	 public function getActivityDescriptionForEvent($eventName)
     {

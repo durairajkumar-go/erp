@@ -124,3 +124,32 @@ if($add_role=='0'){
 </div>
 </div>
 @endsection
+@push('scripts')
+<script>
+function isNumber(evt,element) {
+ 
+ var charCode = (evt.which) ? evt.which : event.keyCode;
+ 
+ /*var len = $(element).val().split(".")[1].length;
+
+if(parseInt(len)>1)
+{
+	return false;
+}*/
+  
+  
+        if (
+            //(charCode != 45 || $(element).val().indexOf('-') != -1) &&      // "-" CHECK MINUS, AND ONLY ONE.
+            (charCode != 46 || $(element).val().indexOf('.') != -1) &&      // "." CHECK DOT, AND ONLY ONE.
+            (charCode < 48 || charCode > 57))
+            return false;
+			
+			
+
+        return true;
+
+ 
+}
+
+</script>
+@endpush

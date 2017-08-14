@@ -28,6 +28,8 @@ if($edit_role=='0'){
   exit();
 }
 
+print_r($design_data);exit;
+
 ?>
 
 <div class="row">
@@ -58,11 +60,15 @@ if($edit_role=='0'){
                     @endforeach
             @endif
 
+<!--@foreach($design_data as $tree_design)
+{{ $tree_design }}
+@endforeach-->
+
 {!! Form::open(array('route' => ['role.update', $data->id] , 'method' => 'PUT'),['class' => 'form']) !!}
 
  
 
-                        <!--  <div class="form-group">
+                       <!--   <div class="form-group">
                            <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('name', 'has-error') }}">
                            <div><h4><strong>{{ trans('messages.role name') }} : </strong></h4><h4>{{ $data->name }}  </h4></div>
                           
@@ -71,45 +77,11 @@ if($edit_role=='0'){
                             </div>
                         </div> -->
 
-              <!--  <div class="checkbox">   
-                <input type="checkbox" id="select_checkbox"><label for="select_checkbox">  Check</label>      
-                 
-                 </div>-->
-                        
-                  
-  
-                        
-                        
-                        <!--<div id="treeview-container">
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2
-                    <ul>
-                        <li>Item 2.1</li>
-                        <li>Item 2.2
-                            <ul>
-                                <li data-value="2.2.1">Item 2.2.1</li>
-                                <li data-value="2.2.2">Item 2.2.2</li>
-                                <li data-value="2.2.3">Item 2.2.3</li>
-                            </ul>
-                        </li>
-                        <li>Item 2.3</li>
-                    </ul>
-                </li>
-                <li>Item 3
-                    <ul>
-                        <li data-value="3.1">Item 3.1</li>
-                        <li data-value="3.2">Item 3.2</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-         <button type="button" id="show-values">Get Values</button>
-        <pre id="values"></pre>-->
+            
                
-   <div id="accordion">
 
-    <h3><a href="#">All components in default behaviour</a></h3>
+
+ 
     <div id="example-0">
        
             
@@ -163,7 +135,7 @@ if($edit_role=='0'){
         
         
    </div>
-  </div>
+
           
                         
                        

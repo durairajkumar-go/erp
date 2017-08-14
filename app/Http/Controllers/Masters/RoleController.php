@@ -159,11 +159,65 @@ class RoleController extends Controller
     {
         //
 		$data = Role::find($id);
+		$main_menu_data = Menu::select('title','id')->where('parent_id',0)->where('record_status',1)->get();
 		
+		$tree_design = '<ul>';
 		//Create Tree view for Menus & Sub Menus
+		foreach($main_menu_data as $menus)
+		{
+			 $sub_menu_tree_design = $this->getSubMenus($menus->id,'0');
+			
+			
+			$tree_design = $tree_design.'<li>'.$menus->title;
+			if($sub_menu_tree_design!='')
+			{
+				$tree_design = $tree_design.'<ul>'.$sub_menu_tree_design.'</ul>';
+			}
+			//$tree_design = $tree_design.'<ul><li>'.$submenu_title.'</li></';
+			$tree_design = $tree_design.'</li>';
+		}
+		$tree_design = $tree_design.'</ul>';
 		
-        return view('masters.role.menu_mapping',compact('data'));
+		
+		echo $tree_design;exit;
+		// return view('masters.role.menu_mapping',['design_data' => $tree_design ]);
+		
+//        return view('masters.role.menu_mapping',compact('data','menu_data'));
     }
+	function getSubMenus($menu_id,$flg)
+		{
+			//Get Sub Menus
+			echo $flg."<br>";
+			$sub_menu_tree = '';
+			$submenu_title_data = Menu::select('title','id')->where('parent_id',$menu_id)->where('record_status',1)->get();
+			foreach($submenu_title_data as $submenu_title)
+			{
+				echo 'hihi'.$submenu_title_val = $submenu_title->title;
+					
+				if($submenu_title_val!='' && $flg == '0')
+				{
+					
+						echo $sub_menu_tree = $sub_menu_tree.'<li>'.$submenu_title_val.'</li>';
+				
+					
+				}
+				
+				
+				$submenu_title_count = Menu::select('title','id')->where('parent_id',$submenu_title->id)->where('record_status',1)->count();
+				/*echo 'flg-- '.$flg;
+				echo 'cnt-- '.$submenu_title_count;*/
+				/*if($submenu_title_count>0)
+				{
+					$sub_menu_tree = $this->getSubMenus($submenu_title->id,'1');
+				}*/
+				
+			
+				
+			}
+			exit;
+			echo $sub_menu_tree;
+			//return $sub_menu_tree;
+		}
 	
 	//To Save Role Menu Mappings
 	public function addMenuMappings(Request $request, Role $role)
