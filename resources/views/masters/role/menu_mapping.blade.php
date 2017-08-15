@@ -27,8 +27,9 @@ if($edit_role=='0'){
   header("location:".url('/logout'));
   exit();
 }
+/*echo 'In view<br>';
+print_r($design_data);exit;*/
 
-print_r($design_data);exit;
 
 ?>
 
@@ -60,33 +61,23 @@ print_r($design_data);exit;
                     @endforeach
             @endif
 
-<!--@foreach($design_data as $tree_design)
-{{ $tree_design }}
-@endforeach-->
+<span><strong>Role Name: </strong></span>{{ $data->name }}
 
-{!! Form::open(array('route' => ['role.update', $data->id] , 'method' => 'PUT'),['class' => 'form']) !!}
 
- 
 
-                       <!--   <div class="form-group">
-                           <div class=" styled-input col-sm-6 col-md-3 col-lg-3 {{ $errors->first('name', 'has-error') }}">
-                           <div><h4><strong>{{ trans('messages.role name') }} : </strong></h4><h4>{{ $data->name }}  </h4></div>
-                          
-                            {{ Form::text('name', $data->name, ['class' => 'form-control',(($errors->first('name')) || empty($erros)?'autofocus':null),'onfocus'=>'this.value = this.value','autocomplete' => 'off']) }}
-                            {{ Form::label('name',trans('messages.role name')) }}
-                            </div>
-                        </div> -->
-
-            
+ <div id="example-0">
+<?php
+print_r($design_data);
+?>
                
-
+</div>
 
  
-    <div id="example-0">
+   <!-- <div id="example-0">
        
             
             
-     <div class="i-check">
+     <!--<div class="i-check">
             <ul>
                 <li><input class="icheckbox_minimal" type="checkbox"><label for="select_checkbox">Node 1</label>
                     <ul>
@@ -131,17 +122,11 @@ print_r($design_data);exit;
                             </ul>
                     </ul>
             </ul>
-        </div> 
+        </div>--> 
         
         
-   </div>
-
-          
-                        
-                       
-                       
-
-                 
+   <!--</div>-->
+                
 
 </div>
 <div class="panel-footer">

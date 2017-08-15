@@ -27,10 +27,12 @@ class Dashboard extends Model implements LogsActivityInterface
 	{
 		return date(Session::get('default_date_format'),strtotime($value));
 	}
-	public function setNameAttribute($value)
+	public function getNameAttribute($value)
 	{
-		$this->attributes['name'] = ucwords($value);
+		return ucwords(strtolower($value));
 	}
+	
+	
 	 public function getActivityDescriptionForEvent($eventName)
     {
         if ($eventName == 'created')

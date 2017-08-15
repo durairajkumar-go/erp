@@ -145,5 +145,18 @@ Route::get('currency/change/{id}', 'Masters\CurrencyController@change');
 
 //Currency Master End
 
+//Employee Master
+Route::resource('user', 'UserController');
+
+
+Route::controller('user_data', 'UserController', [
+    'anyData'  => 'user_data.data',
+]);
+Route::get('user/change/{id}', 'UserController@change');
+
+
+//Employee Master End
+
+
 });
 });

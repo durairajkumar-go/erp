@@ -158,70 +158,70 @@ class RoleController extends Controller
 	 public function menuMapping($id)
     {
         //
+		
 		$data = Role::find($id);
 		$main_menu_data = Menu::select('title','id')->where('parent_id',0)->where('record_status',1)->get();
 		
-		$tree_design = '<ul>';
+		$tree_design = ' <div class="i-check"><ul>';
 		//Create Tree view for Menus & Sub Menus
 		foreach($main_menu_data as $menus)
 		{
-			 $sub_menu_tree_design = $this->getSubMenus($menus->id,'0');
+			 $sub_menu_tree_design = $this->getSubMenus($menus->id);
 			
 			
-			$tree_design = $tree_design.'<li>'.$menus->title;
+			$tree_design = $tree_design.'<li><input class="icheckbox_minimal" type="checkbox" name="chk[]" value="'.$menus->id.'"><label for="select_checkbox">'.$menus->title.'</label>';
 			if($sub_menu_tree_design!='')
 			{
 				$tree_design = $tree_design.'<ul>'.$sub_menu_tree_design.'</ul>';
 			}
 			//$tree_design = $tree_design.'<ul><li>'.$submenu_title.'</li></';
 			$tree_design = $tree_design.'</li>';
+			
 		}
-		$tree_design = $tree_design.'</ul>';
+		$tree_design = $tree_design.'</ul></div>';
 		
 		
-		echo $tree_design;exit;
-		// return view('masters.role.menu_mapping',['design_data' => $tree_design ]);
+		//echo $tree_design;exit;
+		 return view('masters.role.menu_mapping',['design_data' => $tree_design,'data' => $data ]);
 		
 //        return view('masters.role.menu_mapping',compact('data','menu_data'));
     }
-	function getSubMenus($menu_id,$flg)
+	function getSubMenus($menu_id)
 		{
+			
 			//Get Sub Menus
-			echo $flg."<br>";
+			
 			$sub_menu_tree = '';
+			$sub_submenu_tree_vals = '';
+			
 			$submenu_title_data = Menu::select('title','id')->where('parent_id',$menu_id)->where('record_status',1)->get();
+			
+			
 			foreach($submenu_title_data as $submenu_title)
 			{
-				echo 'hihi'.$submenu_title_val = $submenu_title->title;
-					
-				if($submenu_title_val!='' && $flg == '0')
+				$submenu_title_value = $submenu_title->title;
+				$submenu_title_count = Menu::select('title','id')->where('parent_id',$submenu_title->id)->where('record_status',1)->count();
+				if($submenu_title_count>0)
 				{
-					
-						echo $sub_menu_tree = $sub_menu_tree.'<li>'.$submenu_title_val.'</li>';
+					$sub_submenu_tree = $this->getSubMenus($submenu_title->id);
+					$sub_menu_tree = $sub_menu_tree.'<li><input class="icheckbox_minimal" name="chk[]" type="checkbox" value="'.$submenu_title->id.'"><label for="select_checkbox">'.$submenu_title_value.'</label><ul>'.$sub_submenu_tree.'</ul></li>';
 				
-					
+				}
+				else
+				{
+					$sub_menu_tree = $sub_menu_tree.'<li><input class="icheckbox_minimal" type="checkbox" name="chk[]" value="'.$submenu_title->id.'"><label for="select_checkbox">'.$submenu_title_value.'</label></li>';
 				}
 				
-				
-				$submenu_title_count = Menu::select('title','id')->where('parent_id',$submenu_title->id)->where('record_status',1)->count();
-				/*echo 'flg-- '.$flg;
-				echo 'cnt-- '.$submenu_title_count;*/
-				/*if($submenu_title_count>0)
-				{
-					$sub_menu_tree = $this->getSubMenus($submenu_title->id,'1');
-				}*/
-				
-			
-				
 			}
-			exit;
-			echo $sub_menu_tree;
-			//return $sub_menu_tree;
+		
+			//echo $sub_menu_tree;
+			return $sub_menu_tree;
 		}
 	
 	//To Save Role Menu Mappings
-	public function addMenuMappings(Request $request, Role $role)
+	public function addRoleMenuMappings(Request $request)
 	{
+		echo 'In controller';exit;
 	}
 
     /**
